@@ -1,0 +1,18 @@
+# %ECSV 0.9
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# - {name: channel   , unit: latex   , datatype: str     , description: channel              }
+# - {name: f         , unit:         , datatype: float32 , description: DM fraction          }
+# meta: !!omap
+# - {Reference: "Title of the paper"}
+# - {Figure: "Description"}
+# - {Instrument: "Instrument name"}
+# - {Source: "Target name"}
+# - {Comment: "Any comments on the result"}
+# - {Status: "Status of file"}
+# schema : astropy −2.0
+
+mass;  sigmav;   channel; f
+
