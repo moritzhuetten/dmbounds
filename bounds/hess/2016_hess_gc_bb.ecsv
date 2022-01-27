@@ -1,0 +1,48 @@
+# %ECSV 0.9
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Search for Dark Matter Annihilations towards the Inner Galactic Halo from 10 Years of Observations with H.E.S.S."}
+# - {doi:              "10.1103/PhysRevLett.117.111301"}
+# - {arxiv:            "1607.08142"}
+# - {instrument:       "H.E.S.S."}
+# - {year:             "2016"}
+# - {month:            "9"}
+# - {source:           "MW Inner Halo"}
+# - {channel:          "b\bar{b}"}
+# - {dmfraction:       "1"}
+# - {figure:           "Fig. 4 (supplemental material)"}
+# - {comment:          "Any comments on the result"}
+# - {status:           "Proposal"}
+# schema : astropy −2.0
+
+mass sigmav
+0.181403 2.604177E-23
+0.193813 1.548485E-23
+0.212024 8.930241E-24
+0.233045 5.601959E-24
+0.259808 3.707294E-24
+0.282880 2.793927E-24
+0.330630 1.807058E-24
+0.401333 1.116371E-24
+0.503543 7.165486E-25
+0.614118 4.815073E-25
+0.770519 3.336110E-25
+0.957656 2.383186E-25
+1.224481 1.782362E-25
+1.465401 1.483592E-25
+1.927593 1.197714E-25
+2.620858 1.027903E-25
+3.529930 9.669227E-26
+4.470984 9.669227E-26
+6.195013 1.020075E-25
+8.462976 1.144018E-25
+11.18496 1.322860E-25
+15.35212 1.626130E-25
+22.19637 2.174289E-25
+30.90110 2.929540E-25
+39.69805 3.770172E-25
+52.21895 5.079761E-25
+68.68898 6.689061E-25
