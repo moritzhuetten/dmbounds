@@ -1,4 +1,5 @@
 # %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds. Licensed under a XXX license - see LICENSE.rst 
 # ---
 # datatype:
 # - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
