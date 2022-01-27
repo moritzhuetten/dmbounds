@@ -12,6 +12,7 @@
 # - {month:            "9"}
 # - {source:           "MW Inner Halo"}
 # - {channel:          "b\bar{b}"}
+# - {confidence        "0.95"}
 # - {dmfraction:       "1"}
 # - {figure:           "Fig. 4 (supplemental material)"}
 # - {comment:          "Any comments on the result"}
