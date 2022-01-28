@@ -1,0 +1,26 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Title of the paper"}
+# - {doi:              "DOI of the paper"}
+# - {arxiv:            "arXiv ID of the paper"}
+# - {instrument:       "Instrument name"}
+# - {year:             "Year of publication"}
+# - {source:           "Target name"}
+# - {channel:          "Channel name"}
+# - {confidence        "Confidence level as fraction, i.e. 0.95" }
+# - {dmfraction:       "branching channel fraction"}
+# - {obs_hours:        "Observation time in hours"}
+# - {figure:           "Description"}
+# - {comment:          "Any comments on the result"}
+# - {status:           "Status of file"}
+# schema : astropy −2.0
+
+mass sigmav
+
+1 1
