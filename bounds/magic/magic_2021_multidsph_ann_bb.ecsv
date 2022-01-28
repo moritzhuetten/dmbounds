@@ -1,0 +1,49 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Upper limits on the WIMP annihilation cross section from a joint analysis of dwarf spheroidal satellite galaxy observations with the MAGIC telescopes"}
+# - {doi:              "10.22323/1.395.0512"}
+# - {arxiv:            ""}
+# - {instrument:       "MAGIC"}
+# - {year:             "2021"}
+# - {source:           "Segue I, Ursa Major II, Draco, Coma Berenices"}
+# - {channel:          "b\bar{b}"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_hours:        "354.4"}
+# - {figure:           "Fig. 1"}
+# - {comment:          ""}
+# - {status:           "old import"}
+# schema : astropy −2.0
+
+mass sigmav
+
+0.070857 1.756654E-22
+0.081471 1.065427E-22
+0.096990 7.195180E-23
+0.118173 5.220110E-23
+0.140675 3.924636E-23
+0.175435 2.557924E-23
+0.206434 1.855442E-23
+0.272808 1.395732E-23
+0.364719 1.127840E-23
+0.516747 8.796220E-24
+0.758050 7.638740E-24
+1.138179 6.401200E-24
+1.539286 5.968657E-24
+2.106059 5.565620E-24
+3.089215 5.779750E-24
+4.129265 6.444120E-24
+5.781607 7.719528E-24
+8.779967 1.029917E-23
+13.02700 1.423950E-23
+18.45172 1.899110E-23
+28.34916 2.358961E-23
+40.62561 2.826100E-23
+60.27936 3.637689E-23
+98.14237 5.031853E-23

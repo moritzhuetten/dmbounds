@@ -1,0 +1,54 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Search for Dark Matter Annihilation Signals From the Fornax Galaxy Cluster With H.E.S.S."}
+# - {doi:              "10.1088/0004-637X/750/2/123"}
+# - {arxiv:            "1202.5494"}
+# - {instrument:       "H.E.S.S."}
+# - {year:             "2012"}
+# - {source:           "Fornax (Abell S0373)"}
+# - {channel:          "b\bar{b}"}
+# - {confidence        "0.95"}
+# - {dmfraction:       "1"}
+# - {obs_hours:        "14.5"}
+# - {figure:           "Fig. 5"}
+# - {comment:          "NFW RB02"}
+# - {status:           "old import"}
+# schema : astropy −2.0
+
+mass sigmav
+
+0.147182 2.741993E-19
+0.154373 1.017543E-19
+0.168672 3.978303E-20
+0.185556 1.696708E-20
+0.211205 8.173098E-21
+0.238767 3.802422E-21
+0.277383 1.963592E-21
+0.328901 1.206621E-21
+0.420343 6.797141E-22
+0.544579 4.556278E-22
+0.695984 3.390091E-22
+0.901688 2.799818E-22
+1.152378 2.394165E-22
+1.534227 2.194773E-22
+2.001272 2.194773E-22
+2.628342 2.233277E-22
+3.451897 2.436166E-22
+4.627132 2.848936E-22
+6.373876 3.390091E-22
+8.602349 4.250096E-22
+11.68933 5.516858E-22
+15.66909 7.037720E-22
+20.30023 9.295611E-22
+27.39773 1.271246E-21
+36.72557 1.708552E-21
+47.25702 2.377567E-21
+63.77930 3.366590E-21
+79.31959 4.604070E-21
+100.0    6.296419E-21

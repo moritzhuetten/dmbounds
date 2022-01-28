@@ -15,12 +15,14 @@
 # - {channel:          "b\bar{b}"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}
+# - {obs_hours:        "254"}
 # - {figure:           "Fig. 4 (supplemental material)"}
 # - {comment:          ""}
 # - {status:           "old import"}
 # schema : astropy −2.0
 
 mass sigmav
+
 0.181403 2.604177E-23
 0.193813 1.548485E-23
 0.212024 8.930241E-24

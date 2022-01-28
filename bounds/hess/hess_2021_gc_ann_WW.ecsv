@@ -1,0 +1,46 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Search for dark matter annihilation signals from the Galactic Center with the H.E.S.S. Inner Galaxy Survey"}
+# - {doi:              ""}
+# - {arxiv:            "2108.10302"}
+# - {instrument:       "H.E.S.S."}
+# - {year:             "2021"}
+# - {source:           "MW Inner Halo"}
+# - {channel:          "W^+W^-"}
+# - {confidence        "0.95"}
+# - {dmfraction:       "1"}
+# - {obs_hours:        "546"}
+# - {figure:           "Fig. 2"}
+# - {comment:          ""}
+# - {status:           "old import"}
+# schema : astropy −2.0
+
+mass sigmav
+
+0.199702 1.242721E-24
+0.217554 5.804429E-25
+0.245019 3.234174E-25
+0.279661 2.057031E-25
+0.336573 1.251730E-25
+0.424339 8.504417E-26
+0.553044 6.172942E-26
+0.741400 4.656738E-26
+1.051614 4.009661E-26
+1.435939 3.781705E-26
+2.109114 3.789237E-26
+3.026968 4.034440E-26
+4.120042 4.514584E-26
+5.854905 5.264764E-26
+8.156594 6.276798E-26
+11.13966 7.735458E-26
+15.72676 9.853178E-26
+21.05623 1.269121E-25
+28.94942 1.652712E-25
+41.62445 2.280354E-25
+64.16814 3.532210E-25

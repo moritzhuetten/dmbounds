@@ -1,0 +1,45 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: tau       , unit: s       , datatype: float32 , description: Lifetime             }
+# meta: !!omap
+# - {reference:        "Optimized dark matter searches in deep observations of Segue 1 with MAGIC"}
+# - {doi:              "10.1088/1475-7516/2014/02/008"}
+# - {arxiv:            "1312.1535"}
+# - {instrument:       "MAGIC"}
+# - {year:             "2014"}
+# - {source:           "Segue I dSph"}
+# - {channel:          "b\bar{b}"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_hours:        "157.9"}
+# - {figure:           "Fig. 6"}
+# - {comment:          ""}
+# - {status:           "old import"}
+# schema : astropy −2.0
+
+mass tau
+
+0.217853 1.019211E22
+0.243485 1.803841E22
+0.284515 3.102669E22
+0.328782 5.491227E22
+0.371576 8.920993E22
+0.439048 1.578872E23
+0.518771 2.492838E23
+0.606189 3.935875E23
+0.700504 6.579332E23
+0.884830 1.164436E24
+1.105295 1.736478E24
+1.365418 2.516671E24
+1.783231 3.544759E24
+2.517480 5.596723E24
+3.757329 8.836514E24
+4.961947 1.110336E25
+7.162629 1.435571E25
+9.889380 1.803841E25
+13.96135 2.140811E25
+19.93044 2.399746E25

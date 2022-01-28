@@ -1,0 +1,42 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Optimized dark matter searches in deep observations of Segue 1 with MAGIC"}
+# - {doi:              "10.1088/1475-7516/2014/02/008"}
+# - {arxiv:            "1312.1535"}
+# - {instrument:       "MAGIC"}
+# - {year:             "2014"}
+# - {source:           "Segue I dSph"}
+# - {channel:          "b\bar{b}"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_hours:        "157.9"}
+# - {figure:           "Fig. 5"}
+# - {comment:          ""}
+# - {status:           "old import"}
+# schema : astropy −2.0
+
+mass sigmav
+
+0.100570 2.978328E-22
+0.136763 1.134473E-22
+0.159031 7.169344E-23
+0.192442 4.383094E-23
+0.232211 2.987737E-23
+0.313985 1.646032E-23
+0.388702 1.055085E-23
+0.503618 8.249703E-24
+0.727038 6.542646E-24
+1.008575 5.812775E-24
+1.325480 5.544158E-24
+1.865110 5.388983E-24
+2.762393 5.703801E-24
+3.821204 6.094407E-24
+5.346373 6.957700E-24
+6.887659 7.868472E-24
+10.0000  9.735452E-24
