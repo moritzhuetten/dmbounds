@@ -1,5 +1,6 @@
 # %ECSV 0.9
-# %Part of https://github.com/moritzhuetten/DMbounds. Licensed under a XXX license - see LICENSE.rst 
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
 # ---
 # datatype:
 # - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
@@ -10,7 +11,6 @@
 # - {arxiv:            "arXiv ID of the paper"}
 # - {instrument:       "Instrument name"}
 # - {year:             "Year of publication"}
-# - {month:            "Month of publication"}
 # - {source:           "Target name"}
 # - {channel:          "Channel name"}
 # - {confidence        "Confidence level as fraction, i.e. 0.95" }
@@ -21,3 +21,4 @@
 # schema : astropy −2.0
 
 mass sigmav
+1 1

@@ -1,5 +1,6 @@
 # %ECSV 0.9
-# %Part of https://github.com/moritzhuetten/DMbounds. Licensed under a XXX license - see LICENSE.rst 
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
 # ---
 # datatype:
 # - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
@@ -10,14 +11,13 @@
 # - {arxiv:            "1607.08142"}
 # - {instrument:       "H.E.S.S."}
 # - {year:             "2016"}
-# - {month:            "9"}
 # - {source:           "MW Inner Halo"}
 # - {channel:          "b\bar{b}"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}
 # - {figure:           "Fig. 4 (supplemental material)"}
-# - {comment:          "Any comments on the result"}
-# - {status:           "Proposal"}
+# - {comment:          ""}
+# - {status:           "old import"}
 # schema : astropy −2.0
 
 mass sigmav
