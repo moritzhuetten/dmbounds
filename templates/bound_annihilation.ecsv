@@ -13,7 +13,7 @@
 # - {year:             "Year of publication"}
 # - {source:           "Target name"}
 # - {channel:          "Channel name"}
-# - {confidence        "Confidence level as fraction, i.e. 0.95" }
+# - {confidence        "Confidence level as fraction" }
 # - {dmfraction:       "branching channel fraction"}
 # - {obs_hours:        "Observation time in hours"}
 # - {figure:           "Description"}
