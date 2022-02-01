@@ -12,7 +12,7 @@
 # - {instrument:       "H.E.S.S."}
 # - {year:             "2018"}
 # - {source:           "MW Inner Halo"}
-# - {channel:          "gammagamma"}
+# - {channel:          "[gamma][gamma]"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}
 # - {obs_hours:        "254"}

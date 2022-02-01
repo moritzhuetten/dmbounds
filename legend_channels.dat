@@ -1,6 +1,16 @@
 # Legend for channels name
+# as ecsv format has a problem with slashes, all expressions starting with 
+# slash are put in square brackets and slash removed, to be replaced later.
 
-bb $b\bar{b}$
-tautau $\tau^+\tau^-$
-ee $e^+e^-$
-...
+bb b\bar{b}
+tautau [tau]^{+}[tau]^{-}
+ee e^{+}e^{-}
+mumu [mu]^{+}[mu]^{-}
+WW W^{+}W^{-}
+gg gg
+hh hh
+gammagamma [gamma][gamma]
+qq q\bar{q} light quarks (up, down, strange)
+ZZ ZZ
+tt t\bar{t}
+WW W^{+}W^{-}
