@@ -1,6 +1,30 @@
-#Combined limits INCLUDING Seg1
-#bb channel      95% <sigv> upper limits [cm^3/s]. Cols represent band of systematic uncertainty in J
-#Mass [GeV]      -1 sig (syst)   median          +1 sig        
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav_lo , unit: cm3s-1  , datatype: float32 , description: <sigmav> -1 sig syst }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav> median      }
+# - {name: sigmav_hi , unit: cm3s-1  , datatype: float32 , description: <sigmav> +1 sig syst }
+# meta: !!omap
+# - {reference:        "Dark Matter Constraints from a Joint Analysis of Dwarf Spheroidal Galaxy Observations with VERITAS"}
+# - {doi:              "10.1103/PhysRevD.95.082001"}
+# - {arxiv:            "1703.04937"}
+# - {instrument:       "VERITAS"}
+# - {year:             "2017"}
+# - {source:           "Bootes I, Draco, Ursa Minor, Segue I"}
+# - {channel:          "b\bar{b}"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_hours:        "229.8"}
+# - {figure:           "Figs. 5, 8, and the left panel of Fig. 7"}
+# - {comment:          ""}
+# - {status:           "VERITAS original data"}
+# schema : astropy −2.0
+
+mass sigmav_lo sigmav sigmav_hi
+   
 1.00000000e+02  3.82369862e-22  7.89708701e-22  1.65763954e-21
 1.19377664e+02  1.85671073e-22  3.84377546e-22  8.00370913e-22
 1.42510267e+02  1.06116833e-22  2.17300159e-22  4.48182436e-22
