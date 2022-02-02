@@ -1,0 +1,51 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: tau       , unit: s       , datatype: float32 , description: Lifetime             }
+# meta: !!omap
+# - {reference:        "Searching for Dark Matter decay signals in the Galactic Halo with the MAGIC telescopes"}
+# - {doi:              "10.22323/1.358.0538"}
+# - {arxiv:            "https://pos.sissa.it/358/538/"}
+# - {instrument:       "MAGIC"}
+# - {year:             "2019"}
+# - {source:           "Galactic Halo"}
+# - {channel:          "bb"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_hours:        "10"}
+# - {figure:           "95% CL lower limit on the DM decay lifetime obtained with 10 hours of MAGIC GH observation"}
+# - {comment:          "Proceedings"}
+# - {status:           "Done"}
+# schema : astropy −2.0
+
+mass tau 
+256.6714991481944  1.0102405083807e+23
+301.246126564351   1.6728281474824095e+23
+343.68075893331377 2.377421548166864e+23
+392.084753001258   3.327544666280547e+23
+443.121026507049   4.586743189454077e+23
+510.2939430137638  6.419809245623656e+23
+587.6374384484284  8.849172374257772e+23
+651.7321935726951  1.1474519630410743e+24
+757.6167383015828  1.630757484877211e+24
+872.3374833187715  2.050911416697239e+24
+1052.742491880214  2.741909380444754e+24
+1235.0534170279248 3.344539143599174e+24
+1435.5590768873599 4.403574110303224e+24
+1815.621375205975  5.887236797368952e+24
+2130.089676873233  7.291751479108253e+24
+2619.226970734848  9.60065547255396e+24
+3131.0670958363103 1.1891078302420258e+25
+3742.9292184931733 1.4727925983649163e+25
+4516.335024854631  1.7692435076910839e+25
+5711.554446457113  2.2250774517305544e+25
+7499.214408404235  2.7983540110094525e+25
+9753.867798717967  3.361620415322775e+25
+15450.116013797784 4.4260640985209e+25
+23130.425597173067 5.236324455612669e+25
+41773.59942384793  6.1949156618880505e+25
+74036.60524944347  7.000559374240466e+25
+145469.0418719593  7.55646341569437e+25
