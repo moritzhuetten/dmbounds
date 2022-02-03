@@ -1,0 +1,25 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: shortname  , unit:  , datatype: string , description: experiment short name     }
+# - {name: longname   , unit:  , datatype: string , description: experiment long name      }
+# meta: !!omap
+# - {comment:        'Legend for experiment names'}
+# schema : astropy −2.0
+
+shortname      longname
+
+magic          MAGIC 
+hess           H.E.S.S. 
+veritas        VERITAS 
+whipple        WHIPPLE 
+cangaroo       CANGAROO 
+
+lat            FERMI-LAT 
+agile          AGILE 
+
+lhaaso         LHAASO 
+hawc           HAWC 
+swgo           SWGO 

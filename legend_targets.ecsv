@@ -1,0 +1,68 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: shortname  , unit:  , datatype: string , description: target short name     }
+# - {name: longname   , unit:  , datatype: string , description: target long name      }
+# meta: !!omap
+# - {comment:        'Legend of target names and acronyms'}
+# schema : astropy −2.0
+
+shortname      longname
+
+# GALACTIC CENTER AREA
+gc             'MW Centre'
+gc             'MW Inner Halo'
+gc             'MW Outer Halo'
+galplane       'Galactic Plane Survey'
+
+# DSPH
+booetes1       'Bo\"{o}tes I dSph'
+canesvec1      'Canes Ven I - II dSph'
+canesvec2      'Canes Ven I - II dSph'
+
+canismajor     'Canis Major dSph'
+carina         'Carina dSph'
+comaberenices  'Coma Berenices dSph'
+draco          'Draco dSph'
+draco2         'Draco II dSph'
+fornaxdsph     'Fornax dSph'
+grus2          'Grus II dSph cand.'
+hercules       'Hercules dSph'
+leo1           'Leo I dSph'
+leo2           'Leo II dSph'
+leo3           'Leo III dSph'
+leo4           'Leo IV dSph'
+leo5           'Leo V dSph'
+reticulum2     'Reticulum II dSph'
+sagittarius    'Sagittarius dSph'
+sculptor       'Sculptor dSph'
+segue1         'Segue I dSph'
+segue2         'Segue II dSph'
+sextans        'Sextans dSph'
+triangulum2    'Triangulum II dSph cand.'
+tucana2        'Tucana II dSph'
+tucana3        'Tucana III dSph'
+tucana4        'Tucana IV dSph'
+ursamajor2     'Ursa Major II dSph'
+ursaminor      'Ursa Minor dSph'
+willman1       'Willman I dSph'
+
+# UNID
+1fglJ23470710  'FGL J2347.3+0710 (and so on)'
+
+# Globular clusters
+m15            'M15'
+ngc6388        'NGC 6388'
+
+# Galaxies
+m33            'M32'
+wlm            'WLM'
+
+# Galaxy Clusters
+abell2029      'Abell 2029'
+perseuscluster 'Perseus (Abell 426)'
+fornaxcluster  'Fornax (Abell S0373)'
+comacluster    'Coma (Abell 1656)'
+multidsph      'N dSph galaxies'
