@@ -11,8 +11,8 @@
 # - {arxiv:            "1312.1535"}
 # - {instrument:       "MAGIC"}
 # - {year:             "2014"}
-# - {source:           "Segue I dSph"}
-# - {channel:          "b\bar{b}"}
+# - {Source:           "segue1"}
+# - {channel:          "bb"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
 # - {obs_hours:        "157.9"}
