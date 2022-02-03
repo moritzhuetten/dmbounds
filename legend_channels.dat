@@ -2,15 +2,18 @@
 # as ecsv format has a problem with slashes, all expressions starting with 
 # slash are put in square brackets and slash removed, to be replaced later.
 
-bb b\bar{b}
-tautau [tau]^{+}[tau]^{-}
-ee e^{+}e^{-}
-mumu [mu]^{+}[mu]^{-}
-WW W^{+}W^{-}
-gg gg
-hh hh
+```
+bb      b\bar{b}
+tautau  [tau]^{+}[tau]^{-}
+ee      e^{+}e^{-}
+mumu    [mu]^{+}[mu]^{-}
+WW      W^{+}W^{-}
+gg      gg
+hh      hh
 gammagamma [gamma][gamma]
-qq q\bar{q} light quarks (up, down, strange)
-ZZ ZZ
-tt t\bar{t}
-WW W^{+}W^{-}
+qq      q\bar{q}      # light quarks (up, down, strange)
+ZZ      ZZ
+tt      t\bar{t}
+WW      W^{+}W^{-}
+points                 #in case of specific benchmarks DM models
+```
