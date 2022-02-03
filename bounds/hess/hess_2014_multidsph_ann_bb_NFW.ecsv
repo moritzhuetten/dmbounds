@@ -12,7 +12,7 @@
 # - {instrument:       "H.E.S.S."}
 # - {year:             "2014"}
 # - {source:           "Five dSph galaxies"}
-# - {channel:          "b\bar{b}"}
+# - {channel:          "bb"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
 # - {obs_hours:        "140.4"}

@@ -12,7 +12,7 @@
 # - {instrument:       "MAGIC"}
 # - {year:             "2021"}
 # - {source:           "Segue I, Ursa Major II, Draco, Coma Berenices"}
-# - {channel:          "b\bar{b}"}
+# - {channel:          "bb"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
 # - {obs_hours:        "354.4"}

@@ -14,7 +14,7 @@
 # - {instrument:       "VERITAS"}
 # - {year:             "2017"}
 # - {source:           "Bootes I, Draco, Ursa Minor"}
-# - {channel:          "e^{+}e^{-}"}
+# - {channel:          "ee"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
 # - {obs_hours:        "137.8"}

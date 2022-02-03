@@ -12,7 +12,7 @@
 # - {instrument:       "MAGIC"}
 # - {year:             "2018"}
 # - {source:           "Ursa Major II dSph"}
-# - {channel:          "b\bar{b}"}
+# - {channel:          "bb"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
 # - {obs_hours:        "94.8"}
