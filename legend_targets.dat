@@ -1,38 +1,47 @@
 ## Legend of targts name and acronyms
 
+# GALACTIC CENTER AREA
 gc - MW Centre
 gc - MW Inner Halo
 gc - MW Outer Halo
-draco - Draco dSph
-ursaminor - Ursa Minor dSph
-sagittarius - Sagittarius dSph
-canismajor - Canis Major dSph
-willman1 - Willman I dSph
-sculptor - Sculptor dSph
-carina - Carina dSph
-segue1 - Segue I dSph
+galplane - Galactic Plane Survey
+
+# DSPH
 booetes1 - Bo"{o}tes I dSph
-comaberenices - Coma Berenices dSph
-fornaxdsph - Fornax dSph
-ursamajor2 - Ursa Major II dSph
-triangulum2 - Triangulum II dSph cand.
-segue2 - Segue II dSph
 canesvec1...2 - Canes Ven I - II dSph
-hercules - Hercules dSph
-sextans - Sextans dSph
+canismajor - Canis Major dSph
+carina - Carina dSph
+comaberenices - Coma Berenices dSph
+draco - Draco dSph
 draco2 - Draco II dSph
+fornaxdsph - Fornax dSph
+grus2 - Grus II dSph cand.
+hercules - Hercules dSph
 leo1...5 - Leo I - V dSph
 reticulum2 - Reticulum II dSph
-tucana2 - Tucana II dSph
-tucana2...4 - Tucana III - IV dSph cand.
-grus2 - Grus II dSph cand.
+sagittarius - Sagittarius dSph
+sculptor - Sculptor dSph
+segue1 - Segue I dSph
+segue2 - Segue II dSph
+sextans - Sextans dSph
+triangulum2 - Triangulum II dSph cand.
+tucana2 - Tucana II-IV dSph
+ursamajor2 - Ursa Major II dSph
+ursaminor - Ursa Minor dSph
+willman1 - Willman I dSph
+
+# UNID
 1fglJ23470710 - 1FGL J2347.3+0710 (and so on)
-galplane - Galactic Plane Survey
+
+
+# Galaxies
 m15 - M15
 ngc6388 - NGC 6388
 m33 - M33
 m32 - M32
 wlm - WLM
+
+# Galaxy Clusters
 abell2029 - Abell 2029
 perseuscluster - Perseus (Abell 426)
 fornaxcluster - Fornax (Abell S0373)
