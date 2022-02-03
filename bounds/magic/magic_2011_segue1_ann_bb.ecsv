@@ -1,0 +1,39 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Searches for dark matter annihilation signatures in the Segue 1 satellite galaxy with the MAGIC-I telescope"}
+# - {doi:              "10.1088/1475-7516/2011/06/035"}
+# - {arxiv:            "1103.0477"}
+# - {instrument:       "MAGIC"}
+# - {year:             "2011"}
+# - {source:           "Segue1"}
+# - {channel:          "bb"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_hours:        "29.4"}
+# - {figure:           "Figure 6"}
+# - {comment:          ""}
+# - {status:           "Done"}
+# schema : astropy −2.0
+
+mass sigmav
+201.3559322033898 1.2252798573828788e-21
+268.4745762711865 5.560297632845882e-22
+339.6610169491525 3.0455107073104446e-22
+406.7796610169491 2.0133606143505901e-22
+492.2033898305086 1.5471858457345272e-22
+585.7627118644068 1.234534604746786e-22
+677.2881355932203 1.1027667426399103e-22
+781.0169491525425 9.850631031295067e-23
+872.5423728813558 9.136593726391854e-23
+960.0000000000001 8.799225435691183e-23
+1033.220338983050 8.799225435691183e-23
+1138.983050847457 7.569809796884832e-23
+1234.576271186440 6.512166415078558e-23
+1350.508474576271 4.470198385725417e-23
+
