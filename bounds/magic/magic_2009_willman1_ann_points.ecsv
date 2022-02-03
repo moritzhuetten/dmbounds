@@ -1,0 +1,33 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "UPPER LIMITS ON THE VHE GAMMA-RAY EMISSION FROM THE WILLMAN 1 SATELLITE GALAXY WITH THE MAGIC TELESCOPE"}
+# - {doi:              "10.1088/0004-637X/697/2/1299"}
+# - {arxiv:            "0810.3561"}
+# - {instrument:       "MAGIC"}
+# - {year:             "2009"}
+# - {source:           "Willman1"}
+# - {channel:          "Points"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_hours:        "15.5"}
+# - {figure:           "Table 1"}
+# - {comment:          "Attention, these are specific limits for Benchmark Models as in Bringmann et al. (2008)"}
+# - {status:           "Done"}
+# schema : astropy −2.0
+
+mass sigmav
+141   3.62e−27
+316   3.19e−28
+565   2.59e−26
+1926  2.57e−27
+
+
+
+
+
