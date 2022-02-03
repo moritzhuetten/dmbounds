@@ -1,0 +1,40 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Upper limit for γ-ray emission above 140GeV from the dwarf spheroidal galaxy Draco"}
+# - {doi:              "10.1086/529135"}
+# - {arxiv:            "0711.2574"}
+# - {instrument:       "MAGIC"}
+# - {year:             "2007"}
+# - {source:           "Draco"}
+# - {channel:          "Points"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_hours:        "7.8"}
+# - {figure:           "Fig. 2.— Thermally averaged neutralino annihilation cross section as a function of the neutralino mass for mSUGRA models after renormalization to the relic density"}
+# - {comment:          "Attention, these are specific limits for specific benchmark DM models"}
+# - {status:           "Done"}
+# schema : astropy −2.0
+
+mass sigmav
+94.72879907934819 1.6804130140980087e-21
+109.8410001229286 4.2004714119435856e-20
+121.0868054686309 4.6794700467914774e-21
+138.3909881963830 1.0834172947015843e-21
+149.2907728291263 1.0426878469468651e-22
+158.1680641408369 1.0426878469468651e-22
+182.0813719614438 1.9451635690728393e-21
+213.4280801353645 1.2196437099140622e-23
+243.9285007518162 1.6804130140980087e-21
+277.7830043494072 7.334246832137361e-22
+304.0200910298228 4.72862908992234e-22
+310.6772641569409 8.578951065715558e-23
+391.4288248350797 3.93145859811841e-23
+429.9493359682784 1.3971225205092558e-22
+482.6018123202082 2.9340906333244053e-23
+555.5660086988149 1.4823579994700775e-23

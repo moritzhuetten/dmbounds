@@ -3,7 +3,7 @@
 # %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
 # ---
 # datatype:
-# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
 # - {name: tau       , unit: s       , datatype: float32 , description: Lifetime             }
 # meta: !!omap
 # - {reference:        "Searching for Dark Matter decay signals in the Galactic Halo with the MAGIC telescopes"}
