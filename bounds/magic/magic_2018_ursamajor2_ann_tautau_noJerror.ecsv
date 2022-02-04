@@ -1,0 +1,44 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Indirect dark matter searches in the dwarf satellite galaxy Ursa Major II with the MAGIC Telescopes"}
+# - {doi:              "10.1088/1475-7516/2018/03/009"}
+# - {arxiv:            "1712.03095"}
+# - {instrument:       "MAGIC"}
+# - {year:             "2018"}
+# - {source:           "ursamajor2"}
+# - {channel:          "tautau"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_hours:        "94.8"}
+# - {figure:           "Fig. 3"}
+# - {comment:          ""}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+
+99.60107022692704 1.493866975713816e-23
+125.29170837006492 9.586307950357803e-24
+155.87409936908233 5.4193219733282614e-24
+202.6179469065582 3.3337711183217894e-24
+303.6728510950776 2.139317428914352e-24
+507.9353735875528 1.8846441371512816e-24
+770.0478046987372 2.094599123340681e-24
+1193.165636704796 2.139317428914352e-24
+1769.6354177296196 2.2792825476115475e-24
+2834.2837903032246 3.0636456498878255e-24
+3686.9738653479853 4.117929423849656e-24
+6038.152188836189 8.268584950673157e-24
+9058.022535291173 1.4021322898177173e-23
+12310.800095772203 1.9248800426682814e-23
+20603.53574605407 3.129052457717753e-23
+30904.28894910328 4.674388131860703e-23
+53460.530737718254 9.586307950357803e-23
+74283.23763985356 1.6602882188928633e-22
+102090.49292853099 2.815407637462936e-22

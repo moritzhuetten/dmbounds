@@ -11,7 +11,7 @@
 # - {arxiv:            "1712.03095"}
 # - {instrument:       "MAGIC"}
 # - {year:             "2018"}
-# - {source:           "Ursa Major II dSph"}
+# - {source:           "ursamajor2"}
 # - {channel:          "bb"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
