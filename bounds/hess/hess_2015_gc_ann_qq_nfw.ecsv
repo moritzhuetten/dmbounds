@@ -1,0 +1,51 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Constraints on an Annihilation Signal from a Core of Constant Dark Matter Density around the Milky Way Center with H.E.S.S."}
+# - {doi:              "10.1103/PhysRevLett.114.081301"}
+# - {arxiv:            "1502.03244"}
+# - {instrument:       "H.E.S.S."}
+# - {year:             "2015"}
+# - {source:           "MW Inner Halo"}
+# - {channel:          "qq"}
+# - {confidence        "0.95"}
+# - {dmfraction:       "1"}
+# - {obs_hours:        "9.1"}
+# - {figure:           "Fig. 4"}
+# - {comment:          "NFW profile, spectrum from Tasitsiomi et a l. (2002)"}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+
+0.328700 6.3096846E-22
+0.361593 2.9886216E-22
+0.395424 1.6213172E-22
+0.440235 8.596754E-23
+0.500487 4.8765775E-23
+0.560582 3.3910533E-23
+0.622307 2.5815175E-23
+0.733348 1.9635122E-23
+0.846343 1.6352702E-23
+0.950861 1.4580254E-23
+1.058771 1.3602848E-23
+1.185997 1.29799276E-23
+1.340459 1.2107138E-23
+1.579743 1.180797E-23
+1.884138 1.2046599E-23
+2.161625 1.25781805E-23
+2.547556 1.3428121E-23
+3.029391 1.401327E-23
+3.527854 1.4962815E-23
+4.7135   1.8260145E-23
+5.489228 2.18302E-23
+6.094166 2.3325828E-23
+7.075873 2.6654944E-23
+8.142396 2.9782412E-23
+9.039829 3.3294392E-23
+10.03611 3.638869E-23

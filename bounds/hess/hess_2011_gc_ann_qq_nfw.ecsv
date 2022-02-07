@@ -1,0 +1,58 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Search for a Dark Matter Annihilation Signal from the Galactic Center Halo with H.E.S.S."}
+# - {doi:              "10.1103/PhysRevLett.106.161301"}
+# - {arxiv:            "1103.3266"}
+# - {instrument:       "hess"}
+# - {year:             "2011"}
+# - {source:           "MW Inner Halo"}
+# - {channel:          "qq"}
+# - {confidence        "0.95"}
+# - {dmfraction:       "1"}
+# - {obs_hours:        "112"}
+# - {figure:           "Fig. 4"}
+# - {comment:          "NFW profile, spectrum from Tasitsiomi et a l. (2002)"}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+
+0.290600  9.291574E-23
+0.301369  4.163091E-23
+0.308495  2.4082076E-23
+0.318314  1.4622908E-23
+0.331059  8.87808E-24
+0.344327  5.658752E-24
+0.369662  3.604991E-24
+0.394792  2.4705779E-24
+0.435232  1.7983333E-24
+0.478575  1.4081032E-24
+0.530421  1.1024128E-24
+0.589455  8.951031E-25
+0.655096  7.817652E-25
+0.733846  6.9104156E-25
+0.817760  6.4133455E-25
+0.916081  5.8085884E-25
+1.023516  5.2610785E-25
+1.140595  5.1259166E-25
+1.28456	  4.933062E-25
+1.442956  5.04580E-25
+1.603830  5.223787E-25
+1.801563  5.2779464E-25
+2.013063  5.531183E-25
+2.243397  5.5892304E-25
+2.513354  5.716481E-25
+2.815976  6.3658886E-25
+3.146595  6.752913E-25
+3.497438  6.9920016E-25
+3.908245  7.881866E-25
+4.905918  9.42437E-25
+6.207446  1.1685798E-24
+7.689996  1.4494718E-24
+10.09760  2.0038862E-24

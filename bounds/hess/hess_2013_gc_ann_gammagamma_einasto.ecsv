@@ -1,0 +1,42 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Search for photon line-like signatures from Dark Matter annihilations with H.E.S.S."}
+# - {doi:              "10.1103/PhysRevLett.110.041301"}
+# - {arxiv:            "1301.1173"}
+# - {instrument:       "H.E.S.S."}
+# - {year:             "2013"}
+# - {source:           "MW Inner Halo"}
+# - {channel:          "gammagamma"}
+# - {confidence        "0.95"}
+# - {dmfraction:       "1"}
+# - {obs_hours:        "112"}
+# - {figure:           "Fig. 4"}
+# - {comment:          "exact point limits sampled"}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+
+0.496667  6.5943644E-28
+0.628514  2.6713765E-28
+0.782761  2.345931E-27
+0.989366  2.6252636E-27
+1.258448  2.554519E-27
+1.562481  1.6339177E-27
+1.988026  1.236103E-27
+2.497442  1.3202684E-27
+3.136114  1.9909823E-27
+3.938461  2.7866592E-27
+4.971585  9.281663E-27
+6.247441  7.636125E-27
+7.855995  3.557597E-27
+9.797555  9.651957E-27
+12.53257  1.482994E-26
+15.63783  2.6203738E-26
+19.78016  1.5556693E-26
