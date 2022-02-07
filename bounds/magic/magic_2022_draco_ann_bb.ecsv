@@ -1,0 +1,38 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Combined searches for dark matter in dwarf spheroidal galaxies observed with the MAGIC telescopes, including new data from Coma Berenices and Draco"}
+# - {doi:              "10.1016/j.dark.2021.100912"}
+# - {arxiv:            "2111.15009"}
+# - {instrument:       "MAGIC"}
+# - {year:             "2022"}
+# - {source:           "draco"}
+# - {channel:          "bb"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_hours:        ""}
+# - {figure:           "Fig. 4"}
+# - {comment:          ""}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+72.1439   5.32341e-21
+96.2594   2.18295e-21
+136.768   1.00014e-21
+209.543   4.93297e-22
+337.601   2.71862e-22
+624.505   1.49715e-22
+1412.43   9.20498e-23
+3037.93   5.66106e-23
+6535.49   5.04432e-23
+11077.9   7.28791e-23
+17859.1   1.26776e-22
+29523.8   2.20501e-22
+45259.1   3.07144e-22
+97405.1   5.74522e-22
