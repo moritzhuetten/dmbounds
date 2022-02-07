@@ -1,0 +1,52 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "A search for dark matter in Triangulum II with the MAGIC telescopes."}
+# - {doi:              "10.1016/j.dark.2020.100529"}
+# - {arxiv:            "2003.05260"}
+# - {instrument:       "MAGIC"}
+# - {year:             "2020"}
+# - {source:           "triangulum2"}
+# - {channel:          "mumu"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_hours:        "62.4"}
+# - {figure:           "Fig. 5"}
+# - {comment:          "No error in J"}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+100.423   7.13094e-24
+125.837   7.88593e-24
+156.123   1.00403e-23
+199.534   9.64419e-24
+278.583   8.37678e-24
+416.554   8.37678e-24
+527.134   8.89817e-24
+660.466   1.11034e-23
+844.039   1.17945e-23
+1110.82   1.30432e-23
+1476.31   1.47174e-23
+1923.84   1.76402e-23
+2765.25   2.33820e-23
+3299.26   2.48373e-23
+4094.03   2.58576e-23
+5232.12   2.63833e-23
+6752.29   2.80254e-23
+8543.91   3.35911e-23
+11024.8   4.19158e-23
+13813.4   5.23036e-23
+17306.7   6.79466e-23
+21054.5   8.82682e-23
+28250.7   1.34701e-22
+35047.1   1.89658e-22
+46111.2   2.95311e-22
+59491.3   4.41677e-22
+81399.8   7.45380e-22
+98056.7   1.00808e-21
