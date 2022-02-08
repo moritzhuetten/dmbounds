@@ -1,0 +1,35 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "H.E.S.S. Limits on Linelike Dark Matter Signatures in the 100 GeV to 2 TeV Energy Range Close to the Galactic Center"}
+# - {doi:              "10.1103/PhysRevLett.117.151302"}
+# - {arxiv:            "1609.08091"}
+# - {instrument:       "H.E.S.S."}
+# - {year:             "2016"}
+# - {source:           "MW Inner Halo"}
+# - {channel:          "gammagamma"}
+# - {confidence        "0.95"}
+# - {dmfraction:       "1"}
+# - {obs_hours:        "15.2"}
+# - {figure:           "Fig. 3"}
+# - {comment:          "exact point limits sampled"}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+
+0.0983144  6.0201215E-27
+0.1296148  1.3436603E-27
+0.1983023  1.1460683E-27
+0.2970073  1.1993539E-27
+0.3915657  1.2839634E-27
+0.5000249  1.4384499E-27
+0.5864676  2.5386642E-27
+0.7982372  3.4894996E-27
+0.9873439  3.044757E-27
+2.0127776  1.4939708E-26
