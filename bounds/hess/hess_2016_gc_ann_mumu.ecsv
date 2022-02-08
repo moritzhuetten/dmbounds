@@ -1,0 +1,45 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Search for Dark Matter Annihilations towards the Inner Galactic Halo from 10 Years of Observations with H.E.S.S."}
+# - {doi:              "10.1103/PhysRevLett.117.111301"}
+# - {arxiv:            "1607.08142"}
+# - {instrument:       "H.E.S.S."}
+# - {year:             "2016"}
+# - {source:           "MW Inner Halo"}
+# - {channel:          "mumu"}
+# - {confidence        "0.95"}
+# - {dmfraction:       "1"}
+# - {obs_hours:        "254"}
+# - {figure:           "Fig. 4 (supplemental material)"}
+# - {comment:          ""}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+
+0.181681  2.1544347E-24
+0.202104  1.0391223E-24
+0.219564  5.9566216E-25
+0.241372  3.3496543E-25
+0.278212  2.0339175E-25
+0.324493  1.3335214E-25
+0.401549  9.809947E-26
+0.527200  8.254042E-26
+0.692169  7.943282E-26
+0.975649  8.743125E-26
+1.280945  1.0E-25
+1.827058  1.2589254E-25
+2.575335  1.7782795E-25
+3.761293  2.7122727E-25
+5.558804  4.1368206E-25
+8.215340  6.683439E-25
+14.32979  1.3856919E-24
+25.29269  3.1021778E-24
+42.07717  6.1896583E-24
+69.17630  1.3081775E-23
