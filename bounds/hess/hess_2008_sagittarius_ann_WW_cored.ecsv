@@ -1,0 +1,40 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Observations of the Sagittarius dwarf galaxy by the HESS experiment and search for a dark matter signal"}
+# - {doi:              "10.1016/j.astropartphys.2007.11.007"}
+# - {arxiv:            "0711.2369"}
+# - {instrument:       "hess"}
+# - {year:             "2008"}
+# - {source:           "sagittarius"}
+# - {channel:          "WW"}
+# - {confidence        "0.95"}
+# - {dmfraction:       "1"}
+# - {obs_hours:        "11"}
+# - {figure:           "Fig. 1"}
+# - {comment:          "Cored NFW profile, spectrum from Bergstroem et al. (1998), data from Erratum"}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+
+0.198109  6.4946854E-25
+0.237893  3.6352347E-25
+0.310210  1.8561158E-25
+0.393582  1.2097436E-25
+0.522778  8.127069E-26
+0.707287  6.758535E-26
+0.983622  6.158156E-26
+1.355498  6.148969E-26
+1.920146  7.1502864E-26
+3.036242  9.1066214E-26
+5.026394  1.3100219E-25
+7.876128  2.0035535E-25
+14.55587  3.907959E-25
+27.39890  8.1012495E-25
+69.79399  2.570235E-24
