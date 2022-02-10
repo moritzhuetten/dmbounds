@@ -1,0 +1,39 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "A search for a dark matter annihilation signal toward the Canis major overdensity with H.E.S.S."}
+# - {doi:              "10.1088/0004-637X/691/1/175"}
+# - {arxiv:            "0809.3894"}
+# - {instrument:       "hess"}
+# - {year:             "2009"}
+# - {source:           "canismajor"}
+# - {channel:          "KK"}
+# - {confidence        "0.95"}
+# - {dmfraction:       "1"}
+# - {obs_hours:        "9.6"}
+# - {figure:           "Fig. 4"}
+# - {comment:          "Pythia spectrum"}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+
+0.397384  9.835077E-25
+0.459318  9.09058E-25
+0.530895  8.921844E-25
+0.624832  8.934474E-25
+0.756997  9.130103E-25
+0.957806  1.052312E-24
+1.312344  1.2632228E-24
+1.772203  1.7094608E-24
+2.463516  2.3606446E-24
+3.474355  3.6030646E-24
+4.989444  5.6113167E-24
+7.510225  1.0055798E-23
+11.22300  1.8019424E-23
+16.23386  3.0401377E-23
