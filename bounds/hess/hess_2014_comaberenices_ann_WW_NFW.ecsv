@@ -1,0 +1,40 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Search for dark matter annihilation signatures in H.E.S.S. observations of dwarf spheroidal galaxies"}
+# - {doi:              "10.1103/PhysRevD.90.112012"}
+# - {arxiv:            "1410.2589"}
+# - {instrument:       "H.E.S.S."}
+# - {year:             "2014"}
+# - {source:           "comaberenices"}
+# - {channel:          "WW"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_hours:        "8.6"}
+# - {figure:           "Fig. 5"}
+# - {comment:          "NFW profile"}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+
+0.797366  1.0654913E-20
+0.889203  5.1412894E-21
+0.991575  2.8810244E-21
+1.167605  1.364688E-21
+1.412739  7.368772E-22
+1.746899  4.2881166E-22
+2.136643  2.8441664E-22
+2.699983  2.0331518E-22
+3.544195  1.56646E-22
+4.576857  1.4015111E-22
+6.240680  1.3515544E-22
+8.791421  1.4312514E-22
+11.22954  1.5151245E-22
+15.06304  1.7946108E-22
+19.77041  2.086E-22
