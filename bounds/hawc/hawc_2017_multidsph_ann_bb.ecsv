@@ -17,7 +17,7 @@
 # - {dmfraction:       "1"}
 # - {obs_hours:        "507 days"}
 # - {figure:           "Fig. 3"}
-# - {comment:          "}
+# - {comment:          ""}
 # - {status:           ""}
 # schema : astropy −2.0
 
