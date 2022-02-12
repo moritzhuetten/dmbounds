@@ -12,7 +12,7 @@
 # - {instrument:       "MAGIC"}
 # - {year:             "2022"}
 # - {source:           "segue1"}
-# - {channel:          "bb"}
+# - {channel:          "ee"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
 # - {obs_hours:        ""}
