@@ -1,0 +1,73 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "A global analysis of dark matter signals from 27 dwarf spheroidal galaxies using 11 years of Fermi-LAT observations"}
+# - {doi:              "10.1088/1475-7516/2020/02/012"}
+# - {arxiv:            "1812.06986"}
+# - {instrument:       "lat"}
+# - {year:             "2020"}
+# - {source:           "27 dSph galaxies"}
+# - {channel:          "cc"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_hours:        "11 years"}
+# - {figure:           "Fig. 9"}
+# - {comment:          "Frequentist global fit limit (1 DOF), Aquarius II, Boötes I, Canes Venatici I, Canes Venatici II, Carina, Carina II, Coma Berenices, Draco, Draco II, Fornax, Grus I, Hercules, Horologium I, Leo I, Leo II, Leo IV, Leo V, Pegasus III, Pisces II, Reticulum II, Sculptor, Segue 1, Sextans, Tucana II, Ursa Major I, Ursa Major II, and Ursa Minor."}
+# - {status:           "original data, https://zenodo.org/record/2612268"}
+# schema : astropy −2.0
+
+mass sigmav
+
+2.375637e+00 2.429389e-27
+2.826836e+00 2.144107e-27
+3.363731e+00 1.876804e-27
+4.002598e+00 1.991395e-27
+4.762802e+00 1.981242e-27
+5.667391e+00 2.081490e-27
+6.743787e+00 2.170599e-27
+8.024620e+00 2.552666e-27
+9.548719e+00 2.781883e-27
+1.136229e+01 2.637105e-27
+1.352030e+01 2.748983e-27
+1.608818e+01 3.391693e-27
+1.914378e+01 3.892191e-27
+2.277972e+01 4.593220e-27
+2.710622e+01 6.079781e-27
+3.225445e+01 6.595342e-27
+3.838046e+01 8.480177e-27
+4.566998e+01 1.068036e-26
+5.434399e+01 1.444903e-26
+6.466542e+01 1.541910e-26
+7.694719e+01 1.969387e-26
+9.156161e+01 2.434044e-26
+1.089517e+02 2.714583e-26
+1.296447e+02 3.511815e-26
+1.542678e+02 4.242521e-26
+1.835676e+02 4.816787e-26
+2.184322e+02 6.078571e-26
+2.599185e+02 7.429014e-26
+3.092843e+02 9.627224e-26
+3.680260e+02 1.065682e-25
+4.379244e+02 1.366009e-25
+5.210984e+02 1.684643e-25
+6.200696e+02 1.960806e-25
+7.378381e+02 2.438162e-25
+8.779741e+02 3.090798e-25
+1.044726e+03 3.911624e-25
+1.243148e+03 4.505693e-25
+1.479257e+03 5.695108e-25
+1.760209e+03 7.018724e-25
+2.094522e+03 9.167266e-25
+2.492330e+03 1.074835e-24
+2.965693e+03 1.358783e-24
+3.528960e+03 1.740171e-24
+4.199208e+03 2.207353e-24
+4.996755e+03 2.864991e-24
+5.945778e+03 3.359914e-24
+7.075047e+03 4.293501e-24
+8.418796e+03 7.045583e-24
