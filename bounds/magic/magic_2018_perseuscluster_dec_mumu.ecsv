@@ -1,0 +1,74 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: tau       , unit: s       , datatype: float32 , description: Lifetime             }
+# meta: !!omap
+# - {reference:        "Constraining dark matter lifetime with a deep gamma-ray survey of the Perseus galaxy cluster with MAGIC"}
+# - {doi:              "10.1016/j.dark.2018.08.002"}
+# - {arxiv:            "1806.11063"}
+# - {instrument:       "MAGIC"}
+# - {year:             "2018"}
+# - {source:           "perseus"}
+# - {channel:          "mumu"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_hours:        "202.2"}
+# - {figure:           "Fig. 3"}
+# - {comment:          ""}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass tau
+164.035   1.20883e+23
+181.783   1.86316e+23
+194.453   2.65544e+23
+202.570   3.35147e+23
+295.790   7.43842e+23
+345.199   8.21156e+23
+419.371   1.02156e+24
+467.812   1.28667e+24
+515.217   1.41457e+24
+543.250   1.74535e+24
+624.848   2.05806e+24
+689.805   2.39205e+24
+757.831   2.86159e+24
+852.907   3.46589e+24
+971.557   4.27634e+24
+1066.65   4.96448e+24
+1217.83   6.15790e+24
+1319.82   6.79795e+24
+1486.04   8.92230e+24
+1830.36   1.25498e+25
+2053.68   1.53700e+25
+2343.31   1.71080e+25
+2631.02   1.96806e+25
+2925.72   2.19964e+25
+3348.98   2.58308e+25
+3852.16   2.86924e+25
+4325.20   3.22674e+25
+4975.07   3.56212e+25
+5722.60   3.93237e+25
+6841.67   4.39508e+25
+8298.60   5.22542e+25
+9778.47   6.06092e+25
+11691.1   6.44732e+25
+13491.5   6.77411e+25
+16392.2   7.11745e+25
+20240.8   6.94366e+25
+28018.2   7.11745e+25
+37980.8   7.29560e+25
+43481.0   7.03002e+25
+59139.2   5.98647e+25
+70147.1   5.42282e+25
+79280.8   4.95290e+25
+93282.8   4.56112e+25
+115193   3.96490e+25
+136192   3.71195e+25
+154919   3.39028e+25
+179948   3.10928e+25
+23668.6   7.39686e+25
+225.123   4.04709e+23
+253.214   5.62341e+23

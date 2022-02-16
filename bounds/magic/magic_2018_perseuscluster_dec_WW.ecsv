@@ -1,0 +1,72 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: tau       , unit: s       , datatype: float32 , description: Lifetime             }
+# meta: !!omap
+# - {reference:        "Constraining dark matter lifetime with a deep gamma-ray survey of the Perseus galaxy cluster with MAGIC"}
+# - {doi:              "10.1016/j.dark.2018.08.002"}
+# - {arxiv:            "1806.11063"}
+# - {instrument:       "MAGIC"}
+# - {year:             "2018"}
+# - {source:           "perseus"}
+# - {channel:          "WW"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_hours:        "202.2"}
+# - {figure:           "Fig. 3"}
+# - {comment:          ""}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass tau
+273.839   1.09973e+23
+280.087   1.32405e+23
+311.517   1.85138e+23
+343.139   2.71939e+23
+386.596   4.41085e+23
+439.787   5.94540e+23
+507.606   8.57919e+23
+578.379   1.10750e+24
+1080.79   3.15788e+24
+1273.87   4.15509e+24
+1491.79   5.13924e+24
+1708.02   6.27613e+24
+1993.77   7.85872e+24
+2228.24   9.13095e+24
+2372.77   1.04706e+25
+2925.72   1.29083e+25
+3140.68   1.52369e+25
+3810.68   1.77276e+25
+4321.04   2.08584e+25
+5719.49   3.30946e+25
+6644.17   3.84767e+25
+7521.89   4.65945e+25
+8556.83   5.37093e+25
+9687.21   6.50408e+25
+10774.3   7.55641e+25
+11868.0   8.66985e+25
+13199.7   1.00726e+26
+14895.4   1.10041e+26
+17220.1   1.32756e+26
+18425.8   1.34555e+26
+20692.6   1.56351e+26
+26864.9   1.86666e+26
+35559.4   2.25700e+26
+42937.2   2.49916e+26
+47986.7   2.47301e+26
+64134.1   2.70926e+26
+77815.7   2.85556e+26
+94416.0   3.00975e+26
+101027   3.36738e+26
+114558   3.29203e+26
+132437   3.38244e+26
+154593   3.65192e+26
+173611   3.39756e+26
+31079.4   2.10621e+26
+788.450   1.88461e+24
+205.035   1.66580e+22
+235.528   3.94678e+22
+257.485   7.25466e+22
