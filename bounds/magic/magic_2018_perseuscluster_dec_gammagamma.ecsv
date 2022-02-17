@@ -1,0 +1,54 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: tau       , unit: s       , datatype: float32 , description: Lifetime             }
+# meta: !!omap
+# - {reference:        "Constraining dark matter lifetime with a deep gamma-ray survey of the Perseus galaxy cluster with MAGIC"}
+# - {doi:              "10.1016/j.dark.2018.08.002"}
+# - {arxiv:            "1806.11063"}
+# - {instrument:       "MAGIC"}
+# - {year:             "2018"}
+# - {source:           "perseus"}
+# - {channel:          "gammagamma"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_hours:        "202.2"}
+# - {figure:           "Fig. 5"}
+# - {comment:          ""}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass tau
+166.304   4.02972e+25
+195.957   6.14211e+25
+228.386   9.62731e+25
+275.062   9.37180e+25
+320.581   8.62394e+25
+381.898   9.65749e+25
+445.098   2.96637e+26
+524.463   3.82142e+26
+624.776   4.65484e+26
+736.179   5.06827e+26
+867.446   6.17321e+26
+1022.12   1.02347e+27
+1204.37   1.95213e+27
+1419.12   2.00963e+27
+1653.97   1.79815e+27
+1970.32   1.60914e+27
+2321.64   1.52293e+27
+2735.61   1.75381e+27
+3258.85   1.65996e+27
+3839.93   1.96596e+27
+4524.62   1.86063e+27
+5331.39   1.86249e+27
+6282.03   2.46756e+27
+7402.16   2.61245e+27
+8722.03   3.18200e+27
+10165.4   2.92808e+27
+12109.8   2.85017e+27
+14269.0   2.77416e+27
+16813.3   2.41377e+27
+20029.2   1.63201e+27
