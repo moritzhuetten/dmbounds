@@ -1,0 +1,62 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: bootes_I         , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: bootes_II        , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: bootes_III       , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: canes_venatici_I , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: canes_venatici_II, unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: canis_major      , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: carina           , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: coma_berenices   , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: draco            , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: fornax           , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: hercules         , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: leo_I            , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: leo_II           , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: leo_IV           , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: leo_V            , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: pisces_II        , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: sagittarius      , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: sculptor         , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: segue_1          , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: segue_2          , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: sextans          , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: ursa_major_I     , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: ursa_major_II    , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: ursa_minor       , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: willman_1        , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: sigmav           , unit: cm3s-1  , datatype: float32 , description: <sigmav> composite}
+# meta: !!omap
+# - {reference:        "Searching for Dark Matter Annihilation from Milky Way Dwarf Spheroidal Galaxies with Six Years of Fermi Large Area Telescope Data"}
+# - {doi:              "10.1103/PhysRevLett.115.231301"}
+# - {arxiv:            "1503.02641"}
+# - {instrument:       "lat"}
+# - {year:             "2015"}
+# - {source:           "25 dSph galaxies"}
+# - {channel:          "uu"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_hours:        "6 years"}
+# - {figure:           "Fig. 8"}
+# - {comment:          "original data"}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass bootes_I bootes_II bootes_III canes_venatici_I canes_venatici_II canis_major carina coma_berenices draco fornax hercules leo_I leo_II leo_IV leo_V pisces_II sagittarius sculptor segue_1 segue_2 sextans ursa_major_I ursa_major_II ursa_minor willman_1 sigmav
+
+    2   4.8802e-27          nan          nan   5.8902e-26   2.7586e-26          nan   1.3609e-26   3.7137e-27   3.7956e-27    8.952e-26   3.2296e-26   3.2956e-25   1.6183e-25   6.5813e-26          nan          nan          nan   2.5648e-26   1.6393e-27          nan   1.7847e-26   1.7541e-26   7.6705e-27   8.7902e-27   8.1248e-27   1.7967e-27
+    5   6.6299e-27          nan          nan   5.9643e-26   3.9913e-26          nan   3.8731e-26   6.9626e-27   5.9275e-27   1.2385e-25   9.0182e-26   4.5684e-25   1.4083e-25    1.123e-25          nan          nan          nan     4.48e-26   5.6143e-27          nan   4.7093e-26   3.9285e-26   8.3415e-27   7.1248e-27   1.3233e-26   2.5975e-27
+   10   1.1727e-26          nan          nan   8.2816e-26   6.6831e-26          nan   1.0355e-25   1.0662e-26   7.9238e-27   2.0686e-25   2.0169e-25   6.2916e-25   1.4475e-25   1.4052e-25          nan          nan          nan     8.01e-26   9.4369e-27          nan   6.0155e-26   6.6227e-26   8.8175e-27   7.1184e-27   2.6081e-26   3.7762e-27
+   25   3.2855e-26          nan          nan   2.0013e-25   1.3726e-25          nan   2.5314e-25   1.8486e-26   1.3377e-26   3.9389e-25   4.8149e-25   1.0255e-24   2.2587e-25   2.0276e-25          nan          nan          nan   1.5869e-25   2.1317e-26          nan   7.8086e-26   1.0369e-25   1.3301e-26   1.2316e-26   6.5531e-26   7.3119e-27
+   50   7.5687e-26          nan          nan   4.5589e-25   2.7447e-25          nan   4.3193e-25    3.379e-26   2.5161e-26   7.8239e-25   9.2061e-25   1.6798e-24   4.1592e-25   3.3408e-25          nan          nan          nan   3.0185e-25   4.0118e-26          nan   1.2447e-25    1.564e-25   2.3438e-26   2.5322e-26   1.2619e-25   1.2033e-26
+  100    1.822e-25          nan          nan    1.068e-24   7.1341e-25          nan   7.4731e-25   7.1316e-26   5.4963e-26   1.7256e-24   1.7205e-24   2.9083e-24   9.1256e-25   6.5335e-25          nan          nan          nan   6.1685e-25   7.6426e-26          nan   2.4117e-25   2.8646e-25   4.8067e-26   6.3299e-26   2.4962e-25   2.0975e-26
+  250   5.5813e-25          nan          nan    3.398e-24   3.1931e-24          nan   1.9042e-24    2.153e-25   1.7555e-25   4.8267e-24   4.6745e-24   6.8819e-24   3.0461e-24   1.8902e-24          nan          nan          nan   1.6891e-24   1.7403e-25          nan   6.8745e-25   7.8389e-25   1.4212e-25   2.4809e-25   6.5938e-25   4.8058e-26
+  500   1.3135e-24          nan          nan   8.5284e-24   9.3872e-24          nan   4.5577e-24   5.2572e-25   4.4512e-25   1.1131e-23   1.1068e-23   1.4724e-23   8.0389e-24   4.6234e-24          nan          nan          nan   3.7395e-24   3.4987e-25          nan   1.6579e-24   1.8475e-24   3.3939e-25   7.1498e-25   1.4459e-24   9.7562e-26
+ 1000   3.1872e-24          nan          nan   2.2164e-23   2.6332e-23          nan   1.1553e-23   1.3338e-24   1.1593e-24   2.6852e-23   2.6757e-23   3.3979e-23   2.1712e-23   1.1882e-23          nan          nan          nan   8.5033e-24   7.6162e-25          nan   4.2091e-24   4.5868e-24   8.2973e-25    2.025e-24   3.2949e-24   2.1149e-25
+ 2500   1.1018e-23          nan          nan    8.292e-23   1.0361e-22          nan   4.1437e-23   4.8652e-24   4.3336e-24   9.2417e-23   8.9668e-23   1.1315e-22   8.4413e-23   4.4264e-23          nan          nan          nan   2.5863e-23   2.3925e-24          nan   1.5484e-23   1.6422e-23   2.8758e-24   8.0217e-24   1.0331e-23   6.5714e-25
+ 5000   2.9393e-23          nan          nan    2.313e-22   2.9637e-22          nan   1.1281e-22    1.342e-23   1.2112e-23    2.462e-22   2.3432e-22   2.9765e-22   2.4166e-22   1.2388e-22          nan          nan          nan   6.3412e-23   6.1056e-24          nan   4.3041e-23   4.4939e-23   7.6992e-24   2.2998e-23   2.5342e-23   1.6686e-24
+10000   8.1605e-23          nan          nan   6.6762e-22   8.7467e-22          nan   3.1963e-22   3.8418e-23   3.5071e-23    6.833e-22   6.4103e-22   8.1939e-22   7.1453e-22   3.5938e-22          nan          nan          nan   1.6317e-22   1.6392e-23          nan   1.2414e-22   1.2794e-22   2.1491e-23   6.7931e-23   6.4226e-23   4.4691e-24
