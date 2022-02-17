@@ -1,0 +1,61 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: bootes_I         , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: bootes_II        , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: bootes_III       , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: canes_venatici_I , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: canes_venatici_II, unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: canis_major      , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: carina           , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: coma_berenices   , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: draco            , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: fornax           , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: hercules         , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: leo_I            , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: leo_II           , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: leo_IV           , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: leo_V            , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: pisces_II        , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: sagittarius      , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: sculptor         , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: segue_1          , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: segue_2          , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: sextans          , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: ursa_major_I     , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: ursa_major_II    , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: ursa_minor       , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: willman_1        , unit: cm3s-1  , datatype: float32 , description: <sigmav>      }
+# - {name: sigmav           , unit: cm3s-1  , datatype: float32 , description: <sigmav> composite}
+# meta: !!omap
+# - {reference:        "Dark matter constraints from observations of 25 Milky Way satellite galaxies with the Fermi Large Area Telescope"}
+# - {doi:              "10.1103/PhysRevD.89.042001"}
+# - {arxiv:            "1310.0828"}
+# - {instrument:       "lat"}
+# - {year:             "2014"}
+# - {source:           "25 dSph galaxies"}
+# - {channel:          "bb"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_hours:        "4 years"}
+# - {figure:           "Fig. 5"}
+# - {comment:          "original data"}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass bootes_I bootes_II bootes_III canes_venatici_I canes_venatici_II canis_major carina coma_berenices draco fornax hercules leo_I leo_II leo_IV leo_V pisces_II sagittarius sculptor segue_1 segue_2 sextans ursa_major_I ursa_major_II ursa_minor willman_1 sigmav
+
+6.00e+00       7.83e-26       nan            nan            8.66e-25       1.18e-24       nan            5.83e-25       4.59e-26       4.87e-26       2.97e-25       1.42e-24       1.57e-24       2.29e-24       5.70e-25       nan            nan            nan            8.90e-26       3.13e-26       nan            4.82e-25       1.11e-25       5.87e-26       3.46e-26       1.22e-25       2.52e-26      
+1.00e+01       9.41e-26       nan            nan            7.99e-25       1.38e-24       nan            6.87e-25       4.21e-26       4.52e-26       3.49e-25       1.55e-24       1.63e-24       2.09e-24       4.39e-25       nan            nan            nan            1.18e-25       4.36e-26       nan            5.76e-25       1.13e-25       7.36e-26       3.27e-26       1.38e-25       2.90e-26      
+2.50e+01       1.78e-25       nan            nan            1.40e-24       2.13e-24       nan            9.33e-25       5.86e-26       7.47e-26       6.35e-25       2.95e-24       2.37e-24       2.16e-24       5.16e-25       nan            nan            nan            3.05e-25       9.39e-26       nan            8.54e-25       1.87e-25       1.38e-25       4.75e-26       2.37e-25       5.00e-26      
+5.00e+01       3.08e-25       nan            nan            2.88e-24       3.00e-24       nan            1.08e-24       9.38e-26       1.32e-25       1.09e-24       5.33e-24       3.48e-24       2.16e-24       7.93e-25       nan            nan            nan            6.34e-25       1.80e-25       nan            1.04e-24       3.15e-25       2.17e-25       7.98e-26       3.69e-25       7.91e-26      
+1.00e+02       6.29e-25       nan            nan            6.10e-24       4.42e-24       nan            1.42e-24       1.73e-25       2.53e-25       2.00e-24       9.74e-24       5.48e-24       3.06e-24       1.48e-24       nan            nan            nan            1.31e-24       3.62e-25       nan            1.30e-24       5.90e-25       3.43e-25       1.59e-25       6.21e-25       1.34e-25      
+2.50e+02       1.94e-24       nan            nan            1.80e-23       8.26e-24       nan            3.53e-24       4.65e-25       6.82e-25       5.28e-24       2.32e-23       1.22e-23       7.30e-24       4.17e-24       nan            nan            nan            3.59e-24       9.68e-25       nan            2.52e-24       1.61e-24       6.92e-25       4.65e-25       1.51e-24       3.03e-25      
+5.00e+02       4.62e-24       nan            nan            4.38e-23       1.67e-23       nan            1.11e-23       1.09e-24       1.62e-24       1.18e-23       4.94e-23       2.62e-23       1.72e-23       1.04e-23       nan            nan            nan            8.18e-24       2.17e-24       nan            5.33e-24       3.87e-24       1.37e-24       1.15e-24       3.40e-24       6.23e-25      
+1.00e+03       1.16e-23       nan            nan            1.14e-22       3.90e-23       nan            3.72e-23       2.76e-24       3.95e-24       2.89e-23       1.12e-22       6.32e-23       4.53e-23       2.76e-23       nan            nan            nan            1.94e-23       5.22e-24       nan            1.28e-23       1.01e-23       3.09e-24       2.94e-24       8.29e-24       1.36e-24      
+2.50e+03       4.30e-23       nan            nan            4.31e-22       1.39e-22       nan            1.54e-22       1.03e-23       1.40e-23       1.02e-22       3.66e-22       2.34e-22       1.77e-22       1.10e-22       nan            nan            nan            6.55e-23       1.77e-23       nan            4.68e-23       3.89e-23       1.05e-23       1.08e-23       2.94e-23       3.96e-24      
+5.00e+03       1.18e-22       nan            nan            1.24e-21       3.86e-22       nan            4.47e-22       2.94e-23       3.83e-23       2.76e-22       9.68e-22       6.61e-22       5.14e-22       3.21e-22       nan            nan            nan            1.74e-22       4.71e-23       nan            1.32e-22       1.12e-22       2.82e-23       3.01e-23       8.03e-23       9.37e-24      
+1.00e+04       3.40e-22       nan            nan            3.69e-21       1.12e-21       nan            1.33e-21       8.67e-23       1.09e-22       7.78e-22       2.69e-21       1.94e-21       1.53e-21       9.68e-22       nan            nan            nan            4.81e-22       1.31e-22       nan            3.89e-22       3.30e-22       7.85e-23       8.75e-23       2.27e-22       2.40e-23   
