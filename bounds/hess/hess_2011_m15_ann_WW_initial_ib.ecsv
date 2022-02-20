@@ -1,0 +1,70 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "H.E.S.S. Observations of the Globular Clusters Ngc 6388 and M15 and Search for a Dark Matter Signal"}
+# - {doi:              "10.1088/0004-637X/735/1/12"}
+# - {arxiv:            "1104.2548"}
+# - {instrument:       "hess"}
+# - {year:             "2011"}
+# - {source:           "m15"}
+# - {channel:          "WW"}
+# - {confidence        "0.95"}
+# - {dmfraction:       "1"}
+# - {obs_hours:        "15.2"}
+# - {figure:           "Fig. 5"}
+# - {comment:          "Initial profile + internal bremsstrahlung, spectrum from Bergstroem et al. (1998)"}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+
+5.96553e-1 3.14180e-22
+6.26713e-1 2.08348e-22
+6.69907e-1 1.33299e-22
+7.12903e-1 1.02699e-22
+8.07352e-1 7.30819e-23
+8.78471e-1 6.13582e-23
+1.30690e+0 3.90268e-23
+1.44710e+0 3.65000e-23
+1.68642e+0 3.35581e-23
+1.86144e+0 3.21773e-23
+2.05259e+0 3.13489e-23
+2.28068e+0 3.03717e-23
+2.47372e+0 3.01463e-23
+2.90282e+0 2.93702e-23
+3.15853e+0 2.93702e-23
+3.80656e+0 3.01463e-23
+4.21615e+0 3.09428e-23
+4.97901e+0 3.24784e-23
+5.50427e+0 3.39001e-23
+6.16007e+0 3.53599e-23
+6.67793e+0 3.75051e-23
+7.38007e+0 3.94992e-23
+8.11777e+0 4.20106e-23
+8.97363e+0 4.54322e-23
+9.89514e+0 4.88971e-23
+1.09221e+1 5.17533e-23
+1.20318e+1 5.60387e-23
+1.32673e+1 6.05274e-23
+1.46297e+1 6.52982e-23
+1.61321e+1 7.15390e-23
+1.77256e+1 7.77931e-23
+1.96154e+1 8.49558e-23
+2.16298e+1 9.32963e-23
+2.38745e+1 1.02997e-22
+2.63002e+1 1.13586e-22
+2.88724e+1 1.24885e-22
+3.19791e+1 1.39607e-22
+3.52631e+1 1.55141e-22
+3.88497e+1 1.73017e-22
+4.28773e+1 1.93641e-22
+4.72804e+1 2.15699e-22
+5.23213e+1 2.43480e-22
+5.74895e+1 2.71793e-22
+6.31121e+1 3.04697e-22
+6.90772e+1 3.47551e-22

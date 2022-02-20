@@ -1,0 +1,53 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "H.E.S.S. Observations of the Globular Clusters Ngc 6388 and M15 and Search for a Dark Matter Signal"}
+# - {doi:              "10.1088/0004-637X/735/1/12"}
+# - {arxiv:            "1104.2548"}
+# - {instrument:       "hess"}
+# - {year:             "2011"}
+# - {source:           "ngc6388"}
+# - {channel:          "WW"}
+# - {confidence        "0.95"}
+# - {dmfraction:       "1"}
+# - {obs_hours:        "27.2"}
+# - {figure:           "Fig. 4"}
+# - {comment:          "Initial profile + internal bremsstrahlung, spectrum from Bergstroem et al. (1998)"}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+
+4.20409e-1 7.39263e-23
+4.57459e-1 5.01301e-23
+5.08848e-1 3.61945e-23
+5.80584e-1 2.65908e-23
+6.82738e-1 2.02259e-23
+8.50132e-1 1.57907e-23
+1.12089e+0 1.28195e-23
+1.28094e+0 1.21685e-23
+1.47787e+0 1.15506e-23
+1.70508e+0 1.12535e-23
+2.30885e+0 1.11836e-23
+3.12003e+0 1.20184e-23
+3.72622e+0 1.28195e-23
+4.41986e+0 1.37244e-23
+5.12719e+0 1.50257e-23
+6.17892e+0 1.71061e-23
+6.95783e+0 1.86936e-23
+7.80118e+0 2.00132e-23
+8.91313e+0 2.28272e-23
+1.08395e+1 2.72928e-23
+1.81383e+1 4.37063e-23
+2.46090e+1 6.20559e-23
+3.32368e+1 8.70223e-23
+3.63795e+1 9.54490e-23
+4.58785e+1 1.28083e-22
+5.48150e+1 1.58456e-22
+5.91594e+1 1.75647e-22
+6.89084e+1 2.16226e-22
