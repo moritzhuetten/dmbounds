@@ -1,0 +1,84 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Search for dark matter signals towards a selection of recently-detected DES dwarf galaxy satellites of the Milky Way with H.E.S.S."}
+# - {doi:              "10.1103/PhysRevD.102.062001"}
+# - {arxiv:            "2008.00688"}
+# - {instrument:       "H.E.S.S."}
+# - {year:             "2020"}
+# - {source:           "multidsph"}
+# - {channel:          "ee"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_hours:        "82"}
+# - {figure:           "Fig. 6"}
+# - {comment:          "Reticulum II, Tucana II, Tucana III, Tucana IV, Grus II"}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+
+1.51675e-1 8.06991e-23
+1.76404e-1 6.75949e-23
+1.92067e-1 4.65139e-23
+2.04237e-1 3.58933e-23
+2.17179e-1 2.72285e-23
+2.36462e-1 2.15978e-23
+2.62370e-1 1.93004e-23
+2.97797e-1 1.77692e-23
+3.29179e-1 1.73447e-23
+3.65246e-1 1.69018e-23
+4.05266e-1 1.52920e-23
+4.49670e-1 1.43747e-23
+4.98939e-1 1.41661e-23
+5.53606e-1 1.25741e-23
+6.14264e-1 1.00640e-23
+6.81567e-1 8.51127e-24
+7.56245e-1 7.84043e-24
+8.39105e-1 7.06976e-24
+9.31043e-1 6.26821e-24
+1.03306e+0 6.20508e-24
+1.14625e+0 7.04595e-24
+1.27184e+0 7.82281e-24
+1.41119e+0 7.30414e-24
+1.56581e+0 6.38920e-24
+1.73737e+0 6.26821e-24
+1.92773e+0 7.28773e-24
+2.13895e+0 9.24992e-24
+2.37331e+0 1.10611e-23
+2.63335e+0 1.18199e-23
+2.92187e+0 1.17404e-23
+3.24202e+0 1.15961e-23
+3.59724e+0 1.19402e-23
+3.99138e+0 1.34973e-23
+4.40782e+0 1.68695e-23
+4.86772e+0 2.23389e-23
+5.40107e+0 2.80996e-23
+5.99285e+0 3.06759e-23
+6.64947e+0 3.01967e-23
+7.37804e+0 2.96915e-23
+8.18643e+0 3.02306e-23
+9.08340e+0 3.09879e-23
+1.00786e+1 3.22320e-23
+1.11829e+1 3.53061e-23
+1.24082e+1 3.93756e-23
+1.37678e+1 4.24572e-23
+1.52763e+1 4.53699e-23
+1.69501e+1 4.89207e-23
+1.88072e+1 5.37071e-23
+2.08679e+1 5.98302e-23
+2.31543e+1 6.74051e-23
+2.56913e+1 7.61958e-23
+2.85062e+1 8.61329e-23
+3.16296e+1 9.81355e-23
+3.50952e+1 1.12189e-22
+3.89405e+1 1.30143e-22
+4.32071e+1 1.52850e-22
+4.76901e+1 1.79003e-22
+5.29432e+1 2.10959e-22
+6.22052e+1 2.71721e-22
