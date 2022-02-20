@@ -9,7 +9,7 @@
 # - {reference:        "H.E.S.S. constraints on Dark Matter annihilations towards the Sculptor and Carina Dwarf Galaxies"}
 # - {doi:              "10.1016/j.astropartphys.2010.12.006"}
 # - {arxiv:            "1012.5602"}
-# - {instrument:       "H.E.S.S."}
+# - {instrument:       "hess"}
 # - {year:             "2011"}
 # - {source:           "sculptor"}
 # - {channel:          "WW"}

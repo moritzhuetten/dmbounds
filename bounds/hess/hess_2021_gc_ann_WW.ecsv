@@ -9,9 +9,9 @@
 # - {reference:        "Search for dark matter annihilation signals from the Galactic Center with the H.E.S.S. Inner Galaxy Survey"}
 # - {doi:              ""}
 # - {arxiv:            "2108.10302"}
-# - {instrument:       "H.E.S.S."}
+# - {instrument:       "hess"}
 # - {year:             "2021"}
-# - {source:           "MW Inner Halo"}
+# - {source:           "gc"}
 # - {channel:          "W^+W^-"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}

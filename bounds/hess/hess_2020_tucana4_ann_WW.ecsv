@@ -9,7 +9,7 @@
 # - {reference:        "Search for dark matter signals towards a selection of recently-detected DES dwarf galaxy satellites of the Milky Way with H.E.S.S."}
 # - {doi:              "10.1103/PhysRevD.102.062001"}
 # - {arxiv:            "2008.00688"}
-# - {instrument:       "H.E.S.S."}
+# - {instrument:       "hess"}
 # - {year:             "2020"}
 # - {source:           "tucana4"}
 # - {channel:          "WW"}

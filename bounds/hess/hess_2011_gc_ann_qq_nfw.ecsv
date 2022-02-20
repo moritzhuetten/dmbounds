@@ -11,7 +11,7 @@
 # - {arxiv:            "1103.3266"}
 # - {instrument:       "hess"}
 # - {year:             "2011"}
-# - {source:           "MW Inner Halo"}
+# - {source:           "gc"}
 # - {channel:          "qq"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}

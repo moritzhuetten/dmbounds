@@ -9,7 +9,7 @@
 # - {reference:        "Search for dark matter annihilation signatures in H.E.S.S. observations of dwarf spheroidal galaxies"}
 # - {doi:              "10.1103/PhysRevD.90.112012"}
 # - {arxiv:            "1410.2589"}
-# - {instrument:       "H.E.S.S."}
+# - {instrument:       "hess"}
 # - {year:             "2014"}
 # - {source:           "sagittarius"}
 # - {channel:          "bb"}

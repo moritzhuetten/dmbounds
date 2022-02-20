@@ -9,9 +9,9 @@
 # - {reference:        "Search for Dark Matter Annihilations towards the Inner Galactic Halo from 10 Years of Observations with H.E.S.S."}
 # - {doi:              "10.1103/PhysRevLett.117.111301"}
 # - {arxiv:            "1607.08142"}
-# - {instrument:       "H.E.S.S."}
+# - {instrument:       "hess"}
 # - {year:             "2016"}
-# - {source:           "MW Inner Halo"}
+# - {source:           "gc"}
 # - {channel:          "tt"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}

@@ -9,9 +9,9 @@
 # - {reference:        "Search for a Dark Matter Annihilation Signal from the Galactic Center Halo with H.E.S.S."}
 # - {doi:              "10.1103/PhysRevLett.106.161301"}
 # - {arxiv:            "1103.3266"}
-# - {instrument:       "H.E.S.S."}
+# - {instrument:       "hess"}
 # - {year:             "2011"}
-# - {source:           "MW Inner Halo"}
+# - {source:           "gc"}
 # - {channel:          "qq"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}

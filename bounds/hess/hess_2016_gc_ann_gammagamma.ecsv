@@ -9,9 +9,9 @@
 # - {reference:        "H.E.S.S. Limits on Linelike Dark Matter Signatures in the 100 GeV to 2 TeV Energy Range Close to the Galactic Center"}
 # - {doi:              "10.1103/PhysRevLett.117.151302"}
 # - {arxiv:            "1609.08091"}
-# - {instrument:       "H.E.S.S."}
+# - {instrument:       "hess"}
 # - {year:             "2016"}
-# - {source:           "MW Inner Halo"}
+# - {source:           "gc"}
 # - {channel:          "gammagamma"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}

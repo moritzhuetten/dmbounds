@@ -9,7 +9,7 @@
 # - {reference:        "Search for dark matter annihilation in the Wolf-Lundmark-Melotte dwarf irregular galaxy with H.E.S.S."}
 # - {doi:              "10.1103/PhysRevD.103.102002"}
 # - {arxiv:            "2105.04325"}
-# - {instrument:       "H.E.S.S."}
+# - {instrument:       "hess"}
 # - {year:             "2021"}
 # - {source:           "wlm"}
 # - {channel:          "WW"}

@@ -9,9 +9,9 @@
 # - {reference:        "Search for Dark Matter Annihilation Signals From the Fornax Galaxy Cluster With H.E.S.S."}
 # - {doi:              "10.1088/0004-637X/750/2/123"}
 # - {arxiv:            "1202.5494"}
-# - {instrument:       "H.E.S.S."}
+# - {instrument:       "hess"}
 # - {year:             "2012"}
-# - {source:           "Fornax (Abell S0373)"}
+# - {source:           "fornaxcluster"}
 # - {channel:          "mumu"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}

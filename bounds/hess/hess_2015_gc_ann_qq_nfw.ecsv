@@ -9,9 +9,9 @@
 # - {reference:        "Constraints on an Annihilation Signal from a Core of Constant Dark Matter Density around the Milky Way Center with H.E.S.S."}
 # - {doi:              "10.1103/PhysRevLett.114.081301"}
 # - {arxiv:            "1502.03244"}
-# - {instrument:       "H.E.S.S."}
+# - {instrument:       "hess"}
 # - {year:             "2015"}
-# - {source:           "MW Inner Halo"}
+# - {source:           "gc"}
 # - {channel:          "qq"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}

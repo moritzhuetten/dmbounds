@@ -9,7 +9,7 @@
 # - {reference:        "Searches for gamma-ray lines and `pure WIMP' spectra from Dark Matter annihilations in dwarf galaxies with H.E.S.S"}
 # - {doi:              "10.1088/1475-7516/2018/11/037"}
 # - {arxiv:            "1810.00995"}
-# - {instrument:       "H.E.S.S."}
+# - {instrument:       "hess"}
 # - {year:             "2018"}
 # - {source:           "carina"}
 # - {channel:          "gammagamma"}

@@ -9,9 +9,9 @@
 # - {reference:        "Search for photon line-like signatures from Dark Matter annihilations with H.E.S.S."}
 # - {doi:              "10.1103/PhysRevLett.110.041301"}
 # - {arxiv:            "1301.1173"}
-# - {instrument:       "H.E.S.S."}
+# - {instrument:       "hess"}
 # - {year:             "2013"}
-# - {source:           "MW Inner Halo"}
+# - {source:           "gc"}
 # - {channel:          "gammagamma"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}

@@ -9,9 +9,9 @@
 # - {reference:        "Search for gamma-ray line signals from dark matter annihilations in the inner Galactic halo from ten years of observations with H.E.S.S."}
 # - {doi:              "10.1103/PhysRevLett.120.201101"}
 # - {arxiv:            "1805.05741"}
-# - {instrument:       "H.E.S.S."}
+# - {instrument:       "hess"}
 # - {year:             "2018"}
-# - {source:           "MW Inner Halo"}
+# - {source:           "gc"}
 # - {channel:          "gammagamma"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}
