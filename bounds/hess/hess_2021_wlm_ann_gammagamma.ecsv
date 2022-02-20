@@ -1,0 +1,69 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Search for dark matter annihilation in the Wolf-Lundmark-Melotte dwarf irregular galaxy with H.E.S.S."}
+# - {doi:              "10.1103/PhysRevD.103.102002"}
+# - {arxiv:            "2105.04325"}
+# - {instrument:       "H.E.S.S."}
+# - {year:             "2021"}
+# - {source:           "wlm"}
+# - {channel:          "gammagamma"}
+# - {confidence        "0.95"}
+# - {dmfraction:       "1"}
+# - {obs_hours:        "18.2"}
+# - {figure:           "Fig. 3"}
+# - {comment:          ""}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+
+1.49796e-1 2.14556e-23
+1.74525e-1 2.61437e-23
+1.93320e-1 2.27618e-23
+2.08733e-1 1.72018e-23
+2.20812e-1 1.35616e-23
+2.33589e-1 9.97519e-24
+2.51183e-1 7.86094e-24
+2.73718e-1 5.99199e-24
+3.06312e-1 5.32196e-24
+3.42788e-1 4.77253e-24
+3.70292e-1 4.68890e-24
+4.16315e-1 6.66450e-24
+4.44933e-1 8.49057e-24
+4.80407e-1 1.10519e-23
+5.23149e-1 1.40899e-23
+5.77517e-1 1.80457e-23
+6.46288e-1 1.68820e-23
+6.91314e-1 1.45840e-23
+7.30683e-1 1.62902e-23
+7.92985e-1 2.10852e-23
+8.43172e-1 2.79510e-23
+9.24472e-1 3.61365e-23
+9.88720e-1 3.86515e-23
+1.09525e+0 3.11230e-23
+1.16369e+0 2.47376e-23
+1.28244e+0 1.98033e-23
+1.43515e+0 1.64265e-23
+1.57402e+0 1.48651e-23
+1.79730e+0 1.76831e-23
+2.01132e+0 2.23204e-23
+2.25083e+0 2.76962e-23
+2.51886e+0 3.26490e-23
+2.81881e+0 3.72337e-23
+3.15447e+0 4.39859e-23
+3.53011e+0 5.37123e-23
+3.95048e+0 6.70058e-23
+4.42090e+0 8.32330e-23
+4.92211e+0 1.04177e-22
+5.42438e+0 1.34578e-22
+5.94740e+0 1.74509e-22
+6.58790e+0 2.21689e-22
+7.37239e+0 2.74202e-22
+8.25029e+0 3.40972e-22
+9.46666e+0 4.38870e-22
