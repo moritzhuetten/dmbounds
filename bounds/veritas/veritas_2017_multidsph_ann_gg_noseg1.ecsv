@@ -11,7 +11,7 @@
 # - {reference:        "Dark Matter Constraints from a Joint Analysis of Dwarf Spheroidal Galaxy Observations with VERITAS"}
 # - {doi:              "10.1103/PhysRevD.95.082001"}
 # - {arxiv:            "1703.04937"}
-# - {instrument:       "VERITAS"}
+# - {instrument:       "veritas"}
 # - {year:             "2017"}
 # - {source:           "Bootes I, Draco, Ursa Minor"}
 # - {channel:          "gg"}

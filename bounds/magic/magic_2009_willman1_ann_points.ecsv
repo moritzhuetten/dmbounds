@@ -9,10 +9,10 @@
 # - {reference:        "UPPER LIMITS ON THE VHE GAMMA-RAY EMISSION FROM THE WILLMAN 1 SATELLITE GALAXY WITH THE MAGIC TELESCOPE"}
 # - {doi:              "10.1088/0004-637X/697/2/1299"}
 # - {arxiv:            "0810.3561"}
-# - {instrument:       "MAGIC"}
+# - {instrument:       "magic"}
 # - {year:             "2009"}
 # - {source:           "Willman1"}
-# - {channel:          "Points"}
+# - {channel:          "points"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
 # - {obs_hours:        "15.5"}
@@ -22,12 +22,7 @@
 # schema : astropy −2.0
 
 mass sigmav
-141   3.62e−27
-316   3.19e−28
-565   2.59e−26
-1926  2.57e−27
-
-
-
-
-
+141   3.62e-27
+316   3.19e-28
+565   2.59e-26
+1926  2.57e-27

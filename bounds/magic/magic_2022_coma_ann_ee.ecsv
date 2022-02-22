@@ -9,7 +9,7 @@
 # - {reference:        "Combined searches for dark matter in dwarf spheroidal galaxies observed with the MAGIC telescopes, including new data from Coma Berenices and Draco"}
 # - {doi:              "10.1016/j.dark.2021.100912"}
 # - {arxiv:            "2111.15009"}
-# - {instrument:       "MAGIC"}
+# - {instrument:       "magic"}
 # - {year:             "2022"}
 # - {source:           "coma"}
 # - {channel:          "ee"}

@@ -9,7 +9,7 @@
 # - {reference:        "Searching for Dark Matter decay signals in the Galactic Halo with the MAGIC telescopes"}
 # - {doi:              "10.22323/1.358.0538"}
 # - {arxiv:            "https://pos.sissa.it/358/538/"}
-# - {instrument:       "MAGIC"}
+# - {instrument:       "magic"}
 # - {year:             "2019"}
 # - {source:           "Galactic Halo"}
 # - {channel:          "bb"}

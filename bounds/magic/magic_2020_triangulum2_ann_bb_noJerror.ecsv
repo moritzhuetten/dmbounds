@@ -9,7 +9,7 @@
 # - {reference:        "A search for dark matter in Triangulum II with the MAGIC telescopes."}
 # - {doi:              "10.1016/j.dark.2020.100529"}
 # - {arxiv:            "2003.05260"}
-# - {instrument:       "MAGIC"}
+# - {instrument:       "magic"}
 # - {year:             "2020"}
 # - {source:           "triangulum2"}
 # - {channel:          "bb"}

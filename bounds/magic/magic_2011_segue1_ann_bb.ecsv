@@ -9,7 +9,7 @@
 # - {reference:        "Searches for dark matter annihilation signatures in the Segue 1 satellite galaxy with the MAGIC-I telescope"}
 # - {doi:              "10.1088/1475-7516/2011/06/035"}
 # - {arxiv:            "1103.0477"}
-# - {instrument:       "MAGIC"}
+# - {instrument:       "magic"}
 # - {year:             "2011"}
 # - {source:           "Segue1"}
 # - {channel:          "bb"}

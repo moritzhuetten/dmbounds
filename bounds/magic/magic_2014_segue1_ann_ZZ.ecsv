@@ -9,7 +9,7 @@
 # - {reference:        "Optimized dark matter searches in deep observations of Segue 1 with MAGIC"}
 # - {doi:              "10.1088/1475-7516/2014/02/008"}
 # - {arxiv:            "1312.1535"}
-# - {instrument:       "MAGIC"}
+# - {instrument:       "magic"}
 # - {year:             "2014"}
 # - {Source:           "segue1"}
 # - {channel:          "ZZ"}

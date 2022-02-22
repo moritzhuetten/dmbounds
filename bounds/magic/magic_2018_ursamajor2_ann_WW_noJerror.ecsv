@@ -9,7 +9,7 @@
 # - {reference:        "Indirect dark matter searches in the dwarf satellite galaxy Ursa Major II with the MAGIC Telescopes"}
 # - {doi:              "10.1088/1475-7516/2018/03/009"}
 # - {arxiv:            "1712.03095"}
-# - {instrument:       "MAGIC"}
+# - {instrument:       "magic"}
 # - {year:             "2018"}
 # - {source:           "ursamajor2"}
 # - {channel:          "WW"}

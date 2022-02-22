@@ -9,10 +9,10 @@
 # - {reference:        "Upper limit for γ-ray emission above 140GeV from the dwarf spheroidal galaxy Draco"}
 # - {doi:              "10.1086/529135"}
 # - {arxiv:            "0711.2574"}
-# - {instrument:       "MAGIC"}
+# - {instrument:       "magic"}
 # - {year:             "2007"}
 # - {source:           "Draco"}
-# - {channel:          "Points"}
+# - {channel:          "points"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
 # - {obs_hours:        "7.8"}

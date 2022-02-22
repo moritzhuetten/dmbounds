@@ -9,7 +9,7 @@
 # - {reference:        "Constraining dark matter lifetime with a deep gamma-ray survey of the Perseus galaxy cluster with MAGIC"}
 # - {doi:              "10.1016/j.dark.2018.08.002"}
 # - {arxiv:            "1806.11063"}
-# - {instrument:       "MAGIC"}
+# - {instrument:       "magic"}
 # - {year:             "2018"}
 # - {source:           "perseus"}
 # - {channel:          "tautau"}

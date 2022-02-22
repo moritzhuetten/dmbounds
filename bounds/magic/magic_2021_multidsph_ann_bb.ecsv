@@ -9,7 +9,7 @@
 # - {reference:        "Upper limits on the WIMP annihilation cross section from a joint analysis of dwarf spheroidal satellite galaxy observations with the MAGIC telescopes"}
 # - {doi:              "10.22323/1.395.0512"}
 # - {arxiv:            ""}
-# - {instrument:       "MAGIC"}
+# - {instrument:       "magic"}
 # - {year:             "2021"}
 # - {source:           "Segue I, Ursa Major II, Draco, Coma Berenices"}
 # - {channel:          "bb"}
