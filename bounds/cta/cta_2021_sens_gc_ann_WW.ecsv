@@ -9,7 +9,7 @@
 # - {reference:        "Sensitivity of the Cherenkov Telescope Array to a dark matter signal from the Galactic centre"}
 # - {doi:              "10.1088/1475-7516/2021/01/057"}
 # - {arxiv:            "2007.16129"}
-# - {instrument:       "CTA"}
+# - {instrument:       "cta"}
 # - {year:             "2021"}
 # - {source:           "gc"}
 # - {channel:          "WW"}
