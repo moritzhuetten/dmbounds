@@ -9,7 +9,7 @@
 # - {reference:        "Limits to dark matter annihilation cross-section from a combined analysis of MAGIC and Fermi-LAT observations of dwarf satellite galaxies"}
 # - {doi:              "10.1088/1475-7516/2016/02/039"}
 # - {arxiv:            "1601.06590"}
-# - {instrument:       "MAGIC/Fermi-LAT"}
+# - {instrument:       "multi-inst-magic-lat"}
 # - {year:             "2016"}
 # - {source:           "segue1"}
 # - {channel:          "WW"}
