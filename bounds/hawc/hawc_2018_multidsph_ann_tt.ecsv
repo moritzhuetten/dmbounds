@@ -15,7 +15,7 @@
 # - {channel:          "tt"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
-# - {obs_hours:        "507 days"}
+# - {obs_time:         "507d"}
 # - {figure:           "Fig. 3"}
 # - {comment:          ""}
 # - {status:           ""}

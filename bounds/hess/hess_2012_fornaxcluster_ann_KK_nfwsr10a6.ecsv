@@ -15,7 +15,7 @@
 # - {channel:          "KK"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}
-# - {obs_hours:        "14.5"}
+# - {obs_time:         "14.5h"}
 # - {figure:           "Fig. 5"}
 # - {comment:          "NFW SR10 a6"}
 # - {status:           ""}

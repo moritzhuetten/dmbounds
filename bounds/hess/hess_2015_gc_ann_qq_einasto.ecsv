@@ -15,7 +15,7 @@
 # - {channel:          "qq"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}
-# - {obs_hours:        "9.1"}
+# - {obs_time:         "9.1h"}
 # - {figure:           "Fig. 4"}
 # - {comment:          "Einasto profile, spectrum from Tasitsiomi et a l. (2002)"}
 # - {status:           ""}

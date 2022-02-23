@@ -15,7 +15,7 @@
 # - {channel:          "tautau"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
-# - {obs_hours:        "29.4"}
+# - {obs_time:         "29.4h"}
 # - {figure:           "Figure 6"}
 # - {comment:          "The figure shows other limits with different assumptions, not considered here"}
 # - {status:           "Done"}

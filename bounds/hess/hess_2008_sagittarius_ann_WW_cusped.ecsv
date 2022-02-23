@@ -15,7 +15,7 @@
 # - {channel:          "WW"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}
-# - {obs_hours:        "11"}
+# - {obs_time:         "11h"}
 # - {figure:           "Fig. 1"}
 # - {comment:          "Cusped NFW profile, spectrum from Bergstroem et al. (1998), data from Erratum"}
 # - {status:           ""}

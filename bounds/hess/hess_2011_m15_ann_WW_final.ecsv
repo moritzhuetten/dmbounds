@@ -15,7 +15,7 @@
 # - {channel:          "WW"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}
-# - {obs_hours:        "15.2"}
+# - {obs_time:         "15.2h"}
 # - {figure:           "Fig. 5"}
 # - {comment:          "Final profile, spectrum from Bergstroem et al. (1998)"}
 # - {status:           ""}

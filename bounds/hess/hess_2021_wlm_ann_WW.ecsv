@@ -15,7 +15,7 @@
 # - {channel:          "WW"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}
-# - {obs_hours:        "18.2"}
+# - {obs_time:         "18.2"}
 # - {figure:           "Fig. 5"}
 # - {comment:          ""}
 # - {status:           ""}

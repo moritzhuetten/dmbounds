@@ -15,7 +15,7 @@
 # - {channel:          "ZZ"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
-# - {obs_hours:        "11 years"}
+# - {obs_time:         "11y"}
 # - {figure:           "Fig. 9"}
 # - {comment:          "Frequentist global fit limit (1 DOF), Aquarius II, Boötes I, Canes Venatici I, Canes Venatici II, Carina, Carina II, Coma Berenices, Draco, Draco II, Fornax, Grus I, Hercules, Horologium I, Leo I, Leo II, Leo IV, Leo V, Pegasus III, Pisces II, Reticulum II, Sculptor, Segue 1, Sextans, Tucana II, Ursa Major I, Ursa Major II, and Ursa Minor."}
 # - {status:           "original data, https://zenodo.org/record/2612268"}

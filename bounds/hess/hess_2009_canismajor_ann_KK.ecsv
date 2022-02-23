@@ -15,7 +15,7 @@
 # - {channel:          "KK"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}
-# - {obs_hours:        "9.6"}
+# - {obs_time:         "9.6h"}
 # - {figure:           "Fig. 4"}
 # - {comment:          "Pythia spectrum"}
 # - {status:           ""}

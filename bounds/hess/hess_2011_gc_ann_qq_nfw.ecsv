@@ -15,7 +15,7 @@
 # - {channel:          "qq"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}
-# - {obs_hours:        "112"}
+# - {obs_time:         "112h"}
 # - {figure:           "Fig. 4"}
 # - {comment:          "NFW profile, spectrum from Tasitsiomi et a l. (2002)"}
 # - {status:           ""}

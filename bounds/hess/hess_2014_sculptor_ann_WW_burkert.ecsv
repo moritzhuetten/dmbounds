@@ -15,7 +15,7 @@
 # - {channel:          "WW"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
-# - {obs_hours:        "12.5"}
+# - {obs_time:         "12.5h"}
 # - {figure:           "Fig. 5"}
 # - {comment:          "Burkert profile"}
 # - {status:           ""}

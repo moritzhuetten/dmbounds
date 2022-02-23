@@ -17,7 +17,7 @@
 # - {channel:          "mumu"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
-# - {obs_hours:        "229.8"}
+# - {obs_time:         "229.8h"}
 # - {figure:           "Figs. 5, 8, and the left panel of Fig. 7"}
 # - {comment:          ""}
 # - {status:           "VERITAS original data"}

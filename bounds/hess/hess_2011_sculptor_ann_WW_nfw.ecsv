@@ -15,7 +15,7 @@
 # - {channel:          "WW"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
-# - {obs_hours:        "11.8"}
+# - {obs_time:         "11.8h"}
 # - {figure:           "Fig. 5"}
 # - {comment:          "NFW profile"}
 # - {status:           ""}

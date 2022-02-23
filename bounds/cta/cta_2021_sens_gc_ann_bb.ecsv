@@ -15,7 +15,7 @@
 # - {channel:          "bb"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
-# - {obs_hours:        "525"}
+# - {obs_time:         "525h"}
 # - {figure:           "Fig. 14"}
 # - {comment:          "sensitivity"}
 # - {status:           "old import"}

@@ -15,7 +15,7 @@
 # - {channel:          "tt"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}
-# - {obs_hours:        "254"}
+# - {obs_time:         "254h"}
 # - {figure:           "Fig. 4 (supplemental material)"}
 # - {comment:          ""}
 # - {status:           ""}

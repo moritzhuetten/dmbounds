@@ -15,7 +15,7 @@
 # - {channel:          "gammagamma"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}
-# - {obs_hours:        "254"}
+# - {obs_time:         "254h"}
 # - {figure:           "Fig. 3"}
 # - {comment:          "NFW profile"}
 # - {status:           ""}

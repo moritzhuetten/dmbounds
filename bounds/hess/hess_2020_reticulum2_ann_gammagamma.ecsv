@@ -15,7 +15,7 @@
 # - {channel:          "gammagamma"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
-# - {obs_hours:        "18.3"}
+# - {obs_time:         "18.3h"}
 # - {figure:           "Fig. 6"}
 # - {comment:          ""}
 # - {status:           ""}

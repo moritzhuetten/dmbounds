@@ -15,7 +15,7 @@
 # - {channel:          "tautau"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
-# - {obs_hours:        "90"}
+# - {obs_time:         "90h"}
 # - {figure:           "Fig. 7"}
 # - {comment:          "NFW profile"}
 # - {status:           ""}

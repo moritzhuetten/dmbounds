@@ -15,7 +15,7 @@
 # - {channel:          "WW"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}
-# - {obs_hours:        "27.2"}
+# - {obs_time:         "27.2h"}
 # - {figure:           "Fig. 4"}
 # - {comment:          "Initial profile + internal bremsstrahlung, spectrum from Bergstroem et al. (1998)"}
 # - {status:           ""}

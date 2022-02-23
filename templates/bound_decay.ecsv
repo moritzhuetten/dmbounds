@@ -15,7 +15,7 @@
 # - {channel:          "Channel name"}
 # - {confidence        "Confidence level as fraction, i.e. 0.95" }
 # - {dmfraction:       "branching channel fraction"}
-# - {obs_hours:        "Observation time in hours"}
+# - {obs_time:         "Observation time with unit h, d, or y"}
 # - {figure:           "Description"}
 # - {comment:          "Any comments on the result"}
 # - {status:           "Status of file"}

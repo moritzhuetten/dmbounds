@@ -15,7 +15,7 @@
 # - {channel:          "WW"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
-# - {obs_hours:        "82"}
+# - {obs_time:         "82h"}
 # - {figure:           "Fig. 6"}
 # - {comment:          "Reticulum II, Tucana II, Tucana III, Tucana IV, Grus II"}
 # - {status:           ""}

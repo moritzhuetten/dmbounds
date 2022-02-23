@@ -60,7 +60,7 @@
 # - {channel:          "tautau"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
-# - {obs_hours:        "6 years"}
+# - {obs_time:         "6y"}
 # - {figure:           "Fig. 9"}
 # - {comment:          "original data"}
 # - {status:           ""}

@@ -15,7 +15,7 @@
 # - {channel:          "mumu"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
-# - {obs_hours:        "94.8"}
+# - {obs_time:         "94.8h"}
 # - {figure:           "Fig. 3"}
 # - {comment:          ""}
 # - {status:           ""}

@@ -15,7 +15,7 @@
 # - {channel:          "bb"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
-# - {obs_hours:        "10"}
+# - {obs_time:         "10h"}
 # - {figure:           "95% CL lower limit on the DM decay lifetime obtained with 10 hours of MAGIC GH observation"}
 # - {comment:          "Proceedings"}
 # - {status:           "Done"}

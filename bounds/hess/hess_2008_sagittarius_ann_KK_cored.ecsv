@@ -15,7 +15,7 @@
 # - {channel:          "KK"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}
-# - {obs_hours:        "11"}
+# - {obs_time:         "11h"}
 # - {figure:           "Fig. 2"}
 # - {comment:          "Cored NFW profile, Pythia spectrum, data from Erratum"}
 # - {status:           ""}

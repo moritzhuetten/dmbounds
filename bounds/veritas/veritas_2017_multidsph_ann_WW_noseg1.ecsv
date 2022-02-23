@@ -17,7 +17,7 @@
 # - {channel:          "WW"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
-# - {obs_hours:        "137.8"}
+# - {obs_time:         "137.8h"}
 # - {figure:           "Figs. 5, 8, and the left panel of Fig. 7"}
 # - {comment:          "excluding Segue I"}
 # - {status:           "VERITAS original data"}

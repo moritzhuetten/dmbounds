@@ -15,7 +15,7 @@
 # - {channel:          "points"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
-# - {obs_hours:        "15.5"}
+# - {obs_time:         "15.5h"}
 # - {figure:           "Table 1"}
 # - {comment:          "Attention, these are specific limits for Benchmark Models as in Bringmann et al. (2008)"}
 # - {status:           "Done"}

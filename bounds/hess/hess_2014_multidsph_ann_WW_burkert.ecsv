@@ -15,7 +15,7 @@
 # - {channel:          "WW"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
-# - {obs_hours:        "140.4"}
+# - {obs_time:         "140.4h"}
 # - {figure:           ""}
 # - {comment:          "Burkert profile; Sagittarius, Coma Berenices, Fornax, Carina, Sculptor"}
 # - {status:           ""}

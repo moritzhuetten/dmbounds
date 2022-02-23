@@ -15,7 +15,7 @@
 # - {channel:          "gammagamma"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
-# - {obs_hours:        "137.1"}
+# - {obs_time:         "137.1h"}
 # - {figure:           "Fig. 7"}
 # - {comment:          "J-factor nuisance suppressed, Sagittarius, Coma Berenices, Fornax, Carina, Sculptor"}
 # - {status:           ""}

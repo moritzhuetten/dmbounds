@@ -15,7 +15,7 @@
 # - {channel:          "points"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
-# - {obs_hours:        "7.8"}
+# - {obs_time:         "7.8h"}
 # - {figure:           "Fig. 2.— Thermally averaged neutralino annihilation cross section as a function of the neutralino mass for mSUGRA models after renormalization to the relic density"}
 # - {comment:          "Attention, these are specific limits for specific benchmark DM models"}
 # - {status:           "Done"}

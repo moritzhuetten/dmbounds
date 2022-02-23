@@ -15,7 +15,7 @@
 # - {channel:          "WW"}
 # - {confidence        "0.95"}
 # - {dmfraction:       "1"}
-# - {obs_hours:        "14.5"}
+# - {obs_time:         "14.5h"}
 # - {figure:           "Fig. 8"}
 # - {comment:          "NFW RB02, effective cross section"}
 # - {status:           ""}

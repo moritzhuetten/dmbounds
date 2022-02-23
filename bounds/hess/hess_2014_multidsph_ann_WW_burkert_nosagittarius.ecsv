@@ -15,7 +15,7 @@
 # - {channel:          "WW"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
-# - {obs_hours:        "50.4"}
+# - {obs_time:         "50.4h"}
 # - {figure:           ""}
 # - {comment:          "Burkert profile; Coma Berenices, Fornax, Carina, Sculptor"}
 # - {status:           ""}

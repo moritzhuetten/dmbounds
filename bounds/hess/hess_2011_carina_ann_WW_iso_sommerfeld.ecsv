@@ -15,7 +15,7 @@
 # - {channel:          "WW"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
-# - {obs_hours:        "14.8"}
+# - {obs_time:         "14.8h"}
 # - {figure:           "Fig. 3"}
 # - {comment:          "Isothermal profile with Sommerfeld effect"}
 # - {status:           ""}

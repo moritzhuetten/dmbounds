@@ -15,7 +15,7 @@
 # - {channel:          "gammagamma"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
-# - {obs_hours:        "51.6"}
+# - {obs_time:         "51.6h"}
 # - {figure:           "Fig. 2"}
 # - {comment:          "Coma Berenices, Fornax, Carina, Sculptor"}
 # - {status:           ""}
