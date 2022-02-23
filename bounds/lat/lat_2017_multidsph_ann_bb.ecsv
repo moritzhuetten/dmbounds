@@ -56,7 +56,7 @@
 # - {arxiv:            "1611.03184"}
 # - {instrument:       "lat"}
 # - {year:             "2017"}
-# - {source:           "45 dSph galaxies"}
+# - {source:           "multidsph-45"}
 # - {channel:          "bb"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}

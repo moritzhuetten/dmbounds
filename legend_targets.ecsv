@@ -49,6 +49,8 @@ ursamajor2     'Ursa Major II dSph'
 ursaminor      'Ursa Minor dSph'
 willman1       'Willman I dSph'
 
+multidsph      'Combined dSphs'
+
 # UNID
 1fglJ23470710  'FGL J2347.3+0710 (and so on)'
 
@@ -65,4 +67,4 @@ abell2029      'Abell 2029'
 perseuscluster 'Perseus (Abell 426)'
 fornaxcluster  'Fornax (Abell S0373)'
 comacluster    'Coma (Abell 1656)'
-multidsph      'N dSph galaxies'
+multicluster   'Combined galaxy clusters'

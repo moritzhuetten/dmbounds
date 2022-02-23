@@ -11,7 +11,7 @@
 # - {arxiv:            "1706.01277"}
 # - {instrument:       "hawc"}
 # - {year:             "2018"}
-# - {source:           "15 dSph galaxies"}
+# - {source:           "multidsph-15"}
 # - {channel:          "mumu"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}

@@ -11,7 +11,7 @@
 # - {arxiv:            "1810.00995"}
 # - {instrument:       "hess"}
 # - {year:             "2018"}
-# - {source:           "multidsph"}
+# - {source:           "multidsph-4"}
 # - {channel:          "gammagamma"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}

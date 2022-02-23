@@ -11,7 +11,7 @@
 # - {arxiv:            "1812.06986"}
 # - {instrument:       "lat"}
 # - {year:             "2020"}
-# - {source:           "27 dSph galaxies"}
+# - {source:           "multidsph-27"}
 # - {channel:          "ee"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}

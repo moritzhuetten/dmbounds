@@ -36,7 +36,7 @@
 # - {arxiv:            "1503.02641"}
 # - {instrument:       "lat"}
 # - {year:             "2015"}
-# - {source:           "25 dSph galaxies"}
+# - {source:           "multidsph-25"}
 # - {channel:          "mumu"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}

@@ -16,6 +16,7 @@ hess           H.E.S.S.
 veritas        VERITAS 
 whipple        WHIPPLE 
 cangaroo       CANGAROO 
+cta            CTA
 
 lat            FERMI-LAT 
 agile          AGILE 
@@ -23,3 +24,5 @@ agile          AGILE
 lhaaso         LHAASO 
 hawc           HAWC 
 swgo           SWGO 
+
+multi-inst     Multi-Instrument

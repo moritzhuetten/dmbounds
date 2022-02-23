@@ -11,7 +11,7 @@
 # - {arxiv:            "2111.15009"}
 # - {instrument:       "magic"}
 # - {year:             "2022"}
-# - {source:           "combined"}
+# - {source:           "multidsph-4"}
 # - {channel:          "mumu"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
