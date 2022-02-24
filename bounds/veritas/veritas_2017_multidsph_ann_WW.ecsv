@@ -13,7 +13,7 @@
 # - {arxiv:            "1703.04937"}
 # - {instrument:       "veritas"}
 # - {year:             "2017"}
-# - {source:           "Bootes I, Draco, Ursa Minor, Segue I"}
+# - {source:           "multidsph-4-booetes1-draco-ursaminor-segue1"}
 # - {channel:          "WW"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
