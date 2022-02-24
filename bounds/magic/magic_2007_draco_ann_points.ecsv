@@ -11,7 +11,7 @@
 # - {arxiv:            "0711.2574"}
 # - {instrument:       "magic"}
 # - {year:             "2007"}
-# - {source:           "Draco"}
+# - {source:           "draco"}
 # - {channel:          "points"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}

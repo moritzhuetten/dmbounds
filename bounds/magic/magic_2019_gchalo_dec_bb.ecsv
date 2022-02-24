@@ -11,7 +11,7 @@
 # - {arxiv:            "https://pos.sissa.it/358/538/"}
 # - {instrument:       "magic"}
 # - {year:             "2019"}
-# - {source:           "Galactic Halo"}
+# - {source:           "gchalo"}
 # - {channel:          "bb"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}

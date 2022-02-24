@@ -11,7 +11,7 @@
 # - {arxiv:            "1103.0477"}
 # - {instrument:       "magic"}
 # - {year:             "2011"}
-# - {source:           "Segue1"}
+# - {source:           "segue1"}
 # - {channel:          "bb"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}

@@ -11,7 +11,7 @@
 # - {arxiv:            "1806.11063"}
 # - {instrument:       "magic"}
 # - {year:             "2018"}
-# - {source:           "perseus"}
+# - {source:           "perseuscluster"}
 # - {channel:          "gammagamma"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}

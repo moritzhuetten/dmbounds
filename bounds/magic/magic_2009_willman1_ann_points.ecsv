@@ -11,7 +11,7 @@
 # - {arxiv:            "0810.3561"}
 # - {instrument:       "magic"}
 # - {year:             "2009"}
-# - {source:           "Willman1"}
+# - {source:           "willman1"}
 # - {channel:          "points"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}

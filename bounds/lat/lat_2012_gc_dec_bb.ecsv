@@ -15,7 +15,7 @@
 # - {channel:          "bb"}
 # - {confidence        "0.997" }
 # - {dmfraction:       "1"}
-# - {obs_time:         "24 monthsh"}
+# - {obs_time:         "24m"}
 # - {figure:           "Fig. 5"}
 # - {comment:          "constrained free source fit"}
 # - {status:           ""}

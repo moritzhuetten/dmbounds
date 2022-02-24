@@ -27,5 +27,5 @@ gammagamma  \gamma\gamma        'gamma gamma line'
 Zgamma      Z\gamma             'Z gamma line'
 points      points              'specific benchmarks DM models'
 KK          \text{KK}           'Kaluza-Klein DM'
-triplett
-quintuplett
+triplett    triplett            'Pure WIMP Triplett'
+quintuplett quintuplett         'Pure WIMP Quintuplett'
