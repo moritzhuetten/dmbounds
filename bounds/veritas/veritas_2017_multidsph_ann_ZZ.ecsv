@@ -3,7 +3,7 @@
 # %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
 # ---
 # datatype:
-# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
 # - {name: sigmav_lo , unit: cm3s-1  , datatype: float32 , description: <sigmav> -1 sig syst }
 # - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav> median      }
 # - {name: sigmav_hi , unit: cm3s-1  , datatype: float32 , description: <sigmav> +1 sig syst }

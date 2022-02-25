@@ -11,7 +11,7 @@
 # - {arxiv:            "1810.00995"}
 # - {instrument:       "hess"}
 # - {year:             "2018"}
-# - {source:           "fornax"}
+# - {source:           "fornaxdsph"}
 # - {channel:          "gammagamma"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}

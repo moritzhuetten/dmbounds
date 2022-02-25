@@ -3,7 +3,7 @@
 # %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
 # ---
 # datatype:
-# - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
 # - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
 # meta: !!omap
 # - {reference:        "Combined searches for dark matter in dwarf spheroidal galaxies observed with the MAGIC telescopes, including new data from Coma Berenices and Draco"}

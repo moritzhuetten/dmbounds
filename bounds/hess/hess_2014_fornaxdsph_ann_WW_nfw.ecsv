@@ -11,7 +11,7 @@
 # - {arxiv:            "1410.2589"}
 # - {instrument:       "hess"}
 # - {year:             "2014"}
-# - {source:           "fornax"}
+# - {source:           "fornaxdsph"}
 # - {channel:          "WW"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
