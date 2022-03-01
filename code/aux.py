@@ -1,6 +1,8 @@
 import numpy as np
 from scipy.interpolate import interp1d
 import astropy.units as u
+import matplotlib as mpl
+
 
 def log_interp1d(xx, yy, kind='linear', fill_value=np.nan):
     logx = np.log10(xx)
@@ -53,3 +55,50 @@ def get_names_str(name_tuple, name_dict):
 
 #def read_files():
     
+    
+class PlottingStyle:
+    def __init__(self, stylename, figshape='widerect', legend='side', energy_unit = 'TeV'):
+        
+        if stylename == 'antique':
+            from palettable.cartocolors.qualitative import Antique_10 as colormap
+            mpl.rcParams['image.cmap'] = mpl.colors.Colormap(colormap)
+            self.colors = colormap.mpl_colors
+            mpl.rcParams['axes.prop_cycle'] = mpl.cycler(color=self.colors)
+            mpl.rcParams['text.latex.preamble'] = [r'\usepackage{mathpazo}']
+            
+            self.frameon = False
+            pgf_with_rc_fonts = {                      # setup matplotlib to use latex for output
+            "pgf.texsystem": "pdflatex",        # change this if using xetex or lautex
+            "text.usetex": True,                # use LaTeX to write all text
+            "font.family": "Palatino",
+            "font.serif": [],                   # blank entries should cause plots to inherit fonts from the document
+            "font.sans-serif": [],
+            "font.monospace": [],
+            "axes.labelsize": 16,               # LaTeX default is 10pt font.
+            "font.size": 14,
+            "legend.fontsize": 14,               # Make the legend/label fonts a little smaller
+            "xtick.labelsize": 14,
+            "ytick.labelsize": 14,
+            "xtick.direction": "in",
+            "ytick.direction": "in",
+            "xtick.top": True,
+            "ytick.right": True,
+            "pgf.preamble": [
+                r"\usepackage[utf8x]{inputenc}",    # use utf8 fonts becasue your computer can handle it :)
+                r"\usepackage[T1]{fontenc}",        # plots will be generated using this preamble
+                r"\usepackage{mathpazo}",
+                ]
+            }
+            
+            
+            
+        if figshape == 'widerect':
+            self.ratio = 0.65
+            self.image_resolution = 5000
+            self.figwidth  = 30/ 2.54 
+            self.figheight  = self.ratio * self.figwidth
+
+        mpl.rcParams.update(pgf_with_rc_fonts)
+
+        self.energy_unit = energy_unit
+        self.legend = legend
