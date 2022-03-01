@@ -1,0 +1,88 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Combined searches for dark matter in dwarf spheroidal galaxies observed with the MAGIC telescopes, including new data from Coma Berenices and Draco"}
+# - {doi:              "10.1016/j.dark.2021.100912"}
+# - {arxiv:            "2111.15009"}
+# - {instrument:       "magic"}
+# - {year:             "2022"}
+# - {source:           "ursamajor2"}
+# - {channel:          "ee"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_time:         "h"}
+# - {figure:           "Fig. 4"}
+# - {comment:          ""}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+7.02e+1 1.61e-22
+8.20e+1 8.77e-23
+9.15e+1 6.29e-23
+1.04e+2 4.31e-23
+1.17e+2 2.84e-23
+1.35e+2 2.03e-23
+1.52e+2 1.42e-23
+1.71e+2 1.19e-23
+1.87e+2 1.12e-23
+2.12e+2 1.02e-23
+2.46e+2 1.02e-23
+2.64e+2 1.01e-23
+3.04e+2 9.64e-24
+3.51e+2 9.86e-24
+3.86e+2 1.01e-23
+4.38e+2 1.09e-23
+5.10e+2 1.21e-23
+5.45e+2 1.25e-23
+6.19e+2 1.35e-23
+7.24e+2 1.55e-23
+7.59e+2 1.55e-23
+8.98e+2 1.34e-23
+1.03e+3 1.20e-23
+1.12e+3 1.10e-23
+1.27e+3 1.02e-23
+1.46e+3 1.09e-23
+1.58e+3 1.18e-23
+1.78e+3 1.44e-23
+2.03e+3 1.84e-23
+2.24e+3 2.10e-23
+2.45e+3 2.46e-23
+2.79e+3 3.10e-23
+3.07e+3 3.56e-23
+3.46e+3 4.52e-23
+3.88e+3 5.58e-23
+4.44e+3 7.36e-23
+4.85e+3 8.56e-23
+5.45e+3 1.02e-22
+6.22e+3 1.16e-22
+6.70e+3 1.24e-22
+7.65e+3 1.27e-22
+8.72e+3 1.27e-22
+9.64e+3 1.24e-22
+1.10e+4 1.34e-22
+1.26e+4 1.53e-22
+1.37e+4 1.67e-22
+1.55e+4 1.94e-22
+1.77e+4 2.33e-22
+1.92e+4 2.56e-22
+2.16e+4 2.97e-22
+2.48e+4 3.62e-22
+2.72e+4 4.15e-22
+3.04e+4 4.90e-22
+3.44e+4 5.82e-22
+3.78e+4 6.78e-22
+4.15e+4 8.00e-22
+4.77e+4 1.02e-21
+5.12e+4 1.11e-21
+5.80e+4 1.39e-21
+6.61e+4 1.72e-21
+7.11e+4 1.95e-21
+7.97e+4 2.33e-21
+9.10e+4 2.87e-21
+1.00e+5 3.34e-21
