@@ -1,0 +1,55 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Precise Relic WIMP Abundance and its Impact on Searches for Dark Matter Annihilation"}
+# - {doi:              "10.1103/PhysRevD.86.023506"}
+# - {arxiv:            "1204.3622"}
+# - {year:             "2012"}
+# - {figure:           "Fig. 5"}
+# - {comment:          "Numerical calculation"}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+
+0.1   4.754e-26
+0.125 4.819e-26
+0.163 4.904e-26
+0.218 4.983e-26
+0.312 5.042e-26
+0.422 5.003e-26
+0.543 4.950e-26
+0.699 4.832e-26
+0.944 4.740e-26
+1.171 4.629e-26
+1.720 4.537e-26
+2.267 4.380e-26
+2.587 4.203e-26
+2.988 3.980e-26
+3.451 3.691e-26
+3.709 3.488e-26
+4.336 3.219e-26
+4.660 3.009e-26
+5.254 2.819e-26
+5.996 2.688e-26
+8.095 2.537e-26
+11.74 2.406e-26
+18.09 2.268e-26
+24.72 2.249e-26
+35.44 2.190e-26
+64.59 2.209e-26
+106.9 2.203e-26
+164.7 2.262e-26
+263.1 2.301e-26
+420.3 2.334e-26
+823.2 2.340e-26
+1574. 2.334e-26
+3353. 2.314e-26
+5756. 2.340e-26
+10000 2.400e-26
+
