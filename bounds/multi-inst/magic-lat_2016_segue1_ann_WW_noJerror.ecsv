@@ -17,7 +17,7 @@
 # - {dmfraction:       "1"}
 # - {obs_time:         "h"}
 # - {figure:           "Fig. 3"}
-# - {comment:          ""}
+# - {comment:          "No error in J"}
 # - {status:           ""}
 # schema : astropy −2.0
 
