@@ -2,6 +2,12 @@ import numpy as np
 from scipy.interpolate import interp1d
 import astropy.units as u
 import matplotlib as mpl
+from matplotlib import pyplot as plt
+import random
+from astropy.io import ascii
+import glob
+import pandas as pd
+import logging
 
 
 def log_interp1d(xx, yy, kind='linear', fill_value=np.nan):
@@ -54,17 +60,21 @@ def get_names_str(name_tuple, name_dict):
         print("Error")
 
 #def read_files():
-    
+def intersection2(lst1, lst2):
+    return list(set(lst1) & set(lst2))    
+
+def intersection3(lst1, lst2, lst3):
+    return list(set(lst1) & set(lst2) & set(lst3))  
     
 class PlottingStyle:
-    def __init__(self, stylename, figshape='widerect', legend='side', energy_unit = 'TeV'):
+    def __init__(self, stylename, figshape='widerect', legend='side', energy_unit = 'TeV', mode = 'ann'):
         
         if stylename == 'antique':
             from palettable.cartocolors.qualitative import Antique_10 as colormap
             mpl.rcParams['image.cmap'] = mpl.colors.Colormap(colormap)
             self.colors = colormap.mpl_colors
             mpl.rcParams['axes.prop_cycle'] = mpl.cycler(color=self.colors)
-            mpl.rcParams['text.latex.preamble'] = [r'\usepackage{mathpazo}']
+            mpl.rcParams['text.latex.preamble'] = r'\usepackage{mathpazo}'
             
             self.frameon = False
             pgf_with_rc_fonts = {                      # setup matplotlib to use latex for output
@@ -83,14 +93,44 @@ class PlottingStyle:
             "ytick.direction": "in",
             "xtick.top": True,
             "ytick.right": True,
-            "pgf.preamble": [
-                r"\usepackage[utf8x]{inputenc}",    # use utf8 fonts becasue your computer can handle it :)
-                r"\usepackage[T1]{fontenc}",        # plots will be generated using this preamble
-                r"\usepackage{mathpazo}",
-                ]
+            "pgf.preamble": 
+                r"\usepackage[utf8x]{inputenc} \
+                \usepackage[T1]{fontenc} \
+                \usepackage{mathpazo}"
+                
             }
+
+        elif stylename == 'standard':
+            from palettable.cartocolors.qualitative import Antique_10 as colormap
+            mpl.rcParams['image.cmap'] = mpl.colors.Colormap(colormap)
+            self.colors = colormap.mpl_colors
+            mpl.rcParams['axes.prop_cycle'] = mpl.cycler(color=self.colors)
+            mpl.rcParams['text.latex.preamble'] = r'\usepackage{mathpazo}'
             
-            
+            self.frameon = False
+            pgf_with_rc_fonts = {                      # setup matplotlib to use latex for output
+            "pgf.texsystem": "pdflatex",        # change this if using xetex or lautex
+            "text.usetex": True,                # use LaTeX to write all text
+            "font.family": "sans-serif",
+            "font.serif": [],                   # blank entries should cause plots to inherit fonts from the document
+            "font.sans-serif": [],
+            "font.monospace": [],
+            "axes.labelsize": 16,               # LaTeX default is 10pt font.
+            "font.size": 14,
+            "legend.fontsize": 14,               # Make the legend/label fonts a little smaller
+            "xtick.labelsize": 14,
+            "ytick.labelsize": 14,
+            "xtick.direction": "in",
+            "ytick.direction": "in",
+            "xtick.top": True,
+            "ytick.right": True,
+            "pgf.preamble": 
+                r"\usepackage[utf8x]{inputenc} \
+                \usepackage[T1]{fontenc} \
+                \usepackage{mathpazo}"
+            }            
+        else:
+            print("unknow style name",stylename)    
             
         if figshape == 'widerect':
             self.ratio = 0.65
@@ -102,3 +142,197 @@ class PlottingStyle:
 
         self.energy_unit = energy_unit
         self.legend = legend
+        self.mode = mode[:3]
+        
+        if mode[:3] == 'ann':
+            self.ymin = 1e-27
+            self.ymax = 5e-20
+            self.ylabel = r'$\langle\sigma v \rangle$ $[\mathrm{cm^3\,s^{-1}}]$'
+        elif mode[:3] == 'dec':
+            self.ymin = 1e20
+            self.ymax = 5e27
+            self.ylabel = r'$\tau$ $[\mathrm{s}]$'           
+            
+def plotting(df_full, i_vec, style, instrument_dict, target_dict, channel_dict):
+    metadata_filtered_df = df_full.loc[i_vec]
+
+    data_raw_vec = []
+    labels_plot = []
+    labels_plot_short = []
+    xmin = 1e6*u.TeV
+    xmax = 1e-6*u.TeV
+    
+    if style.mode == 'ann':
+        blindval = 1e40
+    else:
+        blindval = 1e-40
+
+    for index, row in metadata_filtered_df.iterrows():
+        data_raw = ascii.read(row['File name'])
+        if row['Mode'] == 'ann':
+            yaxis = 'sigmav'
+        else:
+            yaxis = 'tau'
+        data_raw_vec.append([data_raw['mass'], data_raw[yaxis]])
+        if min(data_raw['mass'].to('TeV')) < xmin: xmin = min(data_raw['mass'].to('TeV'))
+        if max(data_raw['mass'].to('TeV')) > xmax: xmax = max(data_raw['mass'].to('TeV'))
+
+        label_str = r''
+        label_str += get_names_str(row['Instrument'], instrument_dict)
+        label_str += ' (' + row['Year'] + ')'
+        labels_plot_short.append(label_str)
+        label_str += ': ' + get_names_str(row['Target'], target_dict) + ', $' + get_names_str(row['Channel'], channel_dict) + '$'
+        labels_plot.append(label_str)
+
+    xmin /= 2
+    xmax *= 2
+    x_grid = make_grid(xmin, xmax, npoints=2000, unit=style.energy_unit, log=True)
+    n_plot =  len(data_raw_vec)
+
+    data_to_plot = []
+    for index in range(n_plot):
+
+        data_gridded = data_on_grid(data_raw_vec[index][0], data_raw_vec[index][1], x_grid, interpolation_kind='quadratic', fill_value = blindval)
+        data_to_plot.append(data_gridded)
+
+    envelope= []
+    for i in range(len(x_grid)):
+        minvals = []
+        for j in range(len(data_to_plot)):
+            val = data_to_plot[j][i].value
+            if np.isnan(val): val = blindval
+            minvals.append(val)
+        if style.mode == 'ann':
+            envelope.append(0.95*min(minvals))
+        else:
+            envelope.append(1.05*max(minvals))
+
+    plot_limits = plt.figure(figsize=(style.figwidth, style.figheight))
+
+
+    random_order = list(range(n_plot))
+    random.shuffle(random_order)
+
+    for j in range(n_plot):
+
+
+        plt.plot(x_grid, data_to_plot[j], label=labels_plot[j], color=style.colors[random_order[j]])
+        if style.mode == 'ann':
+            plt.fill_between(x_grid.value, data_to_plot[j].value, np.ones(len(x_grid)), alpha=0.1, color=style.colors[random_order[j]])
+        else:
+            plt.fill_between(x_grid.value, np.ones(len(x_grid)), data_to_plot[j].value, alpha=0.1, color=style.colors[random_order[j]])
+        if style.legend == 'fancy':  
+            i_legend = next(x[0] for x in enumerate(data_to_plot[j].value) if x[1] < 1e40)
+            plt.text(x_grid[i_legend].value, 0.9*style.ymax,  labels_plot_short[j], horizontalalignment='right', verticalalignment='top', snap=True, color=style.colors[random_order[j]], rotation=90)
+
+    plt.plot(x_grid, envelope, linewidth=5, color='k', alpha=0.2)
+
+    if style.legend == 'side':
+        plt.legend(bbox_to_anchor=(1.02,1), loc="upper left", frameon=style.frameon)
+
+    if style.mode == 'ann':
+        wimp_model = ascii.read("modelpredictions/wimp_steigman2012_numerical.ecsv")
+        plt.text(wimp_model["mass"].to(style.energy_unit)[-1].value, wimp_model["sigmav"][-1],  "Steigman et al. (2012) thermal WIMP prediction", horizontalalignment='right', verticalalignment='bottom', snap=True, color='k', alpha=0.3)
+        wimp_model_gridded = data_on_grid(wimp_model["mass"], wimp_model["sigmav"], x_grid, interpolation_kind='quadratic', fill_value = 1e-40)
+        plt.fill_between(x_grid.value, np.zeros(2000), wimp_model_gridded.value, color='k', alpha=0.1)
+
+
+    plt.xscale('log')
+    plt.yscale('log')
+    plt.ylim([style.ymin, style.ymax])
+    plt.xlim([xmin.to(style.energy_unit).value, xmax.to(style.energy_unit).value]);
+
+    plt.xlabel(r'$m_{\mathrm{DM}}$ $\mathrm{[' +style.energy_unit + ']}$');
+    plt.ylabel(style.ylabel);
+    
+    return plot_limits
+    
+def filter_dataframe(metadata_df, Mode, Instrument, Channel, instrument_dict):
+        
+    mode_list = metadata_df.index[metadata_df['Mode'] == Mode[:3]].tolist()
+
+    if Instrument == 'all':
+        inst_list = metadata_df.index.tolist()
+    else:
+        inst_key = get_key_from_value(instrument_dict, Instrument)[0]
+        if inst_key == 'multi-inst':
+            inst_list = metadata_df.index[metadata_df['Instrument'].apply(type) == list].tolist()
+        else:
+            inst_list = metadata_df.index[metadata_df['Instrument'] == inst_key].tolist()
+
+    if Channel == 'all':
+        channel_list = metadata_df.index.tolist()
+    else:
+        channel_list = metadata_df.index[metadata_df['Channel'] == Channel].tolist()
+
+    return intersection3(mode_list, inst_list, channel_list)
+
+def load_metadata_df(instrument_dict):
+
+    files_all = []
+    for name in instrument_dict.keys():
+        files_all.append(glob.glob("bounds/"+ name +"/*.ecsv"))
+    files_all = [x for row in files_all for x in row]
+
+
+
+    metadata_df = pd.DataFrame(columns=('Instrument', 'Target', 'Mode', 'Channel', 'Year', 'Observation time','Title', 'DOI', 'Arxiv', 'Comment', 'File name'))
+
+    for i,file in enumerate(files_all):
+        filename = file.split("/")[-1][:-5]
+
+        file_inst_name = filename.split("_")[0]
+        file_year = filename.split("_")[1]
+        file_target = filename.split("_")[2]
+        file_mode = filename.split("_")[3]
+        file_channel = filename.split("_")[4]
+
+        metadata = ascii.read(file).meta
+
+        if metadata['instrument'][:10] == 'multi-inst':
+            instruments = metadata['instrument'].split("-")[2:]
+            meta_inst_name = 'multi-inst'
+            file_inst_name = meta_inst_name
+        else:
+            meta_inst_name = metadata['instrument']
+            instruments = metadata['instrument']
+
+        if metadata['source'][:5] == 'multi':
+            target_info = metadata['source'].split("-")
+            meta_target = target_info[0]        
+        else:
+            meta_target = metadata['source']
+            target_info = metadata['source']
+
+        try:
+            assert meta_inst_name == file_inst_name
+        except:
+            logging.warning("Instrument name not consistent in " + str(file))
+        try:
+            assert metadata['year'] == file_year
+        except:
+            logging.warning("Year not consistent in " + str(file))
+        try:
+            assert meta_target == file_target
+        except:
+            logging.warning("Target name not consistent in " + str(file))
+        try:
+            assert metadata['channel'] == file_channel
+        except:
+            logging.warning("Channel name not consistent in " + str(file))
+
+        metadata_df.loc[i] = [instruments, target_info, file_mode, metadata['channel'], metadata['year'], 
+                     metadata['obs_time'], metadata['reference'], metadata['doi'], metadata['arxiv'], metadata['comment'], file]
+        
+    return metadata_df
+
+def labels4dropdown(metadata_df, instrument_dict, target_dict):
+    labels = []
+    for index, row in metadata_df.iterrows():    
+        label_str = ''
+        label_str += get_names_str(row['Instrument'], instrument_dict)
+        label_str += ' (' + row['Year'] + '): ' + get_names_str(row['Target'], target_dict) + ', ' + row['Channel'] + ' (' + row['Mode'] + '.)'# + str(index)
+        if row['Comment'] != '':
+            label_str += ', ' + row['Comment']
+        labels.append(label_str)
+    return labels
