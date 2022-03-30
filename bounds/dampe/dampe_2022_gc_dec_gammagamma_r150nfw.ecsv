@@ -1,0 +1,95 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: tau       , unit: s       , datatype: float32 , description: Lifetime             }
+# meta: !!omap
+# - {reference:        "Search for gamma-ray spectral lines with the DArk Matter Particle Explorer"}
+# - {doi:              "10.1016/j.scib.2021.12.015"}
+# - {arxiv:            "2112.08860"}
+# - {instrument:       "dampe"}
+# - {year:             "2022"}
+# - {source:           "gc"}
+# - {channel:          "gammagamma"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_time:         "5y"}
+# - {figure:           "Fig. 3"}
+# - {comment:          "R150 NFW profile"}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass tau
+
+2.000e+1 1.108e+29
+2.165e+1 1.726e+29
+2.347e+1 8.906e+28
+2.533e+1 2.153e+29
+2.729e+1 1.533e+29
+2.926e+1 1.397e+29
+3.147e+1 1.061e+29
+3.364e+1 1.536e+29
+3.590e+1 4.005e+29
+3.831e+1 4.690e+29
+4.081e+1 1.657e+29
+4.335e+1 3.198e+29
+4.611e+1 2.632e+29
+4.874e+1 1.364e+29
+5.160e+1 1.262e+29
+5.472e+1 1.807e+29
+5.766e+1 1.003e+29
+6.105e+1 5.963e+29
+6.432e+1 1.364e+29
+6.756e+1 1.066e+29
+7.119e+1 1.289e+29
+7.454e+1 1.175e+29
+7.830e+1 2.075e+29
+8.211e+1 2.610e+29
+8.624e+1 1.016e+29
+9.016e+1 2.877e+29
+9.440e+1 1.611e+29
+9.884e+1 4.339e+29
+1.032e+2 1.391e+29
+1.084e+2 1.590e+29
+1.124e+2 3.311e+29
+1.177e+2 8.584e+28
+1.228e+2 8.584e+28
+1.280e+2 1.474e+29
+1.338e+2 3.610e+29
+1.509e+2 8.274e+28
+1.568e+2 2.243e+29
+1.636e+2 1.175e+29
+1.700e+2 2.908e+29
+1.771e+2 9.081e+28
+1.837e+2 2.093e+29
+1.923e+2 1.385e+29
+1.995e+2 2.243e+29
+2.079e+2 8.734e+28
+2.170e+2 9.219e+28
+2.254e+2 8.621e+28
+2.341e+2 2.638e+29
+2.447e+2 1.838e+29
+2.546e+2 3.116e+29
+2.653e+2 9.859e+28
+2.783e+2 1.091e+29
+2.877e+2 2.821e+29
+2.998e+2 1.043e+29
+3.124e+2 1.101e+29
+3.235e+2 9.524e+28
+3.376e+2 1.734e+29
+3.513e+2 9.200e+28
+3.655e+2 1.025e+29
+3.790e+2 9.859e+28
+3.962e+2 3.063e+29
+4.116e+2 7.127e+28
+4.289e+2 1.961e+29
+4.449e+2 5.545e+28
+4.621e+2 8.437e+28
+4.823e+2 2.352e+29
+5.002e+2 1.073e+29
+5.213e+2 1.970e+29
+5.423e+2 1.822e+29
+5.598e+2 7.251e+28
+5.983e+2 1.614e+29

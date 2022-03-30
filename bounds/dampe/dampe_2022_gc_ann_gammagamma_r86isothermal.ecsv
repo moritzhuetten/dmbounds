@@ -1,0 +1,94 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Search for gamma-ray spectral lines with the DArk Matter Particle Explorer"}
+# - {doi:              "10.1016/j.scib.2021.12.015"}
+# - {arxiv:            "2112.08860"}
+# - {instrument:       "dampe"}
+# - {year:             "2022"}
+# - {source:           "gc"}
+# - {channel:          "gammagamma"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_time:         "5y"}
+# - {figure:           "Fig. 3"}
+# - {comment:          "R86 isothermal profile"}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+
+1.000e+1 7.889e-29
+1.088e+1 1.059e-28
+1.174e+1 1.702e-28
+1.267e+1 1.109e-28
+1.364e+1 1.422e-28
+1.463e+1 9.515e-29
+1.564e+1 1.676e-28
+1.682e+1 1.741e-28
+1.795e+1 6.105e-29
+1.922e+1 5.990e-29
+2.048e+1 9.158e-29
+2.303e+1 1.067e-28
+2.442e+1 3.771e-28
+2.569e+1 2.267e-28
+2.724e+1 2.029e-28
+2.889e+1 2.907e-28
+3.039e+1 9.053e-29
+3.207e+1 2.504e-28
+3.364e+1 3.311e-28
+3.556e+1 3.440e-28
+3.705e+1 4.070e-28
+3.917e+1 4.311e-28
+4.107e+1 1.844e-28
+4.294e+1 3.858e-28
+4.489e+1 3.814e-28
+4.723e+1 6.105e-28
+4.929e+1 1.837e-28
+5.177e+1 7.169e-28
+5.412e+1 2.592e-28
+5.658e+1 3.162e-28
+6.135e+1 1.139e-27
+6.403e+1 5.120e-28
+6.683e+1 3.756e-28
+6.964e+1 6.591e-28
+7.258e+1 3.671e-28
+7.539e+1 9.811e-28
+7.844e+1 5.062e-28
+8.174e+1 8.165e-28
+8.518e+1 3.286e-28
+8.849e+1 1.258e-27
+9.221e+1 6.247e-28
+9.609e+1 7.680e-28
+9.998e+1 7.308e-28
+1.040e+2 1.851e-27
+1.081e+2 1.337e-27
+1.126e+2 1.211e-27
+1.181e+2 1.234e-27
+1.227e+2 1.170e-27
+1.270e+2 7.034e-28
+1.328e+2 2.562e-27
+1.379e+2 1.051e-27
+1.444e+2 1.113e-27
+1.493e+2 1.728e-27
+1.559e+2 1.880e-27
+1.627e+2 4.102e-27
+1.690e+2 1.000e-27
+1.758e+2 3.453e-27
+1.906e+2 2.438e-27
+1.990e+2 1.109e-27
+2.070e+2 2.724e-27
+2.144e+2 3.187e-27
+2.227e+2 5.402e-27
+2.324e+2 3.261e-27
+2.407e+2 1.322e-27
+2.504e+2 3.699e-27
+2.593e+2 3.236e-27
+2.715e+2 1.535e-27
+2.802e+2 6.744e-27
+3.005e+2 3.699e-27
