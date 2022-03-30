@@ -158,6 +158,7 @@ def plotting(df_full, i_vec, style, instrument_dict, target_dict, channel_dict):
 
     data_raw_vec = []
     labels_plot = []
+    interpol_style = []
     labels_plot_short = []
     xmin = 1e6*u.TeV
     xmax = 1e-6*u.TeV
@@ -183,6 +184,10 @@ def plotting(df_full, i_vec, style, instrument_dict, target_dict, channel_dict):
         labels_plot_short.append(label_str)
         label_str += ': ' + get_names_str(row['Target'], target_dict) + ', $' + get_names_str(row['Channel'], channel_dict) + '$'
         labels_plot.append(label_str)
+        if 'gammagamma' in row['Channel'] or 'Sommerfeld' in row['Comment']:
+            interpol_style.append('linear')
+        else:
+            interpol_style.append('quadratic')
 
     xmin /= 2
     xmax *= 2
@@ -192,18 +197,35 @@ def plotting(df_full, i_vec, style, instrument_dict, target_dict, channel_dict):
     data_to_plot = []
     ymin_data = style.ymin
     ymax_data = style.ymax
+    plot_minvalues = np.zeros(n_plot)
+    plot_maxvalues = np.zeros(n_plot)
     
     for index in range(n_plot):
 
-        data_gridded = data_on_grid(data_raw_vec[index][0], data_raw_vec[index][1], x_grid, interpolation_kind='quadratic', fill_value = blindval)
+        
+
+        data_gridded = data_on_grid(data_raw_vec[index][0], data_raw_vec[index][1], x_grid, interpolation_kind=interpol_style[index], fill_value = blindval)
         data_to_plot.append(data_gridded)
+        plot_minvalues[index] = min(data_raw_vec[index][1])
+        plot_maxvalues[index] = max(data_raw_vec[index][1])
+        
         if style.mode == 'ann':
             if min(data_gridded.value) < ymin_data:
                 ymin_data = 0.5 * min(data_gridded.value)
         else:
             if max(data_gridded.value) > ymax_data:
-                ymax_data = 2 * max(data_gridded.value)            
-
+                ymax_data = 2 * max(data_gridded.value)
+                           
+    
+    if len(plot_minvalues) > 1:
+        if style.mode == 'ann':
+            plot_ranking_ids = [i for i in reversed(np.argsort(plot_minvalues))]
+        else:
+            plot_ranking_ids = [i for i in reversed(np.argsort(plot_maxvalues))]
+    else:            
+        plot_ranking_ids = np.argsort(plot_minvalues)
+      
+    
     envelope= []
     for i in range(len(x_grid)):
         minvals = []
@@ -222,7 +244,7 @@ def plotting(df_full, i_vec, style, instrument_dict, target_dict, channel_dict):
     random_order = list(range(n_plot))
     random.shuffle(random_order)
 
-    for j in range(n_plot):
+    for j in plot_ranking_ids:
 
 
         plt.plot(x_grid, data_to_plot[j], label=labels_plot[j], color=style.colors[random_order[j]])
