@@ -190,10 +190,19 @@ def plotting(df_full, i_vec, style, instrument_dict, target_dict, channel_dict):
     n_plot =  len(data_raw_vec)
 
     data_to_plot = []
+    ymin_data = style.ymin
+    ymax_data = style.ymax
+    
     for index in range(n_plot):
 
         data_gridded = data_on_grid(data_raw_vec[index][0], data_raw_vec[index][1], x_grid, interpolation_kind='quadratic', fill_value = blindval)
         data_to_plot.append(data_gridded)
+        if style.mode == 'ann':
+            if min(data_gridded.value) < ymin_data:
+                ymin_data = 0.5 * min(data_gridded.value)
+        else:
+            if max(data_gridded.value) > ymax_data:
+                ymax_data = 2 * max(data_gridded.value)            
 
     envelope= []
     for i in range(len(x_grid)):
@@ -239,7 +248,7 @@ def plotting(df_full, i_vec, style, instrument_dict, target_dict, channel_dict):
 
     plt.xscale('log')
     plt.yscale('log')
-    plt.ylim([style.ymin, style.ymax])
+    plt.ylim([ymin_data, ymax_data])
     plt.xlim([xmin.to(style.energy_unit).value, xmax.to(style.energy_unit).value]);
 
     plt.xlabel(r'$m_{\mathrm{DM}}$ $\mathrm{[' +style.energy_unit + ']}$');
