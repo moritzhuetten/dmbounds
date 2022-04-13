@@ -1,0 +1,75 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: tau       , unit: s       , datatype: float32 , description: Lifetime             }
+# meta: !!omap
+# - {reference:        "Search for Dark Matter Gamma-ray Emission from the Andromeda Galaxy with the High-Altitude Water Cherenkov Observatory"}
+# - {doi:              "10.1088/1475-7516/2018/06/043"}
+# - {arxiv:            "1804.00628"}
+# - {instrument:       "hawc"}
+# - {year:             "2018"}
+# - {source:           "m31"}
+# - {channel:          "bb"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_time:         "1017d"}
+# - {figure:           "Fig. 5"}
+# - {comment:          "MED model"}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass tau
+
+1.007e+3 8.335e+24
+1.155e+3 1.088e+25
+1.268e+3 1.302e+25
+1.391e+3 1.546e+25
+1.526e+3 1.848e+25
+1.675e+3 2.212e+25
+1.838e+3 2.626e+25
+2.016e+3 3.141e+25
+2.212e+3 3.755e+25
+2.428e+3 4.458e+25
+2.664e+3 5.190e+25
+2.923e+3 5.954e+25
+3.207e+3 6.831e+25
+3.519e+3 7.831e+25
+3.861e+3 8.984e+25
+4.237e+3 1.031e+26
+4.649e+3 1.181e+26
+5.101e+3 1.347e+26
+5.597e+3 1.506e+26
+6.142e+3 1.683e+26
+6.739e+3 1.885e+26
+7.395e+3 2.103e+26
+8.114e+3 2.353e+26
+8.903e+3 2.636e+26
+9.769e+3 2.938e+26
+1.072e+4 3.197e+26
+1.176e+4 3.439e+26
+1.291e+4 3.703e+26
+1.416e+4 3.983e+26
+1.554e+4 4.284e+26
+1.705e+4 4.615e+26
+1.871e+4 4.965e+26
+2.053e+4 5.340e+26
+2.252e+4 5.753e+26
+2.471e+4 6.184e+26
+2.712e+4 6.529e+26
+2.976e+4 6.872e+26
+3.265e+4 7.245e+26
+3.582e+4 7.619e+26
+3.931e+4 8.020e+26
+4.313e+4 8.441e+26
+4.733e+4 8.878e+26
+5.193e+4 9.301e+26
+5.698e+4 9.677e+26
+6.252e+4 1.007e+27
+6.860e+4 1.048e+27
+7.528e+4 1.090e+27
+8.260e+4 1.134e+27
+9.063e+4 1.181e+27
+9.904e+4 1.227e+27
