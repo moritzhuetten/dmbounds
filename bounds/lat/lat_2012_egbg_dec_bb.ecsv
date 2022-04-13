@@ -1,0 +1,76 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: tau       , unit: s       , datatype: float32 , description: Lifetime             }
+# meta: !!omap
+# - {reference:        "Probing Dark Matter Decay and Annihilation with Fermi LAT Observations of Nearby Galaxy Clusters"}
+# - {doi:              "10.1088/1475-7516/2012/01/042"}
+# - {arxiv:            "1110.1529"}
+# - {instrument:       "lat"}
+# - {year:             "2012"}
+# - {source:           "egbg"}
+# - {channel:          "bb"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_time:         "3y"}
+# - {figure:           "Fig. 4"}
+# - {comment:          ""}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass tau
+
+2.018e+1 1.591e+26
+2.295e+1 1.680e+26
+2.581e+1 1.758e+26
+2.902e+1 1.863e+26
+3.277e+1 1.937e+26
+3.685e+1 2.019e+26
+4.161e+1 2.095e+26
+4.679e+1 2.192e+26
+5.283e+1 2.283e+26
+5.965e+1 2.373e+26
+6.708e+1 2.483e+26
+7.574e+1 2.551e+26
+8.552e+1 2.589e+26
+9.656e+1 2.627e+26
+1.086e+2 2.757e+26
+1.226e+2 2.887e+26
+1.376e+2 3.048e+26
+1.550e+2 3.219e+26
+1.770e+2 3.403e+26
+2.221e+2 3.751e+26
+2.494e+2 3.942e+26
+2.785e+2 4.201e+26
+3.189e+2 4.368e+26
+3.569e+2 4.423e+26
+4.030e+2 4.489e+26
+4.550e+2 4.556e+26
+5.137e+2 4.650e+26
+5.800e+2 4.772e+26
+6.549e+2 4.906e+26
+7.395e+2 4.997e+26
+8.349e+2 5.071e+26
+9.427e+2 5.147e+26
+1.064e+3 5.176e+26
+1.202e+3 5.224e+26
+1.357e+3 5.292e+26
+1.538e+3 5.341e+26
+1.737e+3 5.380e+26
+1.961e+3 5.420e+26
+2.214e+3 5.487e+26
+2.500e+3 5.542e+26
+2.823e+3 5.624e+26
+3.187e+3 5.666e+26
+3.599e+3 5.666e+26
+4.063e+3 5.708e+26
+4.588e+3 5.708e+26
+5.201e+3 5.729e+26
+5.873e+3 5.573e+26
+6.604e+3 5.420e+26
+7.457e+3 5.249e+26
+8.419e+3 5.059e+26
+9.911e+3 4.828e+26

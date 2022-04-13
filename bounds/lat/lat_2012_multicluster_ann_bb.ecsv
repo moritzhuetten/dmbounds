@@ -1,0 +1,75 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Probing Dark Matter Decay and Annihilation with Fermi LAT Observations of Nearby Galaxy Clusters"}
+# - {doi:              "10.1088/1475-7516/2012/01/042"}
+# - {arxiv:            "1110.1529"}
+# - {instrument:       "lat"}
+# - {year:             "2012"}
+# - {source:           "multicluster-8"}
+# - {channel:          "bb"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_time:         "3y"}
+# - {figure:           "Fig. 4"}
+# - {comment:          ""}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+
+1.031e+1 7.055e-25
+1.131e+1 7.404e-25
+1.192e+1 7.470e-25
+2.185e+1 9.456e-25
+2.381e+1 9.860e-25
+3.110e+1 1.129e-24
+3.399e+1 1.167e-24
+4.440e+1 1.319e-24
+4.853e+1 1.370e-24
+5.095e+1 1.412e-24
+6.339e+1 1.682e-24
+6.929e+1 1.802e-24
+9.051e+1 2.224e-24
+9.894e+1 2.386e-24
+1.282e+2 3.155e-24
+1.401e+2 3.448e-24
+1.729e+2 4.554e-24
+1.890e+2 5.216e-24
+2.040e+2 5.910e-24
+2.281e+2 6.852e-24
+2.489e+2 7.762e-24
+2.721e+2 9.064e-24
+3.554e+2 1.382e-23
+3.842e+2 1.578e-23
+5.284e+2 2.575e-23
+5.776e+2 3.039e-23
+6.314e+2 3.463e-23
+6.902e+2 3.967e-23
+7.545e+2 4.632e-23
+8.247e+2 5.336e-23
+9.015e+2 6.076e-23
+9.854e+2 6.836e-23
+1.077e+3 7.856e-23
+1.178e+3 9.120e-23
+1.287e+3 1.059e-22
+1.407e+3 1.221e-22
+1.538e+3 1.414e-22
+1.681e+3 1.623e-22
+1.838e+3 1.868e-22
+2.009e+3 2.144e-22
+2.196e+3 2.465e-22
+2.400e+3 2.826e-22
+2.624e+3 3.241e-22
+2.868e+3 3.688e-22
+3.135e+3 4.229e-22
+3.427e+3 4.915e-22
+3.746e+3 5.657e-22
+4.095e+3 6.466e-22
+4.477e+3 7.284e-22
+4.955e+3 8.472e-22

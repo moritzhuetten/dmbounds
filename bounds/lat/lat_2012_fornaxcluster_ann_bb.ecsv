@@ -1,0 +1,89 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Probing Dark Matter Decay and Annihilation with Fermi LAT Observations of Nearby Galaxy Clusters"}
+# - {doi:              "10.1088/1475-7516/2012/01/042"}
+# - {arxiv:            "1110.1529"}
+# - {instrument:       "lat"}
+# - {year:             "2012"}
+# - {source:           "fornaxcluster"}
+# - {channel:          "bb"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_time:         "3y"}
+# - {figure:           "Fig. 4"}
+# - {comment:          ""}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+
+1.010e+1 4.482e-25
+1.168e+1 4.711e-25
+1.277e+1 4.839e-25
+1.395e+1 4.959e-25
+1.525e+1 5.105e-25
+1.667e+1 5.302e-25
+1.823e+1 5.506e-25
+1.992e+1 5.731e-25
+2.178e+1 5.946e-25
+2.381e+1 6.182e-25
+2.602e+1 6.456e-25
+2.845e+1 6.795e-25
+3.110e+1 7.145e-25
+3.399e+1 7.512e-25
+3.716e+1 7.942e-25
+4.062e+1 8.434e-25
+4.440e+1 8.956e-25
+4.853e+1 9.501e-25
+5.305e+1 1.027e-24
+5.799e+1 1.116e-24
+6.339e+1 1.219e-24
+6.929e+1 1.322e-24
+7.575e+1 1.442e-24
+8.280e+1 1.570e-24
+9.051e+1 1.708e-24
+9.894e+1 1.872e-24
+1.081e+2 2.069e-24
+1.182e+2 2.305e-24
+1.292e+2 2.570e-24
+1.413e+2 2.876e-24
+1.544e+2 3.233e-24
+1.688e+2 3.691e-24
+1.845e+2 4.347e-24
+2.017e+2 4.878e-24
+2.205e+2 5.510e-24
+2.410e+2 6.235e-24
+2.634e+2 7.230e-24
+2.880e+2 8.477e-24
+3.148e+2 9.830e-24
+3.427e+2 1.116e-23
+3.792e+2 1.344e-23
+4.112e+2 1.540e-23
+4.494e+2 1.807e-23
+4.776e+2 1.976e-23
+5.377e+2 2.441e-23
+6.702e+2 3.534e-23
+8.422e+2 5.182e-23
+1.102e+3 8.181e-23
+1.308e+3 1.087e-22
+1.430e+3 1.253e-22
+1.563e+3 1.452e-22
+1.709e+3 1.664e-22
+1.868e+3 1.916e-22
+2.042e+3 2.200e-22
+2.232e+3 2.526e-22
+2.440e+3 2.900e-22
+2.667e+3 3.318e-22
+2.915e+3 3.779e-22
+3.187e+3 4.339e-22
+3.483e+3 4.970e-22
+3.808e+3 5.555e-22
+4.162e+3 6.209e-22
+4.513e+3 6.941e-22
+4.975e+3 7.994e-22
