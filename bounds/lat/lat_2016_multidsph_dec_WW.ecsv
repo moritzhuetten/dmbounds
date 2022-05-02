@@ -1,0 +1,60 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: tau       , unit: s       , datatype: float32 , description: Lifetime             }
+# meta: !!omap
+# - {reference:        "New Limits on the Dark Matter Lifetime from Dwarf Spheroidal Galaxies using Fermi-LAT"}
+# - {doi:              "10.1103/PhysRevD.93.103009"}
+# - {arxiv:            "1510.00389"}
+# - {instrument:       "lat"}
+# - {year:             "2016"}
+# - {source:           "multidsph-19"}
+# - {channel:          "WW"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_time:         "6y"}
+# - {figure:           "Fig. 2"}
+# - {comment:          ""}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass tau
+
+8.194e+1 5.077e+26
+9.990e+1 5.373e+26
+1.102e+2 5.452e+26
+1.253e+2 5.589e+26
+1.360e+2 5.578e+26
+1.938e+2 5.705e+26
+2.668e+2 5.608e+26
+3.203e+2 5.570e+26
+3.839e+2 5.485e+26
+4.582e+2 5.490e+26
+5.343e+2 5.401e+26
+5.980e+2 5.290e+26
+6.840e+2 5.236e+26
+7.655e+2 5.130e+26
+8.853e+2 5.007e+26
+1.002e+3 4.923e+26
+1.147e+3 4.822e+26
+1.314e+3 4.724e+26
+1.506e+3 4.628e+26
+1.676e+3 4.510e+26
+1.820e+3 4.441e+26
+2.084e+3 4.329e+26
+2.388e+3 4.219e+26
+2.804e+3 4.048e+26
+3.185e+3 3.905e+26
+3.609e+3 3.754e+26
+3.962e+3 3.671e+26
+4.409e+3 3.560e+26
+4.989e+3 3.434e+26
+5.621e+3 3.262e+26
+6.154e+3 3.228e+26
+6.906e+3 3.035e+26
+7.550e+3 2.983e+26
+9.000e+3 2.785e+26
+9.904e+3 2.724e+26
