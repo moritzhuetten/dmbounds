@@ -1,0 +1,88 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: tau       , unit: s       , datatype: float32 , description: Lifetime             }
+# meta: !!omap
+# - {reference:        "Constraints on Decaying Dark Matter from Fermi Observations of Nearby Galaxies and Clusters"}
+# - {doi:              "10.1088/1475-7516/2010/12/015"}
+# - {arxiv:            "1009.5988"}
+# - {instrument:       "lat"}
+# - {year:             "2010"}
+# - {source:           "comacluster"}
+# - {channel:          "bb"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_time:         "11m"}
+# - {figure:           "Fig. 1"}
+# - {comment:          ""}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass tau
+
+2.516e+1 1.683e+26
+2.799e+1 1.749e+26
+3.002e+1 1.793e+26
+3.219e+1 1.838e+26
+3.451e+1 1.885e+26
+3.701e+1 1.933e+26
+3.969e+1 1.979e+26
+4.259e+1 2.007e+26
+4.563e+1 2.032e+26
+4.893e+1 2.055e+26
+5.247e+1 2.080e+26
+5.627e+1 2.103e+26
+6.034e+1 2.128e+26
+6.470e+1 2.152e+26
+6.938e+1 2.179e+26
+7.440e+1 2.202e+26
+7.978e+1 2.229e+26
+8.555e+1 2.255e+26
+9.173e+1 2.281e+26
+9.837e+1 2.307e+26
+1.055e+2 2.324e+26
+1.131e+2 2.339e+26
+1.213e+2 2.350e+26
+1.301e+2 2.365e+26
+1.395e+2 2.378e+26
+1.495e+2 2.393e+26
+1.604e+2 2.404e+26
+1.720e+2 2.403e+26
+1.844e+2 2.398e+26
+1.977e+2 2.398e+26
+2.120e+2 2.378e+26
+2.274e+2 2.352e+26
+2.438e+2 2.326e+26
+2.614e+2 2.299e+26
+2.803e+2 2.274e+26
+3.006e+2 2.248e+26
+3.223e+2 2.224e+26
+3.457e+2 2.199e+26
+3.707e+2 2.174e+26
+3.975e+2 2.148e+26
+4.262e+2 2.107e+26
+4.570e+2 2.062e+26
+4.901e+2 2.020e+26
+5.255e+2 1.977e+26
+5.635e+2 1.936e+26
+6.043e+2 1.893e+26
+6.480e+2 1.845e+26
+6.948e+2 1.796e+26
+7.451e+2 1.751e+26
+7.889e+2 1.713e+26
+8.567e+2 1.661e+26
+9.187e+2 1.618e+26
+9.851e+2 1.577e+26
+1.030e+3 1.547e+26
+1.117e+3 1.491e+26
+1.230e+3 1.431e+26
+1.319e+3 1.388e+26
+1.415e+3 1.346e+26
+1.517e+3 1.306e+26
+1.626e+3 1.266e+26
+1.744e+3 1.225e+26
+1.870e+3 1.185e+26
+1.977e+3 1.155e+26

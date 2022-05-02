@@ -69,3 +69,10 @@ perseuscluster 'Perseus (Abell 426)'
 fornaxcluster  'Fornax (Abell S0373)'
 comacluster    'Coma (Abell 1656)'
 multicluster   'Combined galaxy clusters'
+m49            'M49'
+ngc4636        'NGC 4636'
+centaurus      'Centaurus'
+awm7           'AWM 7'
+
+#diffuse
+egbg           'Extragalactic gamma-ray background'
