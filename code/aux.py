@@ -252,9 +252,18 @@ def plotting(df_full, i_vec, style, instrument_dict, target_dict, channel_dict):
             plt.fill_between(x_grid.value, data_to_plot[j].value, np.ones(len(x_grid)), alpha=0.1, color=style.colors[random_order[j]])
         else:
             plt.fill_between(x_grid.value, np.ones(len(x_grid)), data_to_plot[j].value, alpha=0.1, color=style.colors[random_order[j]])
-        if style.legend == 'fancy':  
-            i_legend = next(x[0] for x in enumerate(data_to_plot[j].value) if x[1] < 1e40)
-            plt.text(x_grid[i_legend].value, 0.9*style.ymax,  labels_plot_short[j], horizontalalignment='right', verticalalignment='top', snap=True, color=style.colors[random_order[j]], rotation=90)
+            
+        if style.legend == 'fancy':
+            if style.mode == 'ann': 
+                i_legend = next(x[0] for x in enumerate(data_to_plot[j].value) if x[1] < 1e40)
+                valign = 'top'
+                vpad = 0.9*style.ymax
+            else:
+                i_legend = next(x[0] for x in enumerate(data_to_plot[j].value) if x[1] > 1e-40)
+                valign = 'bottom'
+                vpad = 1.2*style.ymin
+                
+            plt.text(x_grid[i_legend].value, vpad,  labels_plot_short[j], horizontalalignment='right', verticalalignment=valign, snap=True, color=style.colors[random_order[j]], rotation=90)
 
     plt.plot(x_grid, envelope, linewidth=5, color='k', alpha=0.2)
 
