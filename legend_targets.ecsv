@@ -12,7 +12,7 @@
 shortname      longname
 
 # GALACTIC CENTER AREA
-gc             'MW Centre'
+sgra           'MW Centre/Sgr A*'
 gc             'MW Inner Halo'
 gchalo         'MW Outer Halo'
 galplane       'Galactic Plane Survey'
