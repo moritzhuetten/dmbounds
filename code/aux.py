@@ -8,7 +8,8 @@ from astropy.io import ascii
 import glob
 import pandas as pd
 import logging
-
+import ipywidgets as wid
+from IPython.display import Markdown, clear_output
 
 def log_interp1d(xx, yy, kind='linear', fill_value=np.nan):
     logx = np.log10(xx)
@@ -376,3 +377,129 @@ def labels4dropdown(metadata_df, instrument_dict, target_dict):
             label_str += ', ' + row['Comment']
         labels.append(label_str)
     return labels
+
+def interactive_selection():
+    instrument_dict = table_to_dict(ascii.read("./legend_instruments.ecsv"),'shortname', 'longname')
+    channel_dict = table_to_dict(ascii.read("./legend_channels.ecsv"),'shortname', 'latex')
+    target_dict = table_to_dict(ascii.read("./legend_targets.ecsv"),'shortname', 'longname')
+
+    inst_list = list(instrument_dict.values())
+    inst_list.insert(0, 'all')
+
+    channel_list = list(channel_dict.keys())
+    channel_list.insert(0,'all')
+
+    metadata_df = load_metadata_df(instrument_dict)
+    labels = labels4dropdown(metadata_df, instrument_dict, target_dict)
+
+
+    def multi_checkbox_widget(options_dict):
+        """ Widget with a search field and lots of checkboxes """
+
+        style_widget = wid.Dropdown(options = ['antique', 'standard', 'fancy'], description='Plotting style')
+
+        mode_widget = wid.Dropdown(options = ['annihilation', 'decay'], description='Mode')
+        instrument_widget = wid.Dropdown(options = inst_list, description='Instrument')
+        channel_widget = wid.Dropdown(options = channel_list, description='Channel')
+
+        output_widget = wid.Output()
+        options = [x for x in options_dict.values()]
+
+        start_index_list = filter_dataframe(metadata_df, 'annihilation', 'all', 'all', instrument_dict)
+        start_options = []
+        for index in start_index_list: start_options.append(options[index])
+        start_options = sorted([x for x in start_options], key = lambda x: x.description, reverse = False)
+        style.__init__('antique', mode='ann')
+
+        options_layout = wid.Layout(
+            overflow='auto',
+            border='1px solid black',
+            width='950px',
+            height='200px',
+            flex_flow='row wrap',
+            display='flex',
+        )
+
+        #selected_widget = wid.Box(children=[options[0]])
+        options_widget = wid.VBox(options, layout=options_layout)
+        options_widget.children = start_options    
+        #print(options_widget.children)
+        #left_widget = wid.VBox(search_widget, selected_widget)
+        multi_select = wid.VBox([style_widget,mode_widget, instrument_widget, channel_widget, options_widget])
+
+        @output_widget.capture()
+        def on_checkbox_change(change):
+
+            selected_recipe = change["owner"].description
+            #print(options_widget.children)
+            #selected_item = wid.Button(description = change["new"])
+            #selected_widget.children = [] #selected_widget.children + [selected_item]
+            options_widget.children = sorted([x for x in options_widget.children], key = lambda x: x.description, reverse = False)
+            options_widget.children = sorted([x for x in options_widget.children], key = lambda x: x.value, reverse = True)
+            #options_widget.children = [x for x in options_widget.children]
+
+        for checkbox in options:
+            checkbox.observe(on_checkbox_change, names="value")
+
+        # Wire the search field to the checkboxes
+        @output_widget.capture()
+        def dropdown_change(*args):
+
+            index_list = filter_dataframe(metadata_df, 
+                                          mode_widget.value, 
+                                          instrument_widget.value, channel_widget.value, instrument_dict)
+            new_options = []
+            for index in index_list: new_options.append(options[index])
+            new_options = sorted([x for x in new_options], key = lambda x: x.description, reverse = False)
+            options_widget.children = sorted([x for x in new_options], key = lambda x: x.value, reverse = True)
+
+            clear_output()
+            display(Markdown('Filtered %d data sets.'%len(index_list)))
+            if args[0].owner.description == 'Mode':
+                clear_output()
+                display(Markdown('Attention when switching between annihilation and decay'))
+            if style_widget.value == 'fancy':
+                style.__init__('antique', legend='fancy', mode=mode_widget.value)
+            else:
+                style.__init__(style_widget.value, mode=mode_widget.value)
+
+        mode_widget.observe(dropdown_change)
+        instrument_widget.observe(dropdown_change)
+        channel_widget.observe(dropdown_change)
+        style_widget.observe(dropdown_change)
+
+        display(output_widget)
+        return multi_select
+
+    style = PlottingStyle('antique')
+    options_dict = {
+        x: wid.Checkbox(
+            description=x, 
+            value=False,
+            style={"description_width":"0px"},
+            layout=wid.Layout(width='100%', flex_flow='wrap')
+        ) for x in labels
+    }
+
+    def f(**args): 
+
+        i_vec = [index for index, (key, value) in enumerate(args.items()) if value]
+        if len(i_vec) > 0:
+            #display(Markdown('Selected %d data sets.'%len(i_vec)))
+            figure = plotting(metadata_df, i_vec, style, instrument_dict, target_dict, channel_dict)
+            #display(metadata_df.loc[i_vec])
+            return figure
+        else:
+            display(Markdown('Nothing selected'))
+
+        #display(results)
+
+    ui = multi_checkbox_widget(options_dict)
+    out = wid.interactive_output(f, options_dict)
+    display(wid.VBox([ui, out]))
+    
+    return options_dict, metadata_df
+
+def selected_metadata(options_dict, metadata_df):
+    i_vec = [index for index, (key, value) in enumerate(options_dict.items()) if value.value]
+    return metadata_df.loc[i_vec]
