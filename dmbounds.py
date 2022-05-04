@@ -10,6 +10,9 @@ import pandas as pd
 import logging
 import ipywidgets as wid
 from IPython.display import Markdown, clear_output, HTML
+import os
+
+module_dir = os.path.dirname(os.path.abspath(__file__))
 
 def log_interp1d(xx, yy, kind='linear', fill_value=np.nan):
     logx = np.log10(xx)
@@ -161,11 +164,11 @@ def plot(df, style=None, instrument_dict=None, target_dict=None, channel_dict=No
     if style==None:
         style = PlottingStyle('antique', mode=df.iloc[0]["Mode"])
     if instrument_dict==None:
-        instrument_dict = table_to_dict(ascii.read("./legend_instruments.ecsv"),'shortname', 'longname')
+        instrument_dict = table_to_dict(ascii.read(module_dir + "/legend_instruments.ecsv"),'shortname', 'longname')
     if channel_dict==None:
-        channel_dict = table_to_dict(ascii.read("./legend_channels.ecsv"),'shortname', 'latex')
+        channel_dict = table_to_dict(ascii.read(module_dir + "/legend_channels.ecsv"),'shortname', 'latex')
     if target_dict==None:
-        target_dict = table_to_dict(ascii.read("./legend_targets.ecsv"),'shortname', 'longname')
+        target_dict = table_to_dict(ascii.read(module_dir + "/legend_targets.ecsv"),'shortname', 'longname')
 
     data_raw_vec = []
     labels_plot = []
@@ -303,7 +306,7 @@ def plot(df, style=None, instrument_dict=None, target_dict=None, channel_dict=No
         plt.legend(bbox_to_anchor=(1.02,1), loc="upper left", frameon=style.frameon)
 
     if style.mode == 'ann':
-        wimp_model = ascii.read("modelpredictions/wimp_steigman2012_numerical.ecsv")
+        wimp_model = ascii.read(module_dir + "/modelpredictions/wimp_steigman2012_numerical.ecsv")
         plt.text(wimp_model["mass"].to(style.energy_unit)[-1].value, wimp_model["sigmav"][-1],  "Steigman et al. (2012) thermal WIMP prediction", horizontalalignment='right', verticalalignment='bottom', snap=True, color='k', alpha=0.3)
         wimp_model_gridded = data_on_grid(wimp_model["mass"], wimp_model["sigmav"], x_grid, interpolation_kind='quadratic', fill_value = 1e-40)
         plt.fill_between(x_grid.value, np.zeros(2000), wimp_model_gridded.value, color='k', alpha=0.1)
@@ -342,11 +345,11 @@ def filter_dataframe(metadata_df, Mode, Instrument, Channel, instrument_dict):
 def load_metadata(instrument_dict=None):
     
     if instrument_dict==None:
-        instrument_dict = table_to_dict(ascii.read("./legend_instruments.ecsv"),'shortname', 'longname')
+        instrument_dict = table_to_dict(ascii.read(module_dir + "/legend_instruments.ecsv"),'shortname', 'longname')
 
     files_all = []
     for name in instrument_dict.keys():
-        files_all.append(glob.glob("bounds/"+ name +"/*.ecsv"))
+        files_all.append(glob.glob(module_dir + "/bounds/"+ name +"/*.ecsv"))
     files_all = [x for row in files_all for x in row]
 
 
@@ -413,9 +416,9 @@ def labels4dropdown(metadata_df, instrument_dict, target_dict):
     return labels
 
 def interactive_selection():
-    instrument_dict = table_to_dict(ascii.read("./legend_instruments.ecsv"),'shortname', 'longname')
-    channel_dict = table_to_dict(ascii.read("./legend_channels.ecsv"),'shortname', 'latex')
-    target_dict = table_to_dict(ascii.read("./legend_targets.ecsv"),'shortname', 'longname')
+    instrument_dict = table_to_dict(ascii.read(module_dir + "/legend_instruments.ecsv"),'shortname', 'longname')
+    channel_dict = table_to_dict(ascii.read(module_dir + "/legend_channels.ecsv"),'shortname', 'latex')
+    target_dict = table_to_dict(ascii.read(module_dir + "/legend_targets.ecsv"),'shortname', 'longname')
 
     inst_list = list(instrument_dict.values())
     inst_list.insert(0, 'all')
