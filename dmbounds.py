@@ -9,7 +9,7 @@ import glob
 import pandas as pd
 import logging
 import ipywidgets as wid
-from IPython.display import Markdown, clear_output
+from IPython.display import Markdown, clear_output, HTML
 
 def log_interp1d(xx, yy, kind='linear', fill_value=np.nan):
     logx = np.log10(xx)
@@ -144,18 +144,28 @@ class PlottingStyle:
         self.energy_unit = energy_unit
         self.legend = legend
         self.mode = mode[:3]
+
+        self.ymin = None
+        self.ymax = None
+        self.dynamic_plotrange = False
         
+        self.color_cycle = 'random'
+       
         if mode[:3] == 'ann':
-            self.ymin = 1e-27
-            self.ymax = 5e-20
             self.ylabel = r'$\langle\sigma v \rangle$ $[\mathrm{cm^3\,s^{-1}}]$'
         elif mode[:3] == 'dec':
-            self.ymin = 1e20
-            self.ymax = 5e27
             self.ylabel = r'$\tau$ $[\mathrm{s}]$'           
             
-def plotting(df_full, i_vec, style, instrument_dict, target_dict, channel_dict):
-    metadata_filtered_df = df_full.loc[i_vec]
+def plot(df, style=None, instrument_dict=None, target_dict=None, channel_dict=None):
+
+    if style==None:
+        style = PlottingStyle('antique', mode=df.iloc[0]["Mode"])
+    if instrument_dict==None:
+        instrument_dict = table_to_dict(ascii.read("./legend_instruments.ecsv"),'shortname', 'longname')
+    if channel_dict==None:
+        channel_dict = table_to_dict(ascii.read("./legend_channels.ecsv"),'shortname', 'latex')
+    if target_dict==None:
+        target_dict = table_to_dict(ascii.read("./legend_targets.ecsv"),'shortname', 'longname')
 
     data_raw_vec = []
     labels_plot = []
@@ -164,12 +174,23 @@ def plotting(df_full, i_vec, style, instrument_dict, target_dict, channel_dict):
     xmin = 1e6*u.TeV
     xmax = 1e-6*u.TeV
     
+    dynamic_plotrange = False
     if style.mode == 'ann':
         blindval = 1e40
+        if style.ymin == None:
+            style.ymin = 1e-27
+            style.dynamic_plotrange = True
+        if style.ymax == None:
+            style.ymax = 5e-20
     else:
         blindval = 1e-40
+        if style.ymin == None:
+            style.ymin = 1e20
+        if style.ymax == None:
+            style.ymax = 5e27
+            style.dynamic_plotrange = True 
 
-    for index, row in metadata_filtered_df.iterrows():
+    for index, row in df.iterrows():
         data_raw = ascii.read(row['File name'])
         if row['Mode'] == 'ann':
             yaxis = 'sigmav'
@@ -203,17 +224,15 @@ def plotting(df_full, i_vec, style, instrument_dict, target_dict, channel_dict):
     
     for index in range(n_plot):
 
-        
-
         data_gridded = data_on_grid(data_raw_vec[index][0], data_raw_vec[index][1], x_grid, interpolation_kind=interpol_style[index], fill_value = blindval)
         data_to_plot.append(data_gridded)
         plot_minvalues[index] = min(data_raw_vec[index][1])
         plot_maxvalues[index] = max(data_raw_vec[index][1])
         
-        if style.mode == 'ann':
+        if style.mode == 'ann' and style.dynamic_plotrange:
             if min(data_gridded.value) < ymin_data:
                 ymin_data = 0.5 * min(data_gridded.value)
-        else:
+        elif style.mode == 'dec' and style.dynamic_plotrange:
             if max(data_gridded.value) > ymax_data:
                 ymax_data = 2 * max(data_gridded.value)
                            
@@ -240,19 +259,31 @@ def plotting(df_full, i_vec, style, instrument_dict, target_dict, channel_dict):
             envelope.append(1.05*max(minvals))
 
     plot_limits = plt.figure(figsize=(style.figwidth, style.figheight))
+    ax = plt.gca()
 
-
-    random_order = list(range(n_plot))
-    random.shuffle(random_order)
+    if style.color_cycle == 'random':
+        random_order = list(range(n_plot))
+        random.shuffle(random_order)
+        order = random_order
+    elif style.color_cycle == 'standard':
+        order = list(range(n_plot))
+    else:
+        if len(style.color_cycle) < n_plot:
+            logging.error("Color cycle must be as long as # of plotted limits")
+        order = style.color_cycle
 
     for j in plot_ranking_ids:
+        
+        try:
+            color = style.colors[order[j]]
+        except:
+            color = order[j]
 
-
-        plt.plot(x_grid, data_to_plot[j], label=labels_plot[j], color=style.colors[random_order[j]])
+        plt.plot(x_grid, data_to_plot[j], label=labels_plot[j], color=color)
         if style.mode == 'ann':
-            plt.fill_between(x_grid.value, data_to_plot[j].value, np.ones(len(x_grid)), alpha=0.1, color=style.colors[random_order[j]])
+            plt.fill_between(x_grid.value, data_to_plot[j].value, np.ones(len(x_grid)), alpha=0.1, color=color)
         else:
-            plt.fill_between(x_grid.value, np.ones(len(x_grid)), data_to_plot[j].value, alpha=0.1, color=style.colors[random_order[j]])
+            plt.fill_between(x_grid.value, np.ones(len(x_grid)), data_to_plot[j].value, alpha=0.1, color=color)
             
         if style.legend == 'fancy':
             if style.mode == 'ann': 
@@ -264,7 +295,7 @@ def plotting(df_full, i_vec, style, instrument_dict, target_dict, channel_dict):
                 valign = 'bottom'
                 vpad = 1.2*style.ymin
                 
-            plt.text(x_grid[i_legend].value, vpad,  labels_plot_short[j], horizontalalignment='right', verticalalignment=valign, snap=True, color=style.colors[random_order[j]], rotation=90)
+            plt.text(x_grid[i_legend].value, vpad,  labels_plot_short[j], horizontalalignment='right', verticalalignment=valign, snap=True, color=color, rotation=90)
 
     plt.plot(x_grid, envelope, linewidth=5, color='k', alpha=0.2)
 
@@ -286,7 +317,7 @@ def plotting(df_full, i_vec, style, instrument_dict, target_dict, channel_dict):
     plt.xlabel(r'$m_{\mathrm{DM}}$ $\mathrm{[' +style.energy_unit + ']}$');
     plt.ylabel(style.ylabel);
     
-    return plot_limits
+    return plot_limits, ax
     
 def filter_dataframe(metadata_df, Mode, Instrument, Channel, instrument_dict):
         
@@ -308,7 +339,10 @@ def filter_dataframe(metadata_df, Mode, Instrument, Channel, instrument_dict):
 
     return intersection3(mode_list, inst_list, channel_list)
 
-def load_metadata_df(instrument_dict):
+def load_metadata(instrument_dict=None):
+    
+    if instrument_dict==None:
+        instrument_dict = table_to_dict(ascii.read("./legend_instruments.ecsv"),'shortname', 'longname')
 
     files_all = []
     for name in instrument_dict.keys():
@@ -389,7 +423,7 @@ def interactive_selection():
     channel_list = list(channel_dict.keys())
     channel_list.insert(0,'all')
 
-    metadata_df = load_metadata_df(instrument_dict)
+    metadata_df = load_metadata(instrument_dict)
     labels = labels4dropdown(metadata_df, instrument_dict, target_dict)
 
 
@@ -485,8 +519,9 @@ def interactive_selection():
 
         i_vec = [index for index, (key, value) in enumerate(args.items()) if value]
         if len(i_vec) > 0:
+            metadata_filtered_df = metadata_df.loc[i_vec]
             #display(Markdown('Selected %d data sets.'%len(i_vec)))
-            figure = plotting(metadata_df, i_vec, style, instrument_dict, target_dict, channel_dict)
+            figure, ax = plot(metadata_filtered_df, style, instrument_dict, target_dict, channel_dict)
             #display(metadata_df.loc[i_vec])
             return figure
         else:
@@ -500,6 +535,18 @@ def interactive_selection():
     
     return options_dict, metadata_df
 
-def selected_metadata(options_dict, metadata_df):
+def filter_metadata(options_dict, metadata_df):
     i_vec = [index for index, (key, value) in enumerate(options_dict.items()) if value.value]
     return metadata_df.loc[i_vec]
+
+def get_data(df):
+    data = []
+    for index, row in df.iterrows():
+        data.append(ascii.read(row['File name']))
+    return data
+
+def show_metadata(metadata):
+    metadata_disp = metadata.copy()  
+    metadata_disp['DOI'] = metadata_disp['DOI'].apply(lambda x: f'<a href="https://doi.org/{x}" target=_blank>{x}</a>')
+    metadata_disp['Arxiv'] = metadata_disp['Arxiv'].apply(lambda x: f'<a href="https://arxiv.org/abs/{x}" target=_blank>{x}</a>')
+    return HTML(metadata_disp.to_html(render_links=True, escape=False))
