@@ -159,16 +159,10 @@ class PlottingStyle:
         elif mode[:3] == 'dec':
             self.ylabel = r'$\tau$ $[\mathrm{s}]$'           
             
-def plot(df, style=None, instrument_dict=None, target_dict=None, channel_dict=None):
+def plot(df, style=None):
 
     if style==None:
         style = PlottingStyle('antique', mode=df.iloc[0]["Mode"])
-    if instrument_dict==None:
-        instrument_dict = table_to_dict(ascii.read(module_dir + "/legend_instruments.ecsv"),'shortname', 'longname')
-    if channel_dict==None:
-        channel_dict = table_to_dict(ascii.read(module_dir + "/legend_channels.ecsv"),'shortname', 'latex')
-    if target_dict==None:
-        target_dict = table_to_dict(ascii.read(module_dir + "/legend_targets.ecsv"),'shortname', 'longname')
 
     data_raw_vec = []
     labels_plot = []
@@ -322,14 +316,14 @@ def plot(df, style=None, instrument_dict=None, target_dict=None, channel_dict=No
     
     return plot_limits, ax
     
-def filter_dataframe(metadata_df, Mode, Instrument, Channel, instrument_dict):
+def filter_dataframe(metadata_df, Mode, Instrument, Channel):
         
     mode_list = metadata_df.index[metadata_df['Mode'] == Mode[:3]].tolist()
 
     if Instrument == 'all':
         inst_list = metadata_df.index.tolist()
     else:
-        inst_key = get_key_from_value(instrument_dict, Instrument)[0]
+        inst_key = get_key_from_value(Instrument)[0]
         if inst_key == 'multi-inst':
             inst_list = metadata_df.index[metadata_df['Instrument'].apply(type) == list].tolist()
         else:
@@ -342,10 +336,7 @@ def filter_dataframe(metadata_df, Mode, Instrument, Channel, instrument_dict):
 
     return intersection3(mode_list, inst_list, channel_list)
 
-def load_metadata(instrument_dict=None):
-    
-    if instrument_dict==None:
-        instrument_dict = table_to_dict(ascii.read(module_dir + "/legend_instruments.ecsv"),'shortname', 'longname')
+def load_metadata():
 
     files_all = []
     for name in instrument_dict.keys():
@@ -404,7 +395,7 @@ def load_metadata(instrument_dict=None):
         
     return metadata_df
 
-def labels4dropdown(metadata_df, instrument_dict, target_dict):
+def labels4dropdown(metadata_df):
     labels = []
     for index, row in metadata_df.iterrows():    
         label_str = ''
@@ -416,9 +407,6 @@ def labels4dropdown(metadata_df, instrument_dict, target_dict):
     return labels
 
 def interactive_selection():
-    instrument_dict = table_to_dict(ascii.read(module_dir + "/legend_instruments.ecsv"),'shortname', 'longname')
-    channel_dict = table_to_dict(ascii.read(module_dir + "/legend_channels.ecsv"),'shortname', 'latex')
-    target_dict = table_to_dict(ascii.read(module_dir + "/legend_targets.ecsv"),'shortname', 'longname')
 
     inst_list = list(instrument_dict.values())
     inst_list.insert(0, 'all')
@@ -426,8 +414,8 @@ def interactive_selection():
     channel_list = list(channel_dict.keys())
     channel_list.insert(0,'all')
 
-    metadata_df = load_metadata(instrument_dict)
-    labels = labels4dropdown(metadata_df, instrument_dict, target_dict)
+    metadata_df = load_metadata()
+    labels = labels4dropdown(metadata_df)
 
 
     def multi_checkbox_widget(options_dict):
@@ -442,7 +430,7 @@ def interactive_selection():
         output_widget = wid.Output()
         options = [x for x in options_dict.values()]
 
-        start_index_list = filter_dataframe(metadata_df, 'annihilation', 'all', 'all', instrument_dict)
+        start_index_list = filter_dataframe(metadata_df, 'annihilation', 'all', 'all')
         start_options = []
         for index in start_index_list: start_options.append(options[index])
         start_options = sorted([x for x in start_options], key = lambda x: x.description, reverse = False)
@@ -484,7 +472,7 @@ def interactive_selection():
 
             index_list = filter_dataframe(metadata_df, 
                                           mode_widget.value, 
-                                          instrument_widget.value, channel_widget.value, instrument_dict)
+                                          instrument_widget.value, channel_widget.value)
             new_options = []
             for index in index_list: new_options.append(options[index])
             new_options = sorted([x for x in new_options], key = lambda x: x.description, reverse = False)
@@ -524,7 +512,7 @@ def interactive_selection():
         if len(i_vec) > 0:
             metadata_filtered_df = metadata_df.loc[i_vec]
             #display(Markdown('Selected %d data sets.'%len(i_vec)))
-            figure, ax = plot(metadata_filtered_df, style, instrument_dict, target_dict, channel_dict)
+            figure, ax = plot(metadata_filtered_df, style)
             #display(metadata_df.loc[i_vec])
             return figure
         else:
@@ -553,3 +541,7 @@ def show_metadata(metadata):
     metadata_disp['DOI'] = metadata_disp['DOI'].apply(lambda x: f'<a href="https://doi.org/{x}" target=_blank>{x}</a>')
     metadata_disp['Arxiv'] = metadata_disp['Arxiv'].apply(lambda x: f'<a href="https://arxiv.org/abs/{x}" target=_blank>{x}</a>')
     return HTML(metadata_disp.to_html(render_links=True, escape=False))
+
+instrument_dict = table_to_dict(ascii.read(module_dir + "/legend_instruments.ecsv"),'shortname', 'longname')
+channel_dict = table_to_dict(ascii.read(module_dir + "/legend_channels.ecsv"),'shortname', 'latex')
+target_dict = table_to_dict(ascii.read(module_dir + "/legend_targets.ecsv"),'shortname', 'longname')
