@@ -7,7 +7,7 @@
 # - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
 # meta: !!omap
 # - {reference:        "Search for Dark Matter Annihilation Signals From the Fornax Galaxy Cluster With H.E.S.S."}
-# - {doi:              "10.1088/0004-637X/750/2/123"}
+# - {doi:              "10.1088/0004-637X/783/1/63"}
 # - {arxiv:            "1202.5494"}
 # - {instrument:       "hess"}
 # - {year:             "2012"}
