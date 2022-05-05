@@ -6,17 +6,17 @@
 # - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
 # - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
 # meta: !!omap
-# - {reference:        "Combined searches for dark matter in dwarf spheroidal galaxies observed with the MAGIC telescopes, incl"}
-# - {doi:              "10.1016/j.dark.2021.100912"}
-# - {arxiv:            "2111.15009"}
-# - {instrument:       "magic"}
-# - {year:             "2022"}
-# - {source:           "ursamajor2"}
-# - {channel:          "tautau"}
-# - {confidence        "0.95" }
+# - {reference:        ""}
+# - {doi:              ""}
+# - {arxiv:            ""}
+# - {instrument:       ""}
+# - {year:             ""}
+# - {source:           ""}
+# - {channel:          ""}
+# - {confidence        "" }
 # - {dmfraction:       "1"}
 # - {obs_time:         "h"}
-# - {figure:           "Fig. 4"}
+# - {figure:           ""}
 # - {comment:          ""}
 # - {status:           ""}
 # schema : astropy −2.0
