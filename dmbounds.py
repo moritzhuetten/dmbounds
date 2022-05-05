@@ -336,14 +336,12 @@ def filter_dataframe(metadata_df, Mode, Instrument, Channel):
 
     return intersection3(mode_list, inst_list, channel_list)
 
-def load_metadata():
+def init_metadata():
 
     files_all = []
     for name in instrument_dict.keys():
         files_all.append(glob.glob(module_dir + "/bounds/"+ name +"/*.ecsv"))
     files_all = [x for row in files_all for x in row]
-
-
 
     metadata_df = pd.DataFrame(columns=('Instrument', 'Target', 'Mode', 'Channel', 'Year', 'Observation time','Title', 'DOI', 'Arxiv', 'Comment', 'File name'))
 
@@ -395,6 +393,9 @@ def load_metadata():
         
     return metadata_df
 
+def metadata():
+    return metadata_df
+
 def labels4dropdown(metadata_df):
     labels = []
     for index, row in metadata_df.iterrows():    
@@ -414,7 +415,7 @@ def interactive_selection():
     channel_list = list(channel_dict.keys())
     channel_list.insert(0,'all')
 
-    metadata_df = load_metadata()
+    metadata_df = metadata()
     labels = labels4dropdown(metadata_df)
 
 
@@ -497,6 +498,13 @@ def interactive_selection():
         return multi_select
 
     style = PlottingStyle('antique')
+    
+    a,b = checkIfDuplicates_2(labels)
+    if a:
+        logging.error("Duplicate label entry found for %s. Please make it unique in the file header."%b)
+
+    
+    print(a,b)
     options_dict = {
         x: wid.Checkbox(
             description=x, 
@@ -542,6 +550,18 @@ def show_metadata(metadata):
     metadata_disp['Arxiv'] = metadata_disp['Arxiv'].apply(lambda x: f'<a href="https://arxiv.org/abs/{x}" target=_blank>{x}</a>')
     return HTML(metadata_disp.to_html(render_links=True, escape=False))
 
+def checkIfDuplicates_2(listOfElems):
+    ''' Check if given list contains any duplicates '''    
+    setOfElems = set()
+    for elem in listOfElems:
+        if elem in setOfElems:
+            return True, elem
+        else:
+            setOfElems.add(elem)         
+    return False, None
+
 instrument_dict = table_to_dict(ascii.read(module_dir + "/legend_instruments.ecsv"),'shortname', 'longname')
 channel_dict = table_to_dict(ascii.read(module_dir + "/legend_channels.ecsv"),'shortname', 'latex')
 target_dict = table_to_dict(ascii.read(module_dir + "/legend_targets.ecsv"),'shortname', 'longname')
+metadata_df = init_metadata()
+
