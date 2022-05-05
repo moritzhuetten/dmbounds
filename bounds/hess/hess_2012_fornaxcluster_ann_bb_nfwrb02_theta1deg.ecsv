@@ -17,8 +17,8 @@
 # - {dmfraction:       "1"}
 # - {obs_time:         "14.5h"}
 # - {figure:           "Fig. 5 erratum"}
-# - {comment:          "NFW RB02"}
-# - {status:           "theta = 1.0 degrees"}
+# - {comment:          "NFW RB02, theta = 1.0 degrees"}
+# - {status:           ""}
 # schema : astropy −2.0
 
 mass sigmav
