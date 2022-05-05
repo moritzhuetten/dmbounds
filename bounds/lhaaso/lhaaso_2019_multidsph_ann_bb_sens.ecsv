@@ -6,8 +6,7 @@
 # - {name: mass      , unit: TeV     , datatype: float32 , description: DM mass              }
 # - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
 # meta: !!omap
-# - {reference:        "Prospect for dark matter annihilation signatures from gamma-ray
-observation of dwarf galaxies by LHAASO"}
+# - {reference:        "Prospect for dark matter annihilation signatures from gamma-ray observation of dwarf galaxies by LHAASO"}
 # - {doi:              "10.1103/PhysRevD.100.0830039"}
 # - {arxiv:            "1903.11910"}
 # - {instrument:       "lhaaso"}
