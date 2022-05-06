@@ -11,6 +11,7 @@ import logging
 import ipywidgets as wid
 from IPython.display import Markdown, clear_output, HTML
 import os
+from math import nan
 
 module_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -61,7 +62,7 @@ def get_names_str(name_tuple, name_dict):
         namestring = namestring[:-1]
         return namestring
     else:
-        print("Error")
+        logging.error("Name not found")
 
 #def read_files():
 def intersection2(lst1, lst2):
@@ -73,7 +74,9 @@ def intersection3(lst1, lst2, lst3):
 class PlottingStyle:
     def __init__(self, stylename, figshape='widerect', legend='side', energy_unit = 'TeV', mode = 'ann'):
         
-        if stylename == 'antique':
+        self.style = stylename
+        
+        if self.style == 'antique':
             from palettable.cartocolors.qualitative import Antique_10 as colormap
             mpl.rcParams['image.cmap'] = mpl.colors.Colormap(colormap)
             self.colors = colormap.mpl_colors
@@ -104,13 +107,18 @@ class PlottingStyle:
                 
             }
 
-        elif stylename == 'standard':
-            from palettable.cartocolors.qualitative import Antique_10 as colormap
+        elif self.style == 'standard':
+            colormap = plt.get_cmap('tab10')
             mpl.rcParams['image.cmap'] = mpl.colors.Colormap(colormap)
-            self.colors = colormap.mpl_colors
+            self.colors = [colormap(k) for k in np.linspace(0, 1, 10)]
             mpl.rcParams['axes.prop_cycle'] = mpl.cycler(color=self.colors)
-            mpl.rcParams['text.latex.preamble'] = r'\usepackage{mathpazo}'
-            
+            mpl.rcParams['text.latex.preamble'] = [
+                   r'\usepackage{siunitx}',   # i need upright \micro symbols, but you need...
+                   r'\sisetup{detect-all}',   # ...this to force siunitx to actually use your fonts
+                   r'\usepackage{helvet}',    # set the normal font here
+                   r'\usepackage{sansmath}',  # load up the sansmath so that math -> helvet
+                   r'\sansmath'               # <- tricky! -- gotta actually tell tex to use!
+            ]  
             self.frameon = False
             pgf_with_rc_fonts = {                      # setup matplotlib to use latex for output
             "pgf.texsystem": "pdflatex",        # change this if using xetex or lautex
@@ -130,11 +138,10 @@ class PlottingStyle:
             "ytick.right": True,
             "pgf.preamble": 
                 r"\usepackage[utf8x]{inputenc} \
-                \usepackage[T1]{fontenc} \
-                \usepackage{mathpazo}"
+                \usepackage[T1]{fontenc}"
             }            
         else:
-            print("unknow style name",stylename)    
+            logging.error("unknow style name %s"%self.style)    
             
         if figshape == 'widerect':
             self.ratio = 0.65
@@ -174,6 +181,7 @@ def plot(df, style=None):
     dynamic_plotrange = False
     if style.mode == 'ann':
         blindval = 1e40
+        if style.style == 'standard': blindval = np.nan
         if style.ymin == None:
             style.ymin = 1e-27
             style.dynamic_plotrange = True
@@ -181,6 +189,7 @@ def plot(df, style=None):
             style.ymax = 5e-20
     else:
         blindval = 1e-40
+        if style.style == 'standard': blindval = np.nan
         if style.ymin == None:
             style.ymin = 1e20
         if style.ymax == None:
@@ -277,11 +286,12 @@ def plot(df, style=None):
             color = order[j]
 
         plt.plot(x_grid, data_to_plot[j], label=labels_plot[j], color=color)
-        if style.mode == 'ann':
-            plt.fill_between(x_grid.value, data_to_plot[j].value, np.ones(len(x_grid)), alpha=0.1, color=color)
-        else:
-            plt.fill_between(x_grid.value, np.ones(len(x_grid)), data_to_plot[j].value, alpha=0.1, color=color)
-            
+        if style.style == 'antique':
+            if style.mode == 'ann':
+                plt.fill_between(x_grid.value, data_to_plot[j].value, np.ones(len(x_grid)), alpha=0.1, color=color)
+            else:
+                plt.fill_between(x_grid.value, np.ones(len(x_grid)), data_to_plot[j].value, alpha=0.1, color=color)
+                
         if style.legend == 'fancy':
             if style.mode == 'ann': 
                 i_legend = next(x[0] for x in enumerate(data_to_plot[j].value) if x[1] < 1e40)
@@ -294,7 +304,8 @@ def plot(df, style=None):
                 
             plt.text(x_grid[i_legend].value, vpad,  labels_plot_short[j], horizontalalignment='right', verticalalignment=valign, snap=True, color=color, rotation=90)
 
-    plt.plot(x_grid, envelope, linewidth=5, color='k', alpha=0.2)
+    if style.style == 'antique':
+        plt.plot(x_grid, envelope, linewidth=5, color='k', alpha=0.2)
 
     if style.legend == 'side':
         plt.legend(bbox_to_anchor=(1.02,1), loc="upper left", frameon=style.frameon)
@@ -302,8 +313,11 @@ def plot(df, style=None):
     if style.mode == 'ann':
         wimp_model = ascii.read(module_dir + "/modelpredictions/wimp_steigman2012_numerical.ecsv")
         plt.text(wimp_model["mass"].to(style.energy_unit)[-1].value, wimp_model["sigmav"][-1],  "Steigman et al. (2012) thermal WIMP prediction", horizontalalignment='right', verticalalignment='bottom', snap=True, color='k', alpha=0.3)
-        wimp_model_gridded = data_on_grid(wimp_model["mass"], wimp_model["sigmav"], x_grid, interpolation_kind='quadratic', fill_value = 1e-40)
-        plt.fill_between(x_grid.value, np.zeros(2000), wimp_model_gridded.value, color='k', alpha=0.1)
+        wimp_model_gridded = data_on_grid(wimp_model["mass"], wimp_model["sigmav"], x_grid, interpolation_kind='quadratic', fill_value = 1/blindval)
+        if style.style == 'antique':
+            plt.fill_between(x_grid.value, np.zeros(2000), wimp_model_gridded.value, color='k', alpha=0.1)
+        else:
+            plt.plot(x_grid.value, wimp_model_gridded.value, color='k', alpha=0.1)
 
 
     plt.xscale('log')
@@ -323,7 +337,7 @@ def filter_dataframe(metadata_df, Mode, Instrument, Channel):
     if Instrument == 'all':
         inst_list = metadata_df.index.tolist()
     else:
-        inst_key = get_key_from_value(Instrument)[0]
+        inst_key = get_key_from_value(instrument_dict, Instrument)[0]
         if inst_key == 'multi-inst':
             inst_list = metadata_df.index[metadata_df['Instrument'].apply(type) == list].tolist()
         else:
@@ -503,8 +517,6 @@ def interactive_selection():
     if a:
         logging.error("Duplicate label entry found for %s. Please make it unique in the file header."%b)
 
-    
-    print(a,b)
     options_dict = {
         x: wid.Checkbox(
             description=x, 
