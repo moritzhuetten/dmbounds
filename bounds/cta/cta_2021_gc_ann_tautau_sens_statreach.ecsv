@@ -1,0 +1,80 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Sensitivity of the Cherenkov Telescope Array to a dark matter signal from the Galactic centre"}
+# - {doi:              "10.1088/1475-7516/2021/01/057"}
+# - {arxiv:            "2007.16129"}
+# - {instrument:       "cta"}
+# - {year:             "2021"}
+# - {source:           "gc"}
+# - {channel:          "tautau"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_time:         "525h"}
+# - {figure:           "Fig. 5"}
+# - {comment:          "sensitivity, statistical reach"}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+
+1.01379e+2 2.69295e-27
+1.07895e+2 2.55948e-27
+1.20397e+2 2.43725e-27
+1.37488e+2 2.31967e-27
+1.54642e+2 2.21118e-27
+1.80316e+2 2.10776e-27
+2.04590e+2 2.05121e-27
+2.28549e+2 1.99372e-27
+2.60993e+2 1.96922e-27
+3.11921e+2 1.97188e-27
+3.55428e+2 1.96922e-27
+4.02816e+2 1.97968e-27
+4.52337e+2 2.01229e-27
+5.04927e+2 2.05312e-27
+5.77698e+2 2.13398e-27
+6.55963e+2 2.22145e-27
+7.56217e+2 2.34852e-27
+8.59971e+2 2.50317e-27
+9.89432e+2 2.64424e-27
+1.11431e+3 2.79347e-27
+1.26329e+3 2.96109e-27
+1.42738e+3 3.19336e-27
+1.62691e+3 3.39467e-27
+1.86846e+3 3.63901e-27
+2.11758e+3 3.88321e-27
+2.39991e+3 4.17301e-27
+2.71988e+3 4.48645e-27
+3.08251e+3 4.76713e-27
+3.43437e+3 4.99384e-27
+3.78311e+3 5.16452e-27
+4.97097e+3 6.03594e-27
+5.63373e+3 6.49515e-27
+6.38486e+3 7.00699e-27
+7.23613e+3 7.61030e-27
+8.20089e+3 8.30047e-27
+9.29429e+3 9.13755e-27
+1.05335e+4 1.01100e-26
+1.19378e+4 1.12617e-26
+1.35295e+4 1.25975e-26
+1.53333e+4 1.41394e-26
+1.73776e+4 1.59102e-26
+1.96945e+4 1.79329e-26
+2.23203e+4 2.03153e-26
+2.50733e+4 2.27634e-26
+2.82066e+4 2.57130e-26
+3.06944e+4 2.81735e-26
+3.68231e+4 3.43880e-26
+4.17326e+4 3.94797e-26
+4.72966e+4 4.52363e-26
+5.36025e+4 5.20365e-26
+6.07492e+4 5.97499e-26
+6.88486e+4 6.93506e-26
+7.80279e+4 7.99666e-26
+8.84311e+4 9.22180e-26
+1.00221e+5 1.06125e-25

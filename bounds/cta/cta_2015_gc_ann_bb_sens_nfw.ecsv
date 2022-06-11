@@ -1,0 +1,41 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav_lo , unit: cm3s-1  , datatype: float32 , description: <sigmav> low         }
+# - {name: sigmav_hi , unit: cm3s-1  , datatype: float32 , description: <sigmav> high        }
+# meta: !!omap
+# - {reference:        "Indirect detection of dark matter with γ rays"}
+# - {doi:              "10.1073/pnas.1308728111"}
+# - {arxiv:            "1310.2695"}
+# - {instrument:       "cta"}
+# - {year:             "2015"}
+# - {source:           "gc"}
+# - {channel:          "bb"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_time:         "500h"}
+# - {figure:           "Fig. 1"}
+# - {comment:          "sensitivity, NFW profile"}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav_lo sigmav_hi
+
+5.62920e+1 2.39802e-25 7.14735e-25
+6.77410e+1 1.27947e-25 3.85052e-25
+8.42463e+1 6.50461e-26 1.93871e-25
+1.06074e+2 3.43717e-26 1.05459e-25
+1.54244e+2 1.57117e-26 4.68289e-26
+2.12606e+2 9.23363e-27 2.77883e-26
+3.26138e+2 5.53244e-27 1.66497e-26
+4.80129e+2 4.26178e-27 1.29502e-26
+7.73792e+2 3.68665e-27 1.10948e-26
+1.22671e+3 3.79510e-27 1.14212e-26
+1.89733e+3 4.22079e-27 1.28257e-26
+2.86299e+3 5.02278e-27 1.52627e-26
+4.50158e+3 6.52035e-27 1.98133e-26
+6.84883e+3 8.62962e-27 2.62227e-26
+1.00000e+4 1.17572e-26 3.53829e-26
