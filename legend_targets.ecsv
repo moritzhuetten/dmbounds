@@ -76,3 +76,7 @@ awm7           'AWM 7'
 
 #diffuse
 egbg           'Extragalactic gamma-ray background'
+
+atlascms       'ATLAS and CMS (LHC)'
+coupp          COUPP
+

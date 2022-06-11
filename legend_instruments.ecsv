@@ -24,6 +24,9 @@ dampe          DAMPE
 
 lhaaso         LHAASO 
 hawc           HAWC 
-swgo           SWGO 
+swgo           SWGO
+
+collider       'Collider searches'
+directsearches 'Direct detection'
 
 multi-inst     Multi-Instrument
