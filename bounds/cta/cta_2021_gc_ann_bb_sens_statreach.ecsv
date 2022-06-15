@@ -17,7 +17,7 @@
 # - {dmfraction:       "1"}
 # - {obs_time:         "525h"}
 # - {figure:           "Fig. 14"}
-# - {comment:          "sensitivity, statistical reach"}
+# - {comment:          "sensitivity (without systematic uncertainties)"}
 # - {status:           ""}
 # schema : astropy −2.0
 
