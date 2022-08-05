@@ -17,7 +17,7 @@
 # - {dmfraction:       "1"}
 # - {obs_time:         "525h"}
 # - {figure:           "Fig. 24"}
-# - {comment:          "sensitivity, MSTs only, with systematic uncertainties"}
+# - {comment:          "sensitivity MSTs only, with systematic uncertainties"}
 # - {status:           ""}
 # schema : astropy −2.0
 
