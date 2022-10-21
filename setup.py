@@ -23,7 +23,7 @@ setup(
         'ipywidgets',
         'IPython',
         'PyYAML',
-        'latex'
+        'miktex'
     ],
     package_data={
         'dmbounds': [
