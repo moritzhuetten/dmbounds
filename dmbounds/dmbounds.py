@@ -172,6 +172,11 @@ class PlottingStyle:
             
 def plot(df, style=None):
 
+    try:
+        df.iloc[0]["Mode"]
+    except:
+        logging.error("Dataframe is empty. Must select at least one limit.")
+
     if style==None:
         style = PlottingStyle('antique', mode=df.iloc[0]["Mode"])
 
