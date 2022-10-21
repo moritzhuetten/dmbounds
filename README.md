@@ -1,3 +1,5 @@
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/moritzhuetten/dmbounds/HEAD?labpath=tutorial.ipynb)
+
 # DMbounds
 
 A database for all latest indirect Dark Matter limits, and to compare against direct and collider limits. It also provides neat figures out of the box.
@@ -35,6 +37,6 @@ from dmbounds import dmbounds as bounds
 ...
 ```
 
-Please have a look at the [tutorial.ipynb notebook](tutorial.ipynb) for further details.
+Please have a look at the [tutorial.ipynb notebook](tutorial.ipynb) for further details or [launch on Binder](https://mybinder.org/v2/gh/moritzhuetten/dmbounds/HEAD?labpath=tutorial.ipynb).
 
 &copy; M. H&uuml;tten and M. Doro, 2022
