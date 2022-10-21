@@ -12,6 +12,9 @@ and channels (latex in the plot, text in the file name):
 
 <img src="https://render.githubusercontent.com/render/math?math=b\bar{b},\tau^{+}\tau^{-},e^{+}e^{-},t\bar{t},W^{+}W^{-},\gamma\gamma,Z\gamma,...">
 
+![Screenshot](/screenshot.png)
+
+
 ## Installation
 
 ```bash
