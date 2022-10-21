@@ -23,7 +23,18 @@ setup(
         'ipywidgets',
         'IPython',
         'PyYAML',
-        'jupyterlab_latex'
+        'jupyterlab_latex',
+        'dvipng',
+        'ghostscript',
+        'texlive-fonts-recommended',
+        'texlive-generic-recommended',
+        'texlive-latex-base',
+        'texlive-latex-extra',
+        'texlive-latex-recommended',
+        'texlive-publishers',
+        'texlive-science',
+        'texlive-xetex',
+        'cm-super'
     ],
     package_data={
         'dmbounds': [
