@@ -22,7 +22,8 @@ setup(
         'pandas',
         'ipywidgets',
         'IPython',
-        'PyYAML'
+        'PyYAML',
+        'latex'
     ],
     package_data={
         'dmbounds': [
