@@ -35,4 +35,4 @@ from dmbounds import dmbounds as bounds
 
 Please have a look at the [tutorial.ipynb notebook](tutorial.ipynb) for further details.
 
-&copy; M. H&uml;tten and M. Doro, 2022
+&copy; M. H&uuml;tten and M. Doro, 2022
