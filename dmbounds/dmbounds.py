@@ -606,8 +606,8 @@ def checkIfDuplicates_2(listOfElems):
             setOfElems.add(elem)         
     return False, None
 
-instrument_dict = table_to_dict(ascii.read(module_dir + "/legend_instruments.ecsv"),'shortname', 'longname')
-channel_dict = table_to_dict(ascii.read(module_dir + "/legend_channels.ecsv"),'shortname', 'latex')
-target_dict = table_to_dict(ascii.read(module_dir + "/legend_targets.ecsv"),'shortname', 'longname')
+instrument_dict = table_to_dict(ascii.read(module_dir + "/legends/legend_instruments.ecsv"),'shortname', 'longname')
+channel_dict = table_to_dict(ascii.read(module_dir + "/legends/legend_channels.ecsv"),'shortname', 'latex')
+target_dict = table_to_dict(ascii.read(module_dir + "/legends/legend_targets.ecsv"),'shortname', 'longname')
 metadata_df = init_metadata()
 
