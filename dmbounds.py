@@ -12,6 +12,7 @@ import ipywidgets as wid
 from IPython.display import Markdown, clear_output, HTML
 import os
 from math import nan
+import itertools
 
 module_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -82,7 +83,7 @@ class PlottingStyle:
             self.colors = colormap.mpl_colors
             mpl.rcParams['axes.prop_cycle'] = mpl.cycler(color=self.colors)
             mpl.rcParams['text.latex.preamble'] = r'\usepackage{mathpazo}'
-            
+            #mpl.rcParams['lines.linewidth'] = 1.0
             self.frameon = False
             pgf_with_rc_fonts = {                      # setup matplotlib to use latex for output
             "pgf.texsystem": "pdflatex",        # change this if using xetex or lautex
@@ -108,9 +109,11 @@ class PlottingStyle:
             }
 
         elif self.style == 'standard':
-            colormap = plt.get_cmap('tab10')
+            #colormap = plt.get_cmap('tab10')
+            #self.colors = [colormap(k) for k in np.linspace(0, 1, 10)]
+            from palettable.cartocolors.qualitative import Pastel_10 as colormap
             mpl.rcParams['image.cmap'] = mpl.colors.Colormap(colormap)
-            self.colors = [colormap(k) for k in np.linspace(0, 1, 10)]
+            self.colors = colormap.mpl_colors
             mpl.rcParams['axes.prop_cycle'] = mpl.cycler(color=self.colors)
             mpl.rcParams['text.latex.preamble'] = [
                    r'\usepackage{siunitx}',   # i need upright \micro symbols, but you need...
@@ -118,15 +121,16 @@ class PlottingStyle:
                    r'\usepackage{helvet}',    # set the normal font here
                    r'\usepackage{sansmath}',  # load up the sansmath so that math -> helvet
                    r'\sansmath'               # <- tricky! -- gotta actually tell tex to use!
-            ]  
+            ]
+            mpl.rcParams['lines.linewidth'] = 2.5
             self.frameon = False
             pgf_with_rc_fonts = {                      # setup matplotlib to use latex for output
             "pgf.texsystem": "pdflatex",        # change this if using xetex or lautex
-            "text.usetex": True,                # use LaTeX to write all text
-            "font.family": "sans-serif",
+            "text.usetex": False,                # use LaTeX to write all text
+            "font.family": "arial",
             "font.serif": [],                   # blank entries should cause plots to inherit fonts from the document
-            "font.sans-serif": [],
-            "font.monospace": [],
+            "font.sans-serif": ['arial'],
+            "font.monospace": ['arial'],
             "axes.labelsize": 16,               # LaTeX default is 10pt font.
             "font.size": 14,
             "legend.fontsize": 14,               # Make the legend/label fonts a little smaller
@@ -178,7 +182,6 @@ def plot(df, style=None):
     xmin = 1e6*u.TeV
     xmax = 1e-6*u.TeV
     
-    dynamic_plotrange = False
     if style.mode == 'ann':
         blindval = 1e40
         if style.style == 'standard': blindval = np.nan
@@ -196,15 +199,22 @@ def plot(df, style=None):
             style.ymax = 5e27
             style.dynamic_plotrange = True 
 
+    is_band = []
     for index, row in df.iterrows():
         data_raw = ascii.read(row['File name'])
-        if row['Mode'] == 'ann':
-            yaxis = 'sigmav'
+        xaxis = data_raw.colnames[0]
+        yaxis = data_raw.colnames[1]
+        if yaxis == 'sigmav_lo' and style.legend != 'fancy':
+            is_band.append(True)
+            data_raw_y = [data_raw[yaxis], data_raw['sigmav_hi']]
         else:
-            yaxis = 'tau'
-        data_raw_vec.append([data_raw['mass'], data_raw[yaxis]])
-        if min(data_raw['mass'].to('TeV')) < xmin: xmin = min(data_raw['mass'].to('TeV'))
-        if max(data_raw['mass'].to('TeV')) > xmax: xmax = max(data_raw['mass'].to('TeV'))
+            if yaxis == 'sigmav_lo':
+                yaxis == 'sigmav'
+            is_band.append(False)
+            data_raw_y = data_raw[yaxis]
+        data_raw_vec.append([data_raw[xaxis], data_raw_y])
+        if min(data_raw[xaxis].to('TeV')) < xmin: xmin = min(data_raw[xaxis].to('TeV'))
+        if max(data_raw[xaxis].to('TeV')) > xmax: xmax = max(data_raw[xaxis].to('TeV'))
 
         label_str = r''
         label_str += get_names_str(row['Instrument'], instrument_dict)
@@ -229,18 +239,24 @@ def plot(df, style=None):
     plot_maxvalues = np.zeros(n_plot)
     
     for index in range(n_plot):
-
-        data_gridded = data_on_grid(data_raw_vec[index][0], data_raw_vec[index][1], x_grid, interpolation_kind=interpol_style[index], fill_value = blindval)
+        if not is_band[index]:
+            data_gridded = data_on_grid(data_raw_vec[index][0], data_raw_vec[index][1], x_grid, interpolation_kind=interpol_style[index], fill_value = blindval)
+            raw_vals = data_raw_vec[index][1]
+        else:
+            data_gridded1 = data_on_grid(data_raw_vec[index][0], data_raw_vec[index][1][0], x_grid, interpolation_kind=interpol_style[index], fill_value = blindval)
+            data_gridded2 = data_on_grid(data_raw_vec[index][0], data_raw_vec[index][1][1], x_grid, interpolation_kind=interpol_style[index], fill_value = blindval)
+            data_gridded = [data_gridded1,data_gridded2]
+            raw_vals = list(itertools.chain(*data_raw_vec[index][1]))
         data_to_plot.append(data_gridded)
-        plot_minvalues[index] = min(data_raw_vec[index][1])
-        plot_maxvalues[index] = max(data_raw_vec[index][1])
+        plot_minvalues[index] = min(raw_vals)
+        plot_maxvalues[index] = max(raw_vals)
         
         if style.mode == 'ann' and style.dynamic_plotrange:
-            if min(data_gridded.value) < ymin_data:
-                ymin_data = 0.5 * min(data_gridded.value)
+            if min(raw_vals) < ymin_data:
+                ymin_data = 0.5 * min(raw_vals)
         elif style.mode == 'dec' and style.dynamic_plotrange:
-            if max(data_gridded.value) > ymax_data:
-                ymax_data = 2 * max(data_gridded.value)
+            if max(raw_vals) > ymax_data:
+                ymax_data = 2 * max(raw_vals)
                            
     
     if len(plot_minvalues) > 1:
@@ -256,7 +272,13 @@ def plot(df, style=None):
     for i in range(len(x_grid)):
         minvals = []
         for j in range(len(data_to_plot)):
-            val = data_to_plot[j][i].value
+            if not is_band[j]:
+                val = data_to_plot[j][i].value
+            else:
+                if style.mode == 'ann':
+                    val = data_to_plot[j][0][i].value
+                else:
+                    val = data_to_plot[j][1][i].value
             if np.isnan(val): val = blindval
             minvals.append(val)
         if style.mode == 'ann':
@@ -284,17 +306,28 @@ def plot(df, style=None):
             color = style.colors[order[j]]
         except:
             color = order[j]
-
-        plt.plot(x_grid, data_to_plot[j], label=labels_plot[j], color=color)
+        if not is_band[j]:
+            plt.plot(x_grid, data_to_plot[j], label=labels_plot[j], color=color)
+        else:
+            plt.fill_between(x_grid.value, data_to_plot[j][0].value, data_to_plot[j][1].value, label=labels_plot[j], color=color, alpha=0.6)
         if style.style == 'antique':
-            if style.mode == 'ann':
-                plt.fill_between(x_grid.value, data_to_plot[j].value, np.ones(len(x_grid)), alpha=0.1, color=color)
+            if not is_band[j]:
+                if style.mode == 'ann':
+                    plt.fill_between(x_grid.value, data_to_plot[j].value, np.ones(len(x_grid)), alpha=0.1, color=color)
+                else:
+                    plt.fill_between(x_grid.value, np.ones(len(x_grid)), data_to_plot[j].value, alpha=0.1, color=color)
             else:
-                plt.fill_between(x_grid.value, np.ones(len(x_grid)), data_to_plot[j].value, alpha=0.1, color=color)
-                
+                if style.mode == 'ann':
+                    plt.fill_between(x_grid.value, data_to_plot[j][1].value, np.ones(len(x_grid)), alpha=0.1, color=color)
+                else:
+                    plt.fill_between(x_grid.value, np.ones(len(x_grid)), data_to_plot[j][0].value, alpha=0.1, color=color)
+ 
         if style.legend == 'fancy':
-            if style.mode == 'ann': 
-                i_legend = next(x[0] for x in enumerate(data_to_plot[j].value) if x[1] < 1e40)
+            if style.mode == 'ann':
+                try:
+                    i_legend = next(x[0] for x in enumerate(data_to_plot[j].value) if x[1] < 1e40)
+                except:
+                    i_legend = next(x[0] for x in enumerate(data_to_plot[j][0].value) if x[1] < 1e40)
                 valign = 'top'
                 vpad = 0.9*style.ymax
             else:
@@ -311,13 +344,14 @@ def plot(df, style=None):
         plt.legend(bbox_to_anchor=(1.02,1), loc="upper left", frameon=style.frameon)
 
     if style.mode == 'ann':
-        wimp_model = ascii.read(module_dir + "/modelpredictions/wimp_steigman2012_numerical.ecsv")
-        plt.text(wimp_model["mass"].to(style.energy_unit)[-1].value, wimp_model["sigmav"][-1],  "Steigman et al. (2012) thermal WIMP prediction", horizontalalignment='right', verticalalignment='bottom', snap=True, color='k', alpha=0.3)
+        wimp_model = ascii.read(module_dir + "/modelpredictions/wimp_huetten2017_analytical_omega012.ecsv")
+        xtext = 0.9*min(wimp_model["mass"].to(style.energy_unit)[-1].value, plt.gca().get_xlim()[1])
+        plt.text(xtext, wimp_model["sigmav"][-1],  "Thermal WIMP prediction", horizontalalignment='right', verticalalignment='bottom', snap=True, color='k', alpha=0.3)
         wimp_model_gridded = data_on_grid(wimp_model["mass"], wimp_model["sigmav"], x_grid, interpolation_kind='quadratic', fill_value = 1/blindval)
-        if style.style == 'antique':
-            plt.fill_between(x_grid.value, np.zeros(2000), wimp_model_gridded.value, color='k', alpha=0.1)
-        else:
-            plt.plot(x_grid.value, wimp_model_gridded.value, color='k', alpha=0.1)
+        #if style.style == 'antique':
+        plt.fill_between(x_grid.value, np.zeros(2000), wimp_model_gridded.value, color='k', alpha=0.1)
+        #else:
+        #    plt.plot(x_grid.value, wimp_model_gridded.value, color='k', alpha=0.1, linewidth=5)
 
 
     plt.xscale('log')
