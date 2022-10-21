@@ -2,6 +2,8 @@
 
 A database for all latest indirect Dark Matter limits, and to compare against direct and collider limits. It also provides neat figures out of the box.
 
+![Screenshot](/screenshot.png)
+
 So far, the following experiments are included:
 
 `CTA`, `HAWC`, `LAT`, `LHAASO`, `MAGIC`, `SWGO`, `VERITAS`, `WHIPPLE`
@@ -11,9 +13,6 @@ and channels (latex in the plot, text in the file name):
 `bb`, `tautau`, `ee`, `tt`, `WW`, `gg`, Zg`,...
 
 <img src="https://render.githubusercontent.com/render/math?math=b\bar{b},\tau^{+}\tau^{-},e^{+}e^{-},t\bar{t},W^{+}W^{-},\gamma\gamma,Z\gamma,...">
-
-![Screenshot](/screenshot.png)
-
 
 ## Installation
 
