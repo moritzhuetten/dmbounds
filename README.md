@@ -1,10 +1,10 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/moritzhuetten/dmbounds/HEAD?labpath=tutorial.ipynb)
-
 # DMbounds
 
 A database for all latest indirect Dark Matter limits, and to compare against direct and collider limits. It also provides neat figures out of the box.
 
-![Screenshot](/screenshot.png)
+Try it out [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/moritzhuetten/dmbounds/HEAD?labpath=tutorial.ipynb):
+ 
+ [![Screenshot](/screenshot.png)](https://mybinder.org/v2/gh/moritzhuetten/dmbounds/HEAD?labpath=tutorial.ipynb)
 
 So far, the following experiments are included:
 
