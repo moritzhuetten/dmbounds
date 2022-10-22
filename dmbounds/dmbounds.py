@@ -367,7 +367,12 @@ def plot(df, style=None):
 
     plt.xlabel(r'$m_{\mathrm{DM}}$ $\mathrm{[' +style.energy_unit + ']}$');
     plt.ylabel(style.ylabel);
-    
+
+    plt.text(1, 1, 'made with github.com/moritzhuetten/dmbounds',
+     horizontalalignment='right',
+     verticalalignment='bottom',
+     transform = ax.transAxes, snap=True, color='k', alpha=0.3, size=10)
+
     return plot_limits, ax
     
 def filter_dataframe(metadata_df, Mode, Instrument, Channel):
