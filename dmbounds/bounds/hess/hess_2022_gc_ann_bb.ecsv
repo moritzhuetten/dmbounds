@@ -7,7 +7,7 @@
 # - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
 # meta: !!omap
 # - {reference:        "Search for dark matter annihilation signals in the H.E.S.S. Inner Galaxy Survey"}
-# - {doi:              ""}
+# - {doi:              "10.1103/PhysRevLett.129.111101"}
 # - {arxiv:            "2207.10471"}
 # - {instrument:       "hess"}
 # - {year:             "2022"}
