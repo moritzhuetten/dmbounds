@@ -12,7 +12,7 @@
 # - {instrument:       "magic"}
 # - {year:             "2022"}
 # - {source:           "multidsph-4"}
-# - {channel:          "HH"}
+# - {channel:          "hh"}
 # - {confidence        "0.95" }
 # - {dmfraction:       "1"}
 # - {obs_time:         "354.4h"}
