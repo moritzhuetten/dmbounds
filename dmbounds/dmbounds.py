@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+
 import numpy as np
 from scipy.interpolate import interp1d
 import astropy.units as u
@@ -17,6 +22,33 @@ import itertools
 module_dir = os.path.dirname(os.path.abspath(__file__))
 
 def log_interp1d(xx, yy, kind='linear', fill_value=np.nan):
+    """Log-log interpolation function based on scipy.interpolate.interp1d()
+
+    Parameters
+    ----------
+    xx : (N,) array_like
+       A 1-D array of real values.
+    yy : (N,) array_like
+       A 1-D array of real values. The length must be equal to xx
+    kind : str or int, optional
+       Specifies the kind of interpolation as a string or as an integer specifying the order 
+       of the spline interpolator to use. The string has to be one of ‘linear’, ‘nearest’,
+       ‘nearest-up’, ‘zero’, ‘slinear’, ‘quadratic’, ‘cubic’, ‘previous’, or ‘next’. ‘zero’, ‘slinear’,
+        ‘quadratic’ and ‘cubic’ refer to a spline interpolation of zeroth, first, second or 
+        third order; ‘previous’ and ‘next’ simply return the previous or next value of the 
+        point; ‘nearest-up’ and ‘nearest’ differ when interpolating half-integers (e.g. 0.5,
+        1.5) in that ‘nearest-up’ rounds up and ‘nearest’ rounds down. Default is ‘linear’.
+    fill_value : array-like or (array-like, array_like) or “extrapolate”, optional
+        if a ndarray (or float), this value will be used to fill in for requested points
+        outside of the data range. If not provided, then the default is NaN. The array-
+        like must broadcast properly to the dimensions of the non-interpolation axes.
+
+    Returns
+    -------
+    function
+        a function to call to evaluate the interpolated value at desired x cordinate.
+    """
+    
     logx = np.log10(xx)
     logy = np.log10(yy)
     lin_interp = interp1d(logx, logy, kind=kind, bounds_error=False, fill_value=fill_value)
@@ -24,21 +56,81 @@ def log_interp1d(xx, yy, kind='linear', fill_value=np.nan):
     return log_interp
 
 def data_on_grid(x, y, x_grid, interpolation_kind='linear', unit='TeV', loglog=True, fill_value=np.nan):
+    """Transfer the the function given by the node points x,y on a grid given by the node points x_grid and using log-log interpolation.
+
+    Parameters
+    ----------
+    x : (N,) array_like
+       A 1-D dimensionful array of with dimension matching 'unit'. Default: energy
+    y : (N,) array_like
+       A 1-D dimensionful array. The length must be equal to xx
+    x_grid: (N,) array_like
+       A 1-D dimensionful array of with dimension matching 'unit'. Default: energy
+    interpolation_kind : str or int, optional
+       Specifies the kind of interpolation as a string or as an integer specifying the order 
+       of the spline interpolator to use. The string has to be one of ‘linear’, ‘nearest’,
+       ‘nearest-up’, ‘zero’, ‘slinear’, ‘quadratic’, ‘cubic’, ‘previous’, or ‘next’. ‘zero’, ‘slinear’,
+        ‘quadratic’ and ‘cubic’ refer to a spline interpolation of zeroth, first, second or 
+        third order; ‘previous’ and ‘next’ simply return the previous or next value of the 
+        point; ‘nearest-up’ and ‘nearest’ differ when interpolating half-integers (e.g. 0.5,
+        1.5) in that ‘nearest-up’ rounds up and ‘nearest’ rounds down. Default is ‘linear’.
+    unit : str, optional
+        astropy unit (default: TeV -> energy dimension) needed to specify the dimension of the x and 
+        x_grid (energy, length, time,...). The exact unit chosen in that dimension does not matter.
+    loglog : bool, optional
+        Choose loglog interpolation if True, linlin interpolation otherwise.
+    fill_value : array-like or (array-like, array_like) or “extrapolate”, optional
+        if a ndarray (or float), this value will be used to fill in for requested points
+        outside of the data range. If not provided, then the default is NaN. The array-
+        like must broadcast properly to the dimensions of the non-interpolation axes.
+
+    Returns
+    -------
+    (N,) array_like
+        The dimensionful values of the quantity y sampled on x_grid.
+    """
+    
     y_unit = y.unit
     if loglog==True:
-        interpol_model=log_interp1d(x.to('TeV').value, y.value, kind=interpolation_kind)
-        ys_loginterp=interpol_model(x_grid.to('TeV').value)
-    ys_loginterp[np.isnan(ys_loginterp)]=fill_value
-    return ys_loginterp * y_unit
+        interpol_model=log_interp1d(x.to(unit).value, y.value, kind=interpolation_kind)
+        ys_interp=interpol_model(x_grid.to(unit).value)
+    else:
+        interpol_model=interp1d(x.to(unit).value, y.value, kind=interpolation_kind)
+        ys_interp=interpol_model(x_grid.to(unit).value)
+    ys_interp[np.isnan(ys_interp)]=fill_value
+    return ys_interp * y_unit
 
 def make_grid(xmin, xmax, npoints=300, unit='TeV', log=True):
-    xmin_val = xmin.to('TeV').value
-    xmax_val = xmax.to('TeV').value
+    """Create a grid of dimensionful values.
+
+    Parameters
+    ----------
+    xmin : dimensionful quantity
+       A dimensionful number defining the lower bound of the grid. Default dimension: energy
+    ymin : dimensionful quantity
+       A dimensionful number defining the upper bound of the grid. Default dimension: energy
+    npoints: int, optional
+       Number of grid points
+    unit : str, optional
+        astropy unit (default: TeV -> energy dimension) in which the grid shall be sampled.
+        Must match the dimension of xmin and xmax
+    log : boolean, optional
+        needed to specify the dimension of the x and x_grid (energy, length, time,...).
+        The exact unit chosen in that dimension does not matter.
+
+    Returns
+    -------
+    (N,) array_like
+        The dimensionful values of the quantity y sampled on x_grid.
+    """
+    
+    xmin_val = xmin.to(unit).value
+    xmax_val = xmax.to(unit).value
     if log==True:
         x_grid = np.logspace(np.log10(xmin_val), np.log10(xmax_val), npoints)
     else:
         x_grid = np.linspace(xmin_val, xmax_val, npoints)
-    return (x_grid *u.TeV).to(unit)
+    return x_grid * u.Unit(unit)
 
 def table_to_dict(table, keycolumn_name, valuecolumn_name):
     dict = {}
