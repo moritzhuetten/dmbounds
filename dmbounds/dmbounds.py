@@ -19,57 +19,34 @@ import os
 from math import nan
 import itertools
 
-module_dir = os.path.dirname(os.path.abspath(__file__))
+MODULE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-def log_interp1d(xx, yy, kind='linear', fill_value=np.nan):
-    """Log-log interpolation function based on scipy.interpolate.interp1d()
-
-    Parameters
-    ----------
-    xx : (N,) array_like
-       A 1-D array of real values.
-    yy : (N,) array_like
-       A 1-D array of real values. The length must be equal to xx
-    kind : str or int, optional
-       Specifies the kind of interpolation as a string or as an integer specifying the order 
-       of the spline interpolator to use. The string has to be one of ‘linear’, ‘nearest’,
-       ‘nearest-up’, ‘zero’, ‘slinear’, ‘quadratic’, ‘cubic’, ‘previous’, or ‘next’. ‘zero’, ‘slinear’,
-        ‘quadratic’ and ‘cubic’ refer to a spline interpolation of zeroth, first, second or 
-        third order; ‘previous’ and ‘next’ simply return the previous or next value of the 
-        point; ‘nearest-up’ and ‘nearest’ differ when interpolating half-integers (e.g. 0.5,
-        1.5) in that ‘nearest-up’ rounds up and ‘nearest’ rounds down. Default is ‘linear’.
-    fill_value : array-like or (array-like, array_like) or “extrapolate”, optional
-        if a ndarray (or float), this value will be used to fill in for requested points
-        outside of the data range. If not provided, then the default is NaN. The array-
-        like must broadcast properly to the dimensions of the non-interpolation axes.
-
-    Returns
-    -------
-    function
-        a function to call to evaluate the interpolated value at desired x cordinate.
-    """
+def _check_duplicates(elem_list):
+    """Check if given list elem_list contains any duplicates"""
     
-    logx = np.log10(xx)
-    logy = np.log10(yy)
-    lin_interp = interp1d(logx, logy, kind=kind, bounds_error=False, fill_value=fill_value)
-    log_interp = lambda zz: np.power(10.0, lin_interp(np.log10(zz)))
-    return log_interp
+    elem_set = set()
+    for elem in elem_list:
+        if elem in elem_set:
+            return True, elem
+        else:
+            elem_set.add(elem)         
+    return False, None
 
-def data_on_grid(x, y, x_grid, interpolation_kind='linear', unit='TeV', loglog=True, fill_value=np.nan):
+def _data_on_grid(x, y, x_grid, interpolation_kind='linear', unit='TeV', loglog=True, fill_value=np.nan):
     """Transfer the the function given by the node points x,y on a grid given by the node points x_grid and using log-log interpolation.
 
     Parameters
     ----------
     x : (N,) array_like
-       A 1-D dimensionful array of with dimension matching 'unit'. Default: energy
+        A 1-D dimensionful array of with dimension matching 'unit'. Default: energy
     y : (N,) array_like
-       A 1-D dimensionful array. The length must be equal to xx
+        A 1-D dimensionful array. The length must be equal to xx
     x_grid: (N,) array_like
-       A 1-D dimensionful array of with dimension matching 'unit'. Default: energy
+        A 1-D dimensionful array of with dimension matching 'unit'. Default: energy
     interpolation_kind : str or int, optional
-       Specifies the kind of interpolation as a string or as an integer specifying the order 
-       of the spline interpolator to use. The string has to be one of ‘linear’, ‘nearest’,
-       ‘nearest-up’, ‘zero’, ‘slinear’, ‘quadratic’, ‘cubic’, ‘previous’, or ‘next’. ‘zero’, ‘slinear’,
+        Specifies the kind of interpolation as a string or as an integer specifying the order 
+        of the spline interpolator to use. The string has to be one of ‘linear’, ‘nearest’,
+        ‘nearest-up’, ‘zero’, ‘slinear’, ‘quadratic’, ‘cubic’, ‘previous’, or ‘next’. ‘zero’, ‘slinear’,
         ‘quadratic’ and ‘cubic’ refer to a spline interpolation of zeroth, first, second or 
         third order; ‘previous’ and ‘next’ simply return the previous or next value of the 
         point; ‘nearest-up’ and ‘nearest’ differ when interpolating half-integers (e.g. 0.5,
@@ -92,7 +69,7 @@ def data_on_grid(x, y, x_grid, interpolation_kind='linear', unit='TeV', loglog=T
     
     y_unit = y.unit
     if loglog==True:
-        interpol_model=log_interp1d(x.to(unit).value, y.value, kind=interpolation_kind)
+        interpol_model=_log_interp1d(x.to(unit).value, y.value, kind=interpolation_kind)
         ys_interp=interpol_model(x_grid.to(unit).value)
     else:
         interpol_model=interp1d(x.to(unit).value, y.value, kind=interpolation_kind)
@@ -100,17 +77,266 @@ def data_on_grid(x, y, x_grid, interpolation_kind='linear', unit='TeV', loglog=T
     ys_interp[np.isnan(ys_interp)]=fill_value
     return ys_interp * y_unit
 
-def make_grid(xmin, xmax, npoints=300, unit='TeV', log=True):
+def _filter_dataframe(metadata_df, mode, instrument, channel):
+    """Filter the data frame to all rows which fullfill the condition on mode, instrument, channel.
+
+    Parameters
+    ----------
+    metadata_df : pandas dataframe
+        Metadata frame to filter
+    mode : str
+        has to start with 'ann' or 'dec' for annihilation or decay.
+    instrument : str
+        a short name string being present in legend_instruments.ecsv, or 'all'
+    channel : str
+        a short name string being present in legend_channel.ecsv, or 'all'
+        
+    Returns
+    -------
+    list
+        List with row indices of the input dataframe matching the conditions on mode, instrument, channel.
+    """
+
+    mode_list = metadata_df.index[metadata_df['Mode'] == mode[:3]].tolist()
+
+    if instrument == 'all':
+        inst_list = metadata_df.index.tolist()
+    else:
+        inst_key = _get_key_from_value(INSTRUMENT_DICT, instrument)[0]
+        if inst_key == 'multi-inst':
+            inst_list = metadata_df.index[metadata_df['Instrument'].apply(type) == list].tolist()
+        else:
+            inst_list = metadata_df.index[metadata_df['Instrument'] == inst_key].tolist()
+
+    if channel == 'all':
+        channel_list = metadata_df.index.tolist()
+    else:
+        channel_list = metadata_df.index[metadata_df['Channel'] == channel].tolist()
+
+    return _intersection3(mode_list, inst_list, channel_list)
+
+def _get_key_from_value(dictionary, value):
+    """Do the reverse query of searching the key name(s) of a value. 
+
+    Parameters
+    ----------
+    dictionary : dict
+        The dictionary to search for.
+    value : str
+        The value whose key(s) to search to have this value
+
+    Returns
+    -------
+    list
+        A list of all the keys having that value. Returns empty list if no key has searched value.
+    """
+    
+    return [k for k, v in dictionary.items() if v == value]
+
+def _get_names_str(name_list, name_dict):
+    """Get the long names of an instrument/channel/target from the short name definitions
+
+    Parameters
+    ----------
+    name_list : string or list
+        A string or list of strings containing the short name definitions (used as dictionary keys).
+        If a list entry contains a number, this entry is not treated as a short name key, but
+        directly printed into the output string
+    name_dict : dict
+        The dictionary to search for the short name definitions as keys
+
+    Returns
+    -------
+    str
+        A string containing all the long names corresponding to the short names in name_list. 
+    """
+
+    if isinstance(name_list, str):
+        return name_dict[name_list]
+    elif isinstance(name_list, list):
+        namestring = ''
+        for name in name_list:
+            if name.isdigit():
+                namestring = namestring[:-1]
+                namestring += (' (' + name + ')/')
+            else:
+                namestring += (name_dict[name] + '/')
+        namestring = namestring[:-1]
+        return namestring
+    else:
+        logging.error("Name not found")
+
+def _init_metadata():
+    """Initialize the pandas dataframe with the meta data from all bounds present in the data base.
+    
+        Returns
+    -------
+    pandas dataframe
+        The dataframe with all the meta data.
+    """
+
+    files_all = []
+    for name in INSTRUMENT_DICT.keys():
+        files_all.append(glob.glob(MODULE_DIR + "/bounds/"+ name +"/*.ecsv"))
+    files_all = [x for row in files_all for x in row]
+
+    metadata_df = pd.DataFrame(columns=('Instrument', 'Target', 'Mode', 'Channel', 'Year', 'Observation time','Title', 'DOI', 'Arxiv', 'Comment', 'File name'))
+
+    for i,file in enumerate(files_all):
+        filename = file.split("/")[-1][:-5]
+
+        file_inst_name = filename.split("_")[0]
+        file_year = filename.split("_")[1]
+        file_target = filename.split("_")[2]
+        file_mode = filename.split("_")[3]
+        file_channel = filename.split("_")[4]
+
+        metadata = ascii.read(file).meta
+
+        if metadata['instrument'][:10] == 'multi-inst':
+            instruments = metadata['instrument'].split("-")[2:]
+            meta_inst_name = 'multi-inst'
+            file_inst_name = meta_inst_name
+        else:
+            meta_inst_name = metadata['instrument']
+            instruments = metadata['instrument']
+
+        if metadata['source'][:5] == 'multi':
+            target_info = metadata['source'].split("-")
+            meta_target = target_info[0]        
+        else:
+            meta_target = metadata['source']
+            target_info = metadata['source']
+
+        try:
+            assert meta_inst_name == file_inst_name
+        except:
+            logging.warning("Instrument name not consistent in " + str(file))
+        try:
+            assert metadata['year'] == file_year
+        except:
+            logging.warning("Year not consistent in " + str(file))
+        try:
+            assert meta_target == file_target
+        except:
+            logging.warning("Target name not consistent in " + str(file))
+        try:
+            assert metadata['channel'] == file_channel
+        except:
+            logging.warning("Channel name not consistent in " + str(file))
+
+        metadata_df.loc[i] = [instruments, target_info, file_mode, metadata['channel'], metadata['year'], 
+                     metadata['obs_time'], metadata['reference'], metadata['doi'], metadata['arxiv'], metadata['comment'], file]
+        
+    return metadata_df
+
+def _intersection2(lst1, lst2):
+    """Returns the intersection elements of two lists.
+
+    Parameters
+    ----------
+    lst1 : list
+        First list
+    lst2 : list
+        Second list
+        
+    Returns
+    -------
+    str
+        List with intersecting elements. N.B.: Duplicate list elements are reduced.
+    """
+
+    # should be identical to list(set(lst1).intersection(set(lst2)))
+    return list(set(lst1) & set(lst2))
+
+def _intersection3(lst1, lst2, lst3):
+    """Returns the intersection elements of three lists.
+
+    Parameters
+    ----------
+    lst1 : list
+        First list
+    lst2 : list
+        Second list
+    lst3 : list
+        Third list
+        
+    Returns
+    -------
+    list
+        List with intersecting elements. N.B.: Duplicate list elements are reduced.
+    """
+    
+    return list(set(lst1) & set(lst2) & set(lst3))
+
+def _labels4dropdown(metadata_df):
+    """Create the label strings for the dropdown menu in the interactive selection.
+
+    Parameters
+    ----------
+    metadata_df : pandas data frame
+        
+    Returns
+    -------
+    list
+        List with same lengths as rows in the input data frame containing the label texts as strings
+    """
+    
+    labels = []
+    for index, row in metadata_df.iterrows():    
+        label_str = ''
+        label_str += _get_names_str(row['Instrument'], INSTRUMENT_DICT)
+        label_str += ' (' + row['Year'] + '): ' + _get_names_str(row['Target'], TARGET_DICT) + ', ' + row['Channel'] + ' (' + row['Mode'] + '.)'# + str(index)
+        if row['Comment'] != '':
+            label_str += ', ' + row['Comment']
+        labels.append(label_str)
+    return labels
+
+def _log_interp1d(xx, yy, kind='linear', fill_value=np.nan):
+    """Log-log interpolation function based on scipy.interpolate.interp1d()
+
+    Parameters
+    ----------
+    xx : (N,) array_like
+        A 1-D array of real values.
+    yy : (N,) array_like
+        A 1-D array of real values. The length must be equal to xx
+    kind : str or int, optional
+        Specifies the kind of interpolation as a string or as an integer specifying the order 
+        of the spline interpolator to use. The string has to be one of ‘linear’, ‘nearest’,
+        ‘nearest-up’, ‘zero’, ‘slinear’, ‘quadratic’, ‘cubic’, ‘previous’, or ‘next’. ‘zero’, ‘slinear’,
+        ‘quadratic’ and ‘cubic’ refer to a spline interpolation of zeroth, first, second or 
+        third order; ‘previous’ and ‘next’ simply return the previous or next value of the 
+        point; ‘nearest-up’ and ‘nearest’ differ when interpolating half-integers (e.g. 0.5,
+        1.5) in that ‘nearest-up’ rounds up and ‘nearest’ rounds down. Default is ‘linear’.
+    fill_value : array-like or (array-like, array_like) or “extrapolate”, optional
+        if a ndarray (or float), this value will be used to fill in for requested points
+        outside of the data range. If not provided, then the default is NaN. The array-
+        like must broadcast properly to the dimensions of the non-interpolation axes.
+
+    Returns
+    -------
+    function
+        a function to call to evaluate the interpolated value at desired x cordinate.
+    """
+    
+    logx = np.log10(xx)
+    logy = np.log10(yy)
+    lin_interp = interp1d(logx, logy, kind=kind, bounds_error=False, fill_value=fill_value)
+    log_interp = lambda zz: np.power(10.0, lin_interp(np.log10(zz)))
+    return log_interp
+
+def _make_grid(xmin, xmax, npoints=300, unit='TeV', log=True):
     """Create a grid of dimensionful values.
 
     Parameters
     ----------
     xmin : dimensionful quantity
-       A dimensionful number defining the lower bound of the grid. Default dimension: energy
+        A dimensionful number defining the lower bound of the grid. Default dimension: energy
     ymin : dimensionful quantity
-       A dimensionful number defining the upper bound of the grid. Default dimension: energy
+        A dimensionful number defining the upper bound of the grid. Default dimension: energy
     npoints: int, optional
-       Number of grid points
+        Number of grid points
     unit : str, optional
         astropy unit (default: TeV -> energy dimension) in which the grid shall be sampled.
         Must match the dimension of xmin and xmax
@@ -132,39 +358,60 @@ def make_grid(xmin, xmax, npoints=300, unit='TeV', log=True):
         x_grid = np.linspace(xmin_val, xmax_val, npoints)
     return x_grid * u.Unit(unit)
 
-def table_to_dict(table, keycolumn_name, valuecolumn_name):
-    dict = {}
+def _table_to_dict(table, keycolumn_name, valuecolumn_name):
+    """Transform an astropy table with two specified columns into a dictionary
+
+    Parameters
+    ----------
+    table : astropy table
+        The astropy table must have at least two, but can have more than two columns.
+    keycolumn_name : str
+        Name of the column which should represent the dictionary keys
+    valuecolumn_name : str
+        Name of the column which should represent the dictionary values
+
+    Returns
+    -------
+    dict
+        A dictionary in which {'keycolumn_entry': 'valuecolumn_entry',...} or
+        dict[keycolumn_entry] = valuecolumn_entry
+    """
+
+    dictionary = {}
     for column in range(len(table)):
-        dict[table[keycolumn_name][column]] = table[valuecolumn_name][column]
-    return dict
-
-def get_key_from_value(d, val):
-    return [k for k, v in d.items() if v == val]
-
-def get_names_str(name_tuple, name_dict):
-    if isinstance(name_tuple,str):
-        return name_dict[name_tuple]
-    elif isinstance(name_tuple,list):
-        namestring = ''
-        for name in name_tuple:
-            if name.isdigit():
-                namestring = namestring[:-1]
-                namestring += (' (' + name + ')/')
-            else:
-                namestring += (name_dict[name] + '/')
-        namestring = namestring[:-1]
-        return namestring
-    else:
-        logging.error("Name not found")
-
-#def read_files():
-def intersection2(lst1, lst2):
-    return list(set(lst1) & set(lst2))    
-
-def intersection3(lst1, lst2, lst3):
-    return list(set(lst1) & set(lst2) & set(lst3))  
+        dictionary[table[keycolumn_name][column]] = table[valuecolumn_name][column]
+    return dictionary
     
 class PlottingStyle:
+    """
+    Class to define the dark matter limits plots' style
+
+    ...
+
+    Attributes
+    ----------
+    stylename : str
+        Plotting style font and color scheme. Choose between
+          -  'antique'
+          -  'standard'
+    figshape : str, optional
+        Figure shape style. So far, only 'widerect' implemented
+    legend : str, optional
+        The legend style. Choose between
+          - 'side'
+          - 'fancy'
+    energy_unit : str, optional
+        energy unit in which the plot will be displayed. Must be an energy unit.
+        Default: 'TeV'
+    mode : str, optional
+        Choose between 'ann' (annihilation) or 'dec' (dacay). Default: 'ann'
+
+    Methods
+    -------
+    says(sound=None)
+        Prints the animals name and what sound it makes
+    """
+    
     def __init__(self, stylename, figshape='widerect', legend='side', energy_unit = 'TeV', mode = 'ann'):
         
         self.style = stylename
@@ -237,13 +484,15 @@ class PlottingStyle:
                 \usepackage[T1]{fontenc}"
             }            
         else:
-            logging.error("unknow style name %s"%self.style)    
+            logging.error("unknow style name %s"%self.style)
             
         if figshape == 'widerect':
             self.ratio = 0.65
             self.image_resolution = 5000
             self.figwidth  = 30/ 2.54 
             self.figheight  = self.ratio * self.figwidth
+        else:
+            logging.error("unknow figure shape style name %s"%self.style)
 
         mpl.rcParams.update(pgf_with_rc_fonts)
 
@@ -260,18 +509,35 @@ class PlottingStyle:
         if mode[:3] == 'ann':
             self.ylabel = r'$\langle\sigma v \rangle$ $[\mathrm{cm^3\,s^{-1}}]$'
         elif mode[:3] == 'dec':
-            self.ylabel = r'$\tau$ $[\mathrm{s}]$'           
-            
-def plot(df, style=None):
+            self.ylabel = r'$\tau$ $[\mathrm{s}]$'
+        else:
+            logging.error("Unknown mode name %s. Must be either 'ann' or 'dec'."%self.style)
+
+
+def plot(metadata_df, style=None):
+    """Creates a limits plot from the metadata specified by a pandas dataframe.
+
+    Parameters
+    ----------
+    metadata_df : pandas dataframe
+        Metadata frame of the limits to include in the figure
+    style : PlottingStyle() instance, optional
+        Specify the plotting style of the limits plot
+        
+    Returns
+    -------
+    (2,) matplotlib figure object, matplotlib axis object
+        matplotlib objects which can be further manipulated.
+    """
 
     try:
-        df.iloc[0]["Mode"]
+        metadata_df.iloc[0]["Mode"]
     except:
         logging.error("Dataframe is empty. Must select at least one limit.")
         return None, None
 
     if style==None:
-        style = PlottingStyle('antique', mode=df.iloc[0]["Mode"])
+        style = PlottingStyle('antique', mode=metadata_df.iloc[0]["Mode"])
 
     data_raw_vec = []
     labels_plot = []
@@ -298,7 +564,7 @@ def plot(df, style=None):
             style.dynamic_plotrange = True 
 
     is_band = []
-    for index, row in df.iterrows():
+    for index, row in metadata_df.iterrows():
         data_raw = ascii.read(row['File name'])
         xaxis = data_raw.colnames[0]
         yaxis = data_raw.colnames[1]
@@ -315,10 +581,10 @@ def plot(df, style=None):
         if max(data_raw[xaxis].to('TeV')) > xmax: xmax = max(data_raw[xaxis].to('TeV'))
 
         label_str = r''
-        label_str += get_names_str(row['Instrument'], instrument_dict)
+        label_str += _get_names_str(row['Instrument'], INSTRUMENT_DICT)
         label_str += ' (' + row['Year'] + ')'
         labels_plot_short.append(label_str)
-        label_str += ': ' + get_names_str(row['Target'], target_dict) + ', $' + get_names_str(row['Channel'], channel_dict) + '$'
+        label_str += ': ' + _get_names_str(row['Target'], TARGET_DICT) + ', $' + _get_names_str(row['Channel'], CHANNEL_DICT) + '$'
         labels_plot.append(label_str)
         if 'gammagamma' in row['Channel'] or 'Sommerfeld' in row['Comment']:
             interpol_style.append('linear')
@@ -327,7 +593,7 @@ def plot(df, style=None):
 
     xmin /= 2
     xmax *= 2
-    x_grid = make_grid(xmin, xmax, npoints=2000, unit=style.energy_unit, log=True)
+    x_grid = _make_grid(xmin, xmax, npoints=2000, unit=style.energy_unit, log=True)
     n_plot =  len(data_raw_vec)
 
     data_to_plot = []
@@ -338,11 +604,11 @@ def plot(df, style=None):
     
     for index in range(n_plot):
         if not is_band[index]:
-            data_gridded = data_on_grid(data_raw_vec[index][0], data_raw_vec[index][1], x_grid, interpolation_kind=interpol_style[index], fill_value = blindval)
+            data_gridded = _data_on_grid(data_raw_vec[index][0], data_raw_vec[index][1], x_grid, interpolation_kind=interpol_style[index], fill_value = blindval)
             raw_vals = data_raw_vec[index][1]
         else:
-            data_gridded1 = data_on_grid(data_raw_vec[index][0], data_raw_vec[index][1][0], x_grid, interpolation_kind=interpol_style[index], fill_value = blindval)
-            data_gridded2 = data_on_grid(data_raw_vec[index][0], data_raw_vec[index][1][1], x_grid, interpolation_kind=interpol_style[index], fill_value = blindval)
+            data_gridded1 = _data_on_grid(data_raw_vec[index][0], data_raw_vec[index][1][0], x_grid, interpolation_kind=interpol_style[index], fill_value = blindval)
+            data_gridded2 = _data_on_grid(data_raw_vec[index][0], data_raw_vec[index][1][1], x_grid, interpolation_kind=interpol_style[index], fill_value = blindval)
             data_gridded = [data_gridded1,data_gridded2]
             raw_vals = list(itertools.chain(*data_raw_vec[index][1]))
         data_to_plot.append(data_gridded)
@@ -442,10 +708,10 @@ def plot(df, style=None):
         plt.legend(bbox_to_anchor=(1.02,1), loc="upper left", frameon=style.frameon)
 
     if style.mode == 'ann':
-        wimp_model = ascii.read(module_dir + "/modelpredictions/wimp_huetten2017_analytical_omega012.ecsv")
+        wimp_model = ascii.read(MODULE_DIR + "/modelpredictions/wimp_huetten2017_analytical_omega012.ecsv")
         xtext = 0.9*min(wimp_model["mass"].to(style.energy_unit)[-1].value, plt.gca().get_xlim()[1])
         plt.text(xtext, wimp_model["sigmav"][-1],  "Thermal WIMP prediction", horizontalalignment='right', verticalalignment='bottom', snap=True, color='k', alpha=0.3)
-        wimp_model_gridded = data_on_grid(wimp_model["mass"], wimp_model["sigmav"], x_grid, interpolation_kind='quadratic', fill_value = 1/blindval)
+        wimp_model_gridded = _data_on_grid(wimp_model["mass"], wimp_model["sigmav"], x_grid, interpolation_kind='quadratic', fill_value = 1/blindval)
         #if style.style == 'antique':
         plt.fill_between(x_grid.value, np.zeros(2000), wimp_model_gridded.value, color='k', alpha=0.1)
         #else:
@@ -467,111 +733,42 @@ def plot(df, style=None):
 
     return plot_limits, ax
     
-def filter_dataframe(metadata_df, Mode, Instrument, Channel):
-        
-    mode_list = metadata_df.index[metadata_df['Mode'] == Mode[:3]].tolist()
-
-    if Instrument == 'all':
-        inst_list = metadata_df.index.tolist()
-    else:
-        inst_key = get_key_from_value(instrument_dict, Instrument)[0]
-        if inst_key == 'multi-inst':
-            inst_list = metadata_df.index[metadata_df['Instrument'].apply(type) == list].tolist()
-        else:
-            inst_list = metadata_df.index[metadata_df['Instrument'] == inst_key].tolist()
-
-    if Channel == 'all':
-        channel_list = metadata_df.index.tolist()
-    else:
-        channel_list = metadata_df.index[metadata_df['Channel'] == Channel].tolist()
-
-    return intersection3(mode_list, inst_list, channel_list)
-
-def init_metadata():
-
-    files_all = []
-    for name in instrument_dict.keys():
-        files_all.append(glob.glob(module_dir + "/bounds/"+ name +"/*.ecsv"))
-    files_all = [x for row in files_all for x in row]
-
-    metadata_df = pd.DataFrame(columns=('Instrument', 'Target', 'Mode', 'Channel', 'Year', 'Observation time','Title', 'DOI', 'Arxiv', 'Comment', 'File name'))
-
-    for i,file in enumerate(files_all):
-        filename = file.split("/")[-1][:-5]
-
-        file_inst_name = filename.split("_")[0]
-        file_year = filename.split("_")[1]
-        file_target = filename.split("_")[2]
-        file_mode = filename.split("_")[3]
-        file_channel = filename.split("_")[4]
-
-        metadata = ascii.read(file).meta
-
-        if metadata['instrument'][:10] == 'multi-inst':
-            instruments = metadata['instrument'].split("-")[2:]
-            meta_inst_name = 'multi-inst'
-            file_inst_name = meta_inst_name
-        else:
-            meta_inst_name = metadata['instrument']
-            instruments = metadata['instrument']
-
-        if metadata['source'][:5] == 'multi':
-            target_info = metadata['source'].split("-")
-            meta_target = target_info[0]        
-        else:
-            meta_target = metadata['source']
-            target_info = metadata['source']
-
-        try:
-            assert meta_inst_name == file_inst_name
-        except:
-            logging.warning("Instrument name not consistent in " + str(file))
-        try:
-            assert metadata['year'] == file_year
-        except:
-            logging.warning("Year not consistent in " + str(file))
-        try:
-            assert meta_target == file_target
-        except:
-            logging.warning("Target name not consistent in " + str(file))
-        try:
-            assert metadata['channel'] == file_channel
-        except:
-            logging.warning("Channel name not consistent in " + str(file))
-
-        metadata_df.loc[i] = [instruments, target_info, file_mode, metadata['channel'], metadata['year'], 
-                     metadata['obs_time'], metadata['reference'], metadata['doi'], metadata['arxiv'], metadata['comment'], file]
-        
-    return metadata_df
 
 def metadata():
-    return metadata_df
-
-def labels4dropdown(metadata_df):
-    labels = []
-    for index, row in metadata_df.iterrows():    
-        label_str = ''
-        label_str += get_names_str(row['Instrument'], instrument_dict)
-        label_str += ' (' + row['Year'] + '): ' + get_names_str(row['Target'], target_dict) + ', ' + row['Channel'] + ' (' + row['Mode'] + '.)'# + str(index)
-        if row['Comment'] != '':
-            label_str += ', ' + row['Comment']
-        labels.append(label_str)
-    return labels
+    """Load all metadata present in the database into a Pandas dataframe.
+        
+    Returns
+    -------
+    pandas dataframe
+        dataframe with the meta data.
+    """
+    
+    return METADATA_DF
 
 def interactive_selection():
+    """Create an IPython widget to filter the limits interactively, and to display a figure on the fly.
+        
+    Returns
+    -------
+    dict
+        A dictionary returning the selection state of all database entries. Can be used as input for the
+        filter_metadata() method.
+    """
 
-    inst_list = list(instrument_dict.values())
+    inst_list = list(INSTRUMENT_DICT.values())
     inst_list.insert(0, 'all')
 
-    channel_list = list(channel_dict.keys())
+    channel_list = list(CHANNEL_DICT.keys())
     channel_list.insert(0,'all')
 
     metadata_df = metadata()
-    labels = labels4dropdown(metadata_df)
+    labels = _labels4dropdown(metadata_df)
 
 
-    def multi_checkbox_widget(options_dict):
+    def _multi_checkbox_widget(options_dict):
         """ Widget with a search field and lots of checkboxes """
+        
+        # adapted from https://gist.github.com/MattJBritton/9dc26109acb4dfe17820cf72d82f1e6f
 
         style_widget = wid.Dropdown(options = ['antique', 'standard', 'fancy'], description='Plotting style')
 
@@ -582,7 +779,7 @@ def interactive_selection():
         output_widget = wid.Output()
         options = [x for x in options_dict.values()]
 
-        start_index_list = filter_dataframe(metadata_df, 'annihilation', 'all', 'all')
+        start_index_list = _filter_dataframe(metadata_df, 'annihilation', 'all', 'all')
         start_options = []
         for index in start_index_list: start_options.append(options[index])
         start_options = sorted([x for x in start_options], key = lambda x: x.description, reverse = False)
@@ -607,7 +804,7 @@ def interactive_selection():
         @output_widget.capture()
         def on_checkbox_change(change):
 
-            selected_recipe = change["owner"].description
+            #selected_recipe = change["owner"].description
             #print(options_widget.children)
             #selected_item = wid.Button(description = change["new"])
             #selected_widget.children = [] #selected_widget.children + [selected_item]
@@ -622,7 +819,7 @@ def interactive_selection():
         @output_widget.capture()
         def dropdown_change(*args):
 
-            index_list = filter_dataframe(metadata_df, 
+            index_list = _filter_dataframe(metadata_df, 
                                           mode_widget.value, 
                                           instrument_widget.value, channel_widget.value)
             new_options = []
@@ -650,7 +847,7 @@ def interactive_selection():
 
     style = PlottingStyle('antique')
     
-    a,b = checkIfDuplicates_2(labels)
+    a,b = _check_duplicates(labels)
     if a:
         logging.error("Duplicate label entry found for %s. Please make it unique in the file header."%b)
 
@@ -663,7 +860,7 @@ def interactive_selection():
         ) for x in labels
     }
 
-    def f(**args): 
+    def _interactive_output(**args): 
 
         i_vec = [index for index, (key, value) in enumerate(args.items()) if value]
         if len(i_vec) > 0:
@@ -677,40 +874,69 @@ def interactive_selection():
 
         #display(results)
 
-    ui = multi_checkbox_widget(options_dict)
-    out = wid.interactive_output(f, options_dict)
+    ui = _multi_checkbox_widget(options_dict)
+    out = wid.interactive_output(_interactive_output, options_dict)
     display(wid.VBox([ui, out]))
     
-    return options_dict, metadata_df
+    return options_dict
 
-def filter_metadata(options_dict, metadata_df):
+def filter_metadata(options_dict):
+    """Create a Pandas data frame with the entries filtered by the interactive_selection() method
+
+    Parameters
+    ----------
+    options_dict : dict
+        A dictionary with the selection state of all database entries created by the 
+        interactive_selection() method.
+
+    Returns
+    -------
+    pandas dataframe
+        dataframe with the filtered meta data.
+    """
+    
     i_vec = [index for index, (key, value) in enumerate(options_dict.items()) if value.value]
-    return metadata_df.loc[i_vec]
+    return METADATA_DF.loc[i_vec]
 
-def get_data(df):
+def get_data(metadata_df):
+    """Return the actual limits data from a metadata frame.
+
+    Parameters
+    ----------
+    metadata_df : pandas dataframe
+        dataframe with containing the limits whose data shall be returned.
+
+    Returns
+    -------
+    list
+        A list of same lenght as rows in the input data frame, each entry containing an astropy table with the data.
+    """
+    
     data = []
-    for index, row in df.iterrows():
+    for index, row in metadata_df.iterrows():
         data.append(ascii.read(row['File name']))
     return data
 
-def show_metadata(metadata):
-    metadata_disp = metadata.copy()  
+def show_metadata(metadata_df):
+    """Display the metadata frame as pretty HTML table with clickable hyperlinks.
+
+    Parameters
+    ----------
+    metadata_df : pandas dataframe
+        dataframe with the metadata to display
+
+    Returns
+    -------
+    HTML rendered table object
+    """
+    
+    metadata_disp = metadata_df.copy()  
     metadata_disp['DOI'] = metadata_disp['DOI'].apply(lambda x: f'<a href="https://doi.org/{x}" target=_blank>{x}</a>')
     metadata_disp['Arxiv'] = metadata_disp['Arxiv'].apply(lambda x: f'<a href="https://arxiv.org/abs/{x}" target=_blank>{x}</a>')
     return HTML(metadata_disp.to_html(render_links=True, escape=False))
 
-def checkIfDuplicates_2(listOfElems):
-    ''' Check if given list contains any duplicates '''    
-    setOfElems = set()
-    for elem in listOfElems:
-        if elem in setOfElems:
-            return True, elem
-        else:
-            setOfElems.add(elem)         
-    return False, None
-
-instrument_dict = table_to_dict(ascii.read(module_dir + "/legends/legend_instruments.ecsv"),'shortname', 'longname')
-channel_dict = table_to_dict(ascii.read(module_dir + "/legends/legend_channels.ecsv"),'shortname', 'latex')
-target_dict = table_to_dict(ascii.read(module_dir + "/legends/legend_targets.ecsv"),'shortname', 'longname')
-metadata_df = init_metadata()
+INSTRUMENT_DICT = _table_to_dict(ascii.read(MODULE_DIR + "/legends/legend_instruments.ecsv"),'shortname', 'longname')
+CHANNEL_DICT = _table_to_dict(ascii.read(MODULE_DIR + "/legends/legend_channels.ecsv"),'shortname', 'latex')
+TARGET_DICT = _table_to_dict(ascii.read(MODULE_DIR + "/legends/legend_targets.ecsv"),'shortname', 'longname')
+METADATA_DF = _init_metadata()
 
