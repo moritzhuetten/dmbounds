@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='dmbounds',
-    version='0.1.0',    
+    version='0.1.1',    
     description='A library of current DM bounds',
     url='https://github.com/moritzhuetten/dmbounds',
     author='Moritz Huetten, Michele Doro',
