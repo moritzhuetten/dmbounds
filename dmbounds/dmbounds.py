@@ -914,10 +914,10 @@ def plot(metadata_df, style=None):
     plt.xlabel(r'$m_{\mathrm{DM}}$ $\mathrm{[' + style.energy_unit + ']}$')
     plt.ylabel(style.ylabel)
 
-    plt.text(1, 1, 'made with github.com/moritzhuetten/dmbounds',
+    plt.text(1, 1, 'Generated at github.com/moritzhuetten/dmbounds. M. Huetten, M. Doro',
              horizontalalignment='right',
              verticalalignment='bottom',
-             transform=ax.transAxes, snap=True, color='k', alpha=0.3, size=10)
+             transform=ax.transAxes, snap=True, color='k', alpha=0.2, size=8)
 
     return plot_limits, ax
 
