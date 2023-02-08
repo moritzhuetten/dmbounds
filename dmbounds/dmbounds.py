@@ -584,6 +584,11 @@ class PlottingStyle:
             self.image_resolution = 5000
             self.figwidth = 30 / 2.54
             self.figheight = self.ratio * self.figwidth
+        if figshape == 'square':
+            self.ratio = 1.0
+            self.image_resolution = 5000
+            self.figwidth = 30 / 2.54
+            self.figheight = self.ratio * self.figwidth            
         else:
             logging.error("unknow figure shape style name %s" % self.style)
 
