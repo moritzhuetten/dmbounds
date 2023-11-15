@@ -1,0 +1,33 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "CTA KSP paper in prep."}
+# - {doi:              ""}
+# - {arxiv:            ""}
+# - {instrument:       "cta"}
+# - {year:             "2023"}
+# - {source:           "multidsph"}
+# - {channel:          tautau"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_time:         "300h"}
+# - {figure:           ""}
+# - {comment:          ""}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+70  2.819e-25
+100  1.986e-25
+200  1.585e-25
+500  1.937e-25
+1000  2.567e-25
+5000  5.976e-25
+10000  1.020e-24
+50000  7.326e-24
+100000  2.210e-23
