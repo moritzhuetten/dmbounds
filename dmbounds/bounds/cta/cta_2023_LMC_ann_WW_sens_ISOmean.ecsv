@@ -1,0 +1,53 @@
+# %ECSV 0.9
+# %Part of https://github.com/moritzhuetten/DMbounds under the 
+# %Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, see LICENSE.rst 
+# ---
+# datatype:
+# - {name: mass      , unit: GeV     , datatype: float32 , description: DM mass              }
+# - {name: sigmav    , unit: cm3s-1  , datatype: float32 , description: <sigmav>             }
+# meta: !!omap
+# - {reference:        "Sensitivity of the Cherenkov Telescope Array to TeV photon emission from the Large Magellanic Cloud"}
+# - {doi:              "10.1093/mnras/stad1576"}
+# - {arxiv:            "2305.16707"}
+# - {instrument:       "cta"}
+# - {year:             "2023"}
+# - {source:           "LMC"}
+# - {channel:          "WW"}
+# - {confidence        "0.95" }
+# - {dmfraction:       "1"}
+# - {obs_time:         "340h"}
+# - {figure:           "Fig. 19"}
+# - {comment:          "sensitivity, statistical reach, without systematic uncertainties, Iso-mean model"}
+# - {status:           ""}
+# schema : astropy −2.0
+
+mass sigmav
+221.8  4.011e-28
+291.2  2.620e-28
+376.1  1.883e-28
+491.8  1.818e-28
+635.8  1.512e-28
+802.3  9.675e-29
+1045  7.725e-29
+1362  7.219e-29
+1789  6.746e-29
+2313  7.438e-29
+3014  9.106e-29
+3927  9.560e-29
+5159  9.598e-29
+6654  1.182e-28
+8634  1.332e-28
+1.120e+4  1.509e-28
+1.429e+4  1.691e-28
+1.862e+4  1.912e-28
+2.451e+4  2.173e-28
+3.161e+4  2.483e-28
+4.162e+4  2.889e-28
+5.368e+4  3.307e-28
+7.066e+4  3.750e-28
+8.998e+4  4.206e-28
+
+
+
+
+
